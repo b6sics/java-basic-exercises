@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Java2_Arrays.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST0 {color: #969696; font-family: Monospaced; font-weight: bold}
+.ST1 {font-family: Monospaced; font-weight: bold}
+.comment {color: #969696}
+.ST4 {color: #009900}
+.ST3 {font-family: Monospaced; font-weight: bold; font-style: italic}
+.ST2 {color: #009900; font-family: Monospaced; font-style: italic}
+.ST5 {font-family: Monospaced; font-style: italic}
+.literal {color: #0000e6}
+.ST6 {color: #ce7b00; font-family: Monospaced; font-weight: bold}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">G:\aB6sicsGIT\java-basic-exercises\05-06 Tömbök 4-5\src\java2_arrays\Java2_Arrays.java</td></tr></table>
+<pre>
+<span class="literal">package</span> java2_arrays;
+
+<span class="literal">import</span> java.util.Random;
+<span class="literal">import</span> java.util.Scanner;
+
+<span class="comment">/**</span>
+<span class="comment"> *</span>
+<span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">KjG</span>
+ <span class="comment">*/</span>
+<span class="literal">public</span> <span class="literal">class</span> <span class="ST1">Java2_Arrays</span> {
+
+    <span class="literal">public</span> <span class="literal">static</span> Scanner <span class="ST2">sc</span> = <span class="literal">new</span> Scanner(System.<span class="ST2">in</span>, (<span class="string">&quot;</span><span class="string">Cp1250</span><span class="string">&quot;</span>));
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">int</span> <span class="ST2">feb</span>[] = {2, 1, 5, -3, 3, 2, 8, -5, 1, 2, 2, -5, 0, 5,
+        -3, 5, -3, 3, -21, 1, -9, -2, 1, 1, -9, -12, 0, -5};
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">f00</span>(<span class="literal">int</span> hossz, <span class="literal">char</span> jel, String name) {
+        <span class="literal">int</span> start = 0;
+        <span class="literal">if</span> (name.length() != 0) {
+            start = name.length() + 5;
+            System.<span class="ST2">out</span>.print(jel + <span class="string">&quot;</span><span class="string">| </span><span class="string">&quot;</span>);
+            System.<span class="ST2">out</span>.print(name + <span class="string">&quot;</span><span class="string"> |</span><span class="string">&quot;</span>);
+        }
+        <span class="literal">for</span> (<span class="literal">int</span> ii = start; ii &lt; hossz; ii++) {
+            System.<span class="ST2">out</span>.print(jel);
+        }
+        System.<span class="ST2">out</span>.println(<span class="string">&quot;&quot;</span>);
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">double</span> <span class="ST3">atlag</span>() {
+        <span class="literal">int</span> sum = 0;
+        <span class="literal">for</span> (<span class="literal">int</span> elem : <span class="ST2">feb</span>) {
+            sum += elem;
+        }
+        <span class="literal">return</span> (<span class="literal">double</span>) sum / <span class="ST2">feb</span>.<span class="ST4">length</span>;
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">int</span> <span class="ST3">minimum</span>() {
+        <span class="literal">int</span> min = <span class="ST2">feb</span>[0];
+        <span class="literal">for</span> (<span class="literal">int</span> ii = 1; ii &lt; <span class="ST2">feb</span>.<span class="ST4">length</span>; ii++) {
+            <span class="literal">if</span> (<span class="ST2">feb</span>[ii] &lt; min) {
+                min = <span class="ST2">feb</span>[ii];
+            }
+        }
+        <span class="literal">return</span> min;
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">int</span> <span class="ST3">maximum</span>() {
+        <span class="literal">int</span> max = <span class="ST2">feb</span>[0];
+        <span class="literal">for</span> (<span class="literal">int</span> ii = 1; ii &lt; <span class="ST2">feb</span>.<span class="ST4">length</span>; ii++) {
+            <span class="literal">if</span> (<span class="ST2">feb</span>[ii] &gt; max) {
+                max = <span class="ST2">feb</span>[ii];
+            }
+        }
+        <span class="literal">return</span> max;
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">int</span> <span class="ST3">keres</span>(<span class="literal">int</span> mit) {
+        <span class="literal">for</span> (<span class="literal">int</span> ii = 0; ii &lt; <span class="ST2">feb</span>.<span class="ST4">length</span>; ii++) {
+            <span class="literal">if</span> (mit == <span class="ST2">feb</span>[ii]) {
+                <span class="literal">return</span> ii;
+            }
+        }
+        <span class="literal">return</span> -1;
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">int</span> <span class="ST3">fagy</span>() {
+        <span class="literal">int</span> sum = 0;
+        <span class="literal">for</span> (<span class="literal">int</span> elem : <span class="ST2">feb</span>) {
+            <span class="literal">if</span> (elem &lt;= 0) {
+                sum++;
+            }
+        }
+        <span class="literal">return</span> sum;
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">javit</span>() {
+        System.<span class="ST2">out</span>.print(<span class="string">&quot;</span><span class="string">Mennyit változtassak? </span><span class="string">&quot;</span>);
+        <span class="literal">int</span> mennyit = <span class="ST2">sc</span>.nextInt();
+        <span class="ST2">sc</span>.nextLine();
+        <span class="literal">for</span> (<span class="literal">int</span> ii = 0; ii &lt; <span class="ST2">feb</span>.<span class="ST4">length</span>; ii++) {
+            <span class="ST2">feb</span>[ii] += mennyit;
+        }
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">diagram</span>() {
+        <span class="literal">int</span> min = <span class="ST5">minimum</span>();
+        <span class="literal">for</span> (<span class="literal">int</span> elem : <span class="ST2">feb</span>) {
+            <span class="literal">for</span> (<span class="literal">int</span> ii = min; ii &lt; elem; ii++) {
+                System.<span class="ST2">out</span>.print(<span class="string">&quot;</span><span class="string">*</span><span class="string">&quot;</span>);
+            }
+            System.<span class="ST2">out</span>.println(<span class="string">&quot;&quot;</span>);
+        }
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">f1</span>(String label) {
+        <span class="ST5">f00</span>(60, <span class="string">&#39;</span><span class="string">-</span><span class="string">&#39;</span>, label);
+        <span class="literal">char</span> v;
+        <span class="literal">int</span> x;
+        <span class="literal">boolean</span> kilep = <span class="literal">false</span>;
+        <span class="literal">do</span> {
+            System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">1-Átlag 2-Min 3-Max 4-Fagy 5-Javít 6-Diagram 0-Kilép</span><span class="string">&quot;</span>);
+            System.<span class="ST2">out</span>.print(<span class="string">&quot;</span><span class="string">Választás: </span><span class="string">&quot;</span>);
+            v = <span class="ST2">sc</span>.nextLine().charAt(0);
+            <span class="literal">switch</span> (v) {
+                <span class="literal">case</span> <span class="string">&#39;</span><span class="string">1</span><span class="string">&#39;</span>:
+                    System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">Átlag: </span><span class="string">&quot;</span> + <span class="ST5">atlag</span>());
+                    <span class="literal">break</span>;
+                <span class="literal">case</span> <span class="string">&#39;</span><span class="string">2</span><span class="string">&#39;</span>:
+                    x = <span class="ST5">minimum</span>();
+                    System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">Minimum: </span><span class="string">&quot;</span> + x);
+                    System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">A leghidegebb nap: </span><span class="string">&quot;</span> + (<span class="ST5">keres</span>(x) + 1));
+                    <span class="literal">break</span>;
+                <span class="literal">case</span> <span class="string">&#39;</span><span class="string">3</span><span class="string">&#39;</span>:
+                    x = <span class="ST5">maximum</span>();
+                    System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">Maximum: </span><span class="string">&quot;</span> + x);
+                    System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">A legmelegebb nap: </span><span class="string">&quot;</span> + (<span class="ST5">keres</span>(x) + 1));
+                    <span class="literal">break</span>;
+                <span class="literal">case</span> <span class="string">&#39;</span><span class="string">4</span><span class="string">&#39;</span>:
+                    System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">Fagyos napok: </span><span class="string">&quot;</span> + <span class="ST5">fagy</span>());
+                    <span class="literal">break</span>;
+                <span class="literal">case</span> <span class="string">&#39;</span><span class="string">5</span><span class="string">&#39;</span>:
+                    <span class="ST5">javit</span>();
+                    System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">Javítás kész.</span><span class="string">&quot;</span>);
+                    <span class="literal">break</span>;
+                <span class="literal">case</span> <span class="string">&#39;</span><span class="string">6</span><span class="string">&#39;</span>:
+                    System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">Diagram: </span><span class="string">&quot;</span>);
+                    <span class="ST5">diagram</span>();
+                    <span class="literal">break</span>;
+                <span class="literal">default</span>:
+                    kilep = <span class="literal">true</span>;
+                    <span class="literal">break</span>;
+            }
+        } <span class="literal">while</span> (!kilep);
+        System.<span class="ST2">out</span>.println(<span class="string">&quot;&quot;</span>);
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">f2</span>(String label, <span class="literal">int</span> n, <span class="literal">int</span> x) {
+        <span class="ST5">f00</span>(60, <span class="string">&#39;</span><span class="string">-</span><span class="string">&#39;</span>, label);
+
+        System.<span class="ST2">out</span>.print(<span class="string">&quot;</span><span class="ST6">\n</span><span class="string">&quot;</span>);
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">f3</span>(String label, <span class="literal">int</span> szam) {
+        <span class="ST5">f00</span>(60, <span class="string">&#39;</span><span class="string">-</span><span class="string">&#39;</span>, label);
+
+        System.<span class="ST2">out</span>.println(<span class="string">&quot;&quot;</span>);
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">f4</span>(String label) {
+        <span class="ST5">f00</span>(60, <span class="string">&#39;</span><span class="string">-</span><span class="string">&#39;</span>, label);
+
+        System.<span class="ST2">out</span>.println(<span class="string">&quot;&quot;</span>);
+    }
+
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">main</span>(String[] args) {
+        <span class="ST5">f00</span>(60, <span class="string">&#39;</span><span class="string">*</span><span class="string">&#39;</span>, <span class="string">&quot;</span><span class="string">STARTofJAVA 2019mar20 Arrays B</span><span class="string">&quot;</span>);
+        <span class="ST5">f00</span>(60, <span class="string">&#39;</span><span class="string">-</span><span class="string">&#39;</span>, <span class="string">&quot;&quot;</span>);
+
+        <span class="ST5">f1</span>(<span class="string">&quot;</span><span class="string">Tömbök 4-5. Februári statisztikák</span><span class="string">&quot;</span>);
+
+        <span class="ST5">f00</span>(60, <span class="string">&#39;</span><span class="string">-</span><span class="string">&#39;</span>, <span class="string">&quot;&quot;</span>);
+        <span class="ST5">f00</span>(60, <span class="string">&#39;</span><span class="string">*</span><span class="string">&#39;</span>, <span class="string">&quot;</span><span class="string">ENDofJAVA   2019mar20</span><span class="string">&quot;</span>);
+    }
+
+}
+
+</pre></body>
+</html>
