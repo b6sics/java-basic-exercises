@@ -1,0 +1,56 @@
+run:
+*| STARTofJAVA 2019mar20 Arrays |***************************
+------------------------------------------------------------
+-| Tömbök 1. Kockadobás statisztika |-----------------------
+	1: 1618
+	2: 1624
+	3: 1664
+	4: 1682
+	5: 1694
+	6: 1718
+
+-| Tömbök 2a. Lottó 5 |-------------------------------------
+A számok: 18 47 59 65 80 
+-| Tömbök 2b. Római számok |--------------------------------
+Az átváltandó szám: 1965.
+Római számmal: MCMLXV
+
+-| Tömbök 2b. Római számok |--------------------------------
+Az átváltandó szám: 1848.
+Római számmal: MDCCCXLVIII
+
+-| Tömbök 3. Fordítós játék |-------------------------------
+Rendezd növekvő sorrendbe a számokat!
+6 3 8 5 4 7 2 9 1 
+Hányat fordítsak meg? 8
+9 2 7 4 5 8 3 6 1 
+Hányat fordítsak meg? 9
+1 6 3 8 5 4 7 2 9 
+Hányat fordítsak meg? 4
+8 3 6 1 5 4 7 2 9 
+Hányat fordítsak meg? 8
+2 7 4 5 1 6 3 8 9 
+Hányat fordítsak meg? 2
+7 2 4 5 1 6 3 8 9 
+Hányat fordítsak meg? 7
+3 6 1 5 4 2 7 8 9 
+Hányat fordítsak meg? 2
+6 3 1 5 4 2 7 8 9 
+Hányat fordítsak meg? 6
+2 4 5 1 3 6 7 8 9 
+Hányat fordítsak meg? 3
+5 4 2 1 3 6 7 8 9 
+Hányat fordítsak meg? 5
+3 1 2 4 5 6 7 8 9 
+Hányat fordítsak meg? 3
+2 1 3 4 5 6 7 8 9 
+Hányat fordítsak meg? 2
+1 2 3 4 5 6 7 8 9 
+Gratulálok, megoldottad 12 lépésben!
+Még egy játék? (i/n): 
+n
+
+------------------------------------------------------------
+*| ENDofJAVA   2019mar20 |**********************************
+BUILD SUCCESSFUL (total time: 1 minute 9 seconds)
+
