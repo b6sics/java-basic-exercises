@@ -1,0 +1,6 @@
+run:
+Szó: a Gézáék
+4
+Szó: 
+BUILD SUCCESSFUL (total time: 14 seconds)
+

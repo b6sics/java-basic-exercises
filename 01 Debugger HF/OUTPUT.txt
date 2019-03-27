@@ -1,0 +1,8 @@
+run:
+Szöveg: Indul a görög aludni
+Megfordítva: indula görög a ludnI
+Szöveg: léda
+Megfordítva: adél
+Szöveg: 
+BUILD SUCCESSFUL (total time: 29 seconds)
+
