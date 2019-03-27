@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Java20190327.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST0 {color: #969696; font-family: Monospaced; font-weight: bold}
+.ST1 {font-family: Monospaced; font-weight: bold}
+.comment {color: #969696}
+.ST4 {color: #009900}
+.ST3 {font-family: Monospaced; font-weight: bold; font-style: italic}
+.ST2 {color: #009900; font-family: Monospaced; font-style: italic}
+.ST5 {font-family: Monospaced; font-style: italic}
+.literal {color: #0000e6}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">G:\aB6sicsGIT\java-basic-exercises\07 Tömbök 6\src\java20190327\Java20190327.java</td></tr></table>
+<pre>
+<span class="literal">package</span> java20190327;
+
+<span class="literal">import</span> java.util.Random;
+
+<span class="comment">/**</span>
+<span class="comment"> *</span>
+<span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">KjG</span>
+ <span class="comment">*/</span>
+<span class="literal">public</span> <span class="literal">class</span> <span class="ST1">Java20190327</span> {
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">int</span>[] <span class="ST2">szamok</span> = <span class="literal">new</span> <span class="literal">int</span>[10];
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">f00</span>(<span class="literal">int</span> hossz, <span class="literal">char</span> jel, String name) {
+        <span class="literal">int</span> start = 0;
+        <span class="literal">if</span> (name.length() != 0) {
+            start = name.length() + 5;
+            System.<span class="ST2">out</span>.print(jel + <span class="string">&quot;</span><span class="string">| </span><span class="string">&quot;</span>);
+            System.<span class="ST2">out</span>.print(name + <span class="string">&quot;</span><span class="string"> |</span><span class="string">&quot;</span>);
+        }
+        <span class="literal">for</span> (<span class="literal">int</span> ii = start; ii &lt; hossz; ii++) {
+            System.<span class="ST2">out</span>.print(jel);
+        }
+        System.<span class="ST2">out</span>.println(<span class="string">&quot;&quot;</span>);
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">feltolt</span>() {
+        Random vg = <span class="literal">new</span> Random();
+        <span class="literal">for</span> (<span class="literal">int</span> ii = 0; ii &lt; <span class="ST2">szamok</span>.<span class="ST4">length</span>; ii++) {
+            <span class="ST2">szamok</span>[ii] = vg.nextInt(100);
+        }
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">kiir</span>() {
+        <span class="literal">for</span> (<span class="literal">int</span> ii = 0; ii &lt; <span class="ST2">szamok</span>.<span class="ST4">length</span>; ii++) {
+            System.<span class="ST2">out</span>.print(<span class="ST2">szamok</span>[ii] + <span class="string">&quot;</span> <span class="string">&quot;</span>);
+        }
+        System.<span class="ST2">out</span>.println(<span class="string">&quot;&quot;</span>);
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">csere</span>(<span class="literal">int</span> n) {
+        <span class="literal">int</span> dummy = <span class="ST2">szamok</span>[n];
+        <span class="ST2">szamok</span>[n] = <span class="ST2">szamok</span>[n + 1];
+        <span class="ST2">szamok</span>[n + 1] = dummy;
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">rendez_fel</span>() {
+        <span class="literal">for</span> (<span class="literal">int</span> ii = <span class="ST2">szamok</span>.<span class="ST4">length</span> - 1; ii &gt; 0; ii--) {
+            <span class="literal">for</span> (<span class="literal">int</span> jj = 0; jj &lt; ii; jj++) {
+                <span class="literal">if</span> (<span class="ST2">szamok</span>[jj] &gt; <span class="ST2">szamok</span>[jj + 1]) {
+                    <span class="ST5">csere</span>(jj);
+                }
+            }
+        }
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">rendez_le</span>() {
+        <span class="literal">for</span> (<span class="literal">int</span> ii = <span class="ST2">szamok</span>.<span class="ST4">length</span> - 1; ii &gt; 0; ii--) {
+            <span class="literal">for</span> (<span class="literal">int</span> jj = 0; jj &lt; ii; jj++) {
+                <span class="literal">if</span> (<span class="ST2">szamok</span>[jj] &lt; <span class="ST2">szamok</span>[jj + 1]) {
+                    <span class="ST5">csere</span>(jj);
+                }
+            }
+        }
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">f1</span>(String label) {
+        <span class="ST5">f00</span>(60, <span class="string">&#39;</span><span class="string">-</span><span class="string">&#39;</span>, label);
+        <span class="ST5">feltolt</span>();
+        <span class="ST5">kiir</span>();
+        <span class="ST5">rendez_fel</span>();
+        <span class="ST5">kiir</span>();
+        <span class="ST5">rendez_le</span>();
+        <span class="ST5">kiir</span>();
+        System.<span class="ST2">out</span>.println(<span class="string">&quot;&quot;</span>);
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> String[] <span class="ST2">b</span> = {<span class="string">&quot;</span><span class="string">Merkúr</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Vénusz</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Föld</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Mars</span><span class="string">&quot;</span>,
+        <span class="string">&quot;</span><span class="string">Jupiter</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Szaturnusz</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Uranus</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Neptunusz</span><span class="string">&quot;</span>};
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">b_kiir</span>() {
+        <span class="literal">for</span> (<span class="literal">int</span> ii = 0; ii &lt; <span class="ST2">b</span>.<span class="ST4">length</span>; ii++) {
+            System.<span class="ST2">out</span>.print(<span class="ST2">b</span>[ii] + <span class="string">&quot;</span> <span class="string">&quot;</span>);
+        }
+        System.<span class="ST2">out</span>.println(<span class="string">&quot;&quot;</span>);
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">b_csere</span>(<span class="literal">int</span> n) {
+        String dummy = <span class="ST2">b</span>[n];
+        <span class="ST2">b</span>[n] = <span class="ST2">b</span>[n + 1];
+        <span class="ST2">b</span>[n + 1] = dummy;
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">b_rendez_fel</span>() {
+        <span class="literal">for</span> (<span class="literal">int</span> ii = <span class="ST2">b</span>.<span class="ST4">length</span> - 1; ii &gt; 0; ii--) {
+            <span class="literal">for</span> (<span class="literal">int</span> jj = 0; jj &lt; ii; jj++) {
+                <span class="literal">if</span> (<span class="ST2">b</span>[jj].compareTo(<span class="ST2">b</span>[jj + 1]) &gt; 0) {
+                    <span class="ST5">b_csere</span>(jj);
+                }
+            }
+        }
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">b_rendez_le</span>() {
+        <span class="literal">for</span> (<span class="literal">int</span> ii = <span class="ST2">b</span>.<span class="ST4">length</span> - 1; ii &gt; 0; ii--) {
+            <span class="literal">for</span> (<span class="literal">int</span> jj = 0; jj &lt; ii; jj++) {
+                <span class="literal">if</span> (<span class="ST2">b</span>[jj].compareTo(<span class="ST2">b</span>[jj + 1]) &lt; 0) {
+                    <span class="ST5">b_csere</span>(jj);
+                }
+            }
+        }
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">b_rendez_l</span>() {
+        <span class="literal">for</span> (<span class="literal">int</span> ii = <span class="ST2">b</span>.<span class="ST4">length</span> - 1; ii &gt; 0; ii--) {
+            <span class="literal">for</span> (<span class="literal">int</span> jj = 0; jj &lt; ii; jj++) {
+                <span class="literal">if</span> (<span class="ST2">b</span>[jj].length() &gt; <span class="ST2">b</span>[jj + 1].length()) {
+                    <span class="ST5">b_csere</span>(jj);
+                }
+            }
+        }
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">f2</span>(String label) {
+        <span class="ST5">f00</span>(60, <span class="string">&#39;</span><span class="string">-</span><span class="string">&#39;</span>, label);
+        <span class="ST5">b_kiir</span>();
+        <span class="ST5">b_rendez_fel</span>();
+        <span class="ST5">b_kiir</span>();
+        <span class="ST5">b_rendez_le</span>();
+        <span class="ST5">b_kiir</span>();
+        <span class="ST5">b_rendez_l</span>();
+        <span class="ST5">b_kiir</span>();
+        System.<span class="ST2">out</span>.println(<span class="string">&quot;&quot;</span>);
+    }
+
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">main</span>(String[] args) {
+        <span class="ST5">f00</span>(60, <span class="string">&#39;</span><span class="string">*</span><span class="string">&#39;</span>, <span class="string">&quot;</span><span class="string">STARTofJAVA 2019mar20 Arrays</span><span class="string">&quot;</span>);
+        <span class="ST5">f00</span>(60, <span class="string">&#39;</span><span class="string">-</span><span class="string">&#39;</span>, <span class="string">&quot;&quot;</span>);
+
+        <span class="ST5">f1</span>(<span class="string">&quot;</span><span class="string">Tömbök 6a. Buborékos rendezés</span><span class="string">&quot;</span>);
+        <span class="ST5">f2</span>(<span class="string">&quot;</span><span class="string">Tömbök 6b. Bolygók</span><span class="string">&quot;</span>);
+
+        <span class="ST5">f00</span>(60, <span class="string">&#39;</span><span class="string">-</span><span class="string">&#39;</span>, <span class="string">&quot;&quot;</span>);
+        <span class="ST5">f00</span>(60, <span class="string">&#39;</span><span class="string">*</span><span class="string">&#39;</span>, <span class="string">&quot;</span><span class="string">ENDofJAVA   2019mar20</span><span class="string">&quot;</span>);
+
+    }
+
+}
+
+</pre></body>
+</html>

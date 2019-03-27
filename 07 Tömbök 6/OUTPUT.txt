@@ -1,0 +1,18 @@
+run:
+*| STARTofJAVA 2019mar20 Arrays |***************************
+------------------------------------------------------------
+-| Tömbök 6a. Buborékos rendezés |--------------------------
+31 17 40 71 3 69 5 32 28 8 
+3 5 8 17 28 31 32 40 69 71 
+71 69 40 32 31 28 17 8 5 3 
+
+-| Tömbök 6b. Bolygók |-------------------------------------
+Merkúr Vénusz Föld Mars Jupiter Szaturnusz Uranus Neptunusz 
+Föld Jupiter Mars Merkúr Neptunusz Szaturnusz Uranus Vénusz 
+Vénusz Uranus Szaturnusz Neptunusz Merkúr Mars Jupiter Föld 
+Mars Föld Vénusz Uranus Merkúr Jupiter Neptunusz Szaturnusz 
+
+------------------------------------------------------------
+*| ENDofJAVA   2019mar20 |**********************************
+BUILD SUCCESSFUL (total time: 0 seconds)
+
