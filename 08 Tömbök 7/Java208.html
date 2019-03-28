@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Java20190328.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST0 {color: #969696; font-family: Monospaced; font-weight: bold}
+.ST1 {font-family: Monospaced; font-weight: bold}
+.comment {color: #969696}
+.ST5 {color: #009900}
+.ST2 {font-family: Monospaced; font-weight: bold; font-style: italic}
+.ST3 {color: #009900; font-family: Monospaced; font-style: italic}
+.ST4 {font-family: Monospaced; font-style: italic}
+.literal {color: #0000e6}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">G:\aB6sicsGIT\java-basic-exercises\Java20190328\src\java20190328\Java20190328.java</td></tr></table>
+<pre>
+<span class="literal">package</span> java20190328;
+
+<span class="literal">import</span> java.util.Arrays;
+<span class="literal">import</span> java.util.Collections;
+<span class="literal">import</span> java.util.Scanner;
+
+<span class="comment">/**</span>
+<span class="comment"> *</span>
+<span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">KissJGabi</span>
+ <span class="comment">*/</span>
+<span class="literal">public</span> <span class="literal">class</span> <span class="ST1">Java20190328</span> {
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">f00</span>(<span class="literal">int</span> hossz, <span class="literal">char</span> jel, String name) {
+        <span class="literal">int</span> start = 0;
+        <span class="literal">if</span> (name.length() != 0) {
+            start = name.length() + 5;
+            System.<span class="ST3">out</span>.print(jel + <span class="string">&quot;</span><span class="string">| </span><span class="string">&quot;</span>);
+            System.<span class="ST3">out</span>.print(name + <span class="string">&quot;</span><span class="string"> |</span><span class="string">&quot;</span>);
+        }
+        <span class="literal">for</span> (<span class="literal">int</span> ii = start; ii &lt; hossz; ii++) {
+            System.<span class="ST3">out</span>.print(jel);
+        }
+        System.<span class="ST3">out</span>.println(<span class="string">&quot;&quot;</span>);
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">int</span>[] <span class="ST3">pontok</span> = <span class="literal">new</span> <span class="literal">int</span>[10];
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">int</span> <span class="ST3">db</span> = 0;
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">f1</span>(String label) {
+        Scanner sc = <span class="literal">new</span> Scanner(System.<span class="ST3">in</span>, (<span class="string">&quot;</span><span class="string">Cp1250</span><span class="string">&quot;</span>));
+        <span class="ST4">f00</span>(60, <span class="string">&#39;</span><span class="string">-</span><span class="string">&#39;</span>, label);
+        System.<span class="ST3">out</span>.println(<span class="string">&quot;</span><span class="string">Pontok: </span><span class="string">&quot;</span>);
+        <span class="literal">while</span> (sc.hasNextInt()) {
+            <span class="ST3">pontok</span>[<span class="ST3">db</span>++] = sc.nextInt();
+            <span class="literal">if</span> (<span class="ST3">db</span> == 10) {
+                <span class="literal">break</span>;
+            }
+        }
+        sc.nextLine();
+        <span class="literal">int</span>[] masolat = Arrays.<span class="ST4">copyOf</span>(<span class="ST3">pontok</span>, <span class="ST3">db</span>);
+        System.<span class="ST3">out</span>.println(Arrays.<span class="ST4">toString</span>(masolat));
+        Arrays.<span class="ST4">sort</span>(masolat);
+        <span class="literal">int</span> osszeg = 0;
+        <span class="literal">for</span> (<span class="literal">int</span> ii = 1; ii &lt; masolat.<span class="ST5">length</span>; ii++) {
+            osszeg += masolat[ii];
+        }
+        System.<span class="ST3">out</span>.println(<span class="string">&quot;</span><span class="string">A pontszám: </span><span class="string">&quot;</span> + osszeg);
+        System.<span class="ST3">out</span>.println(<span class="string">&quot;&quot;</span>);
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> Integer[] <span class="ST3">pont</span> = <span class="literal">new</span> Integer[10];
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">f2</span>(String label) {
+        Scanner sc = <span class="literal">new</span> Scanner(System.<span class="ST3">in</span>, (<span class="string">&quot;</span><span class="string">Cp1250</span><span class="string">&quot;</span>));
+        <span class="ST4">f00</span>(60, <span class="string">&#39;</span><span class="string">-</span><span class="string">&#39;</span>, label);
+        <span class="ST3">db</span> = 0;
+        System.<span class="ST3">out</span>.println(<span class="string">&quot;</span><span class="string">Pontok: </span><span class="string">&quot;</span>);
+        <span class="literal">while</span> (sc.hasNextInt()) {
+            <span class="ST3">pont</span>[<span class="ST3">db</span>++] = sc.nextInt();
+            <span class="literal">if</span> (<span class="ST3">db</span> == 10) {
+                <span class="literal">break</span>;
+            }
+        }
+        sc.nextLine();
+        Integer[] masolat = Arrays.<span class="ST4">copyOf</span>(<span class="ST3">pont</span>, <span class="ST3">db</span>);
+        System.<span class="ST3">out</span>.println(Arrays.<span class="ST4">toString</span>(masolat));
+        Arrays.<span class="ST4">sort</span>(masolat, Collections.<span class="ST4">reverseOrder</span>());
+        <span class="literal">int</span> osszeg = 0;
+        <span class="literal">for</span> (<span class="literal">int</span> ii = 0; ii &lt; masolat.<span class="ST5">length</span> - 1; ii++) {
+            osszeg += masolat[ii];
+        }
+        System.<span class="ST3">out</span>.println(<span class="string">&quot;</span><span class="string">A pontszám: </span><span class="string">&quot;</span> + osszeg);
+        System.<span class="ST3">out</span>.println(<span class="string">&quot;&quot;</span>);
+    }
+
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">main</span>(String[] args) {
+        <span class="ST4">f00</span>(60, <span class="string">&#39;</span><span class="string">*</span><span class="string">&#39;</span>, <span class="string">&quot;</span><span class="string">STARTofJAVA 2019mar28 Arrays</span><span class="string">&quot;</span>);
+        <span class="ST4">f00</span>(60, <span class="string">&#39;</span><span class="string">-</span><span class="string">&#39;</span>, <span class="string">&quot;&quot;</span>);
+
+        <span class="ST4">f1</span>(<span class="string">&quot;</span><span class="string">Tömbök 7a. Vetélkedő</span><span class="string">&quot;</span>);
+        <span class="ST4">f2</span>(<span class="string">&quot;</span><span class="string">Tömbök 7b. Vetélkedő (Wrapper)</span><span class="string">&quot;</span>);
+
+        <span class="ST4">f00</span>(60, <span class="string">&#39;</span><span class="string">-</span><span class="string">&#39;</span>, <span class="string">&quot;&quot;</span>);
+        <span class="ST4">f00</span>(60, <span class="string">&#39;</span><span class="string">*</span><span class="string">&#39;</span>, <span class="string">&quot;</span><span class="string">ENDofJAVA   2019mar28</span><span class="string">&quot;</span>);
+    }
+
+}
+
+</pre></body>
+</html>
