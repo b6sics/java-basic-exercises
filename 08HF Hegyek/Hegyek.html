@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Hegyek.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST0 {color: #969696; font-family: Monospaced; font-weight: bold}
+.ST1 {font-family: Monospaced; font-weight: bold}
+.comment {color: #969696}
+.ST6 {color: #009900}
+.ST3 {font-family: Monospaced; font-weight: bold; font-style: italic}
+.ST2 {color: #009900; font-family: Monospaced; font-style: italic}
+.ST5 {font-family: Monospaced; font-style: italic}
+.literal {color: #0000e6}
+.ST4 {color: #ce7b00; font-family: Monospaced; font-weight: bold}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">G:\aB6sicsGIT\java-basic-exercises\08HF Hegyek\src\pkg08hf\hegyek\Hegyek.java</td></tr></table>
+<pre>
+<span class="literal">package</span> pkg08hf.hegyek;
+
+<span class="literal">import</span> java.io.*;
+
+<span class="comment">/**</span>
+<span class="comment"> *</span>
+<span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">KissJGabi</span>
+ <span class="comment">*/</span>
+<span class="literal">public</span> <span class="literal">class</span> <span class="ST1">Hegyek</span> {
+
+    <span class="literal">private</span> <span class="literal">static</span> RandomAccessFile <span class="ST2">f</span>;
+    <span class="literal">private</span> <span class="literal">static</span> String[] <span class="ST2">hegyek</span>;
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">final</span> String <span class="ST2">SOURCEFILE</span> = <span class="string">&quot;</span><span class="string">hegyek.txt</span><span class="string">&quot;</span>;
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">final</span> String <span class="ST2">TARGETFILE</span> = <span class="string">&quot;</span><span class="string">OUTPUT.txt</span><span class="string">&quot;</span>;
+
+    <span class="literal">private</span> <span class="literal">static</span> String <span class="ST3">f00</span>(<span class="literal">int</span> hossz, <span class="literal">char</span> jel, String name) {
+        <span class="literal">int</span> start = 0;
+        String str = <span class="string">&quot;&quot;</span>;
+        <span class="literal">if</span> (name.length() != 0) {
+            start = name.length() + 5;
+            str = jel + <span class="string">&quot;</span><span class="string">| </span><span class="string">&quot;</span>;
+            str += name + <span class="string">&quot;</span><span class="string"> |</span><span class="string">&quot;</span>;
+        }
+        <span class="literal">for</span> (<span class="literal">int</span> ii = start; ii &lt; hossz; ii++) {
+            str += jel;
+        }
+        str += <span class="string">&quot;</span><span class="ST4">\n</span><span class="string">&quot;</span>;
+        System.<span class="ST2">out</span>.println(str);
+        <span class="literal">return</span> str;
+    }
+
+    <span class="comment">// --- textdekoráció metódus vége</span>
+    <span class="comment">// --- fájl metódusok</span>
+    <span class="literal">private</span> <span class="literal">static</span> String <span class="ST3">inputFile</span>(String fileName, String mode) {
+        <span class="literal">try</span> {
+            <span class="ST2">f</span> = <span class="literal">new</span> RandomAccessFile(fileName, mode);
+            String sor = <span class="ST2">f</span>.readLine();
+            <span class="ST2">hegyek</span> = sor.split(<span class="string">&quot;</span><span class="ST4">\\</span><span class="string">s*,</span><span class="ST4">\\</span><span class="string">s*</span><span class="string">&quot;</span>);
+            <span class="ST2">f</span>.close();
+        } <span class="literal">catch</span> (IOException e) {
+            System.<span class="ST2">err</span>.println(e.getMessage());
+            System.<span class="ST5">exit</span>(1);
+        }
+        String str = <span class="string">&quot;</span><span class="ST4">\t</span><span class="string">&quot;</span> + fileName + <span class="string">&quot;</span><span class="string">... beolvasva!</span><span class="string">&quot;</span>;
+        System.<span class="ST2">out</span>.println(str);
+        <span class="literal">return</span> str;
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">appendFile</span>(String fileName, String mode, String str) {
+        <span class="literal">try</span> {
+            <span class="ST2">f</span> = <span class="literal">new</span> RandomAccessFile(fileName, mode);
+            <span class="ST2">f</span>.seek(<span class="ST2">f</span>.length());     <span class="comment">//a fájlmutatót a fájl végére mozgatja</span>
+            <span class="ST2">f</span>.writeBytes(str + <span class="string">&quot;</span><span class="ST4">\n</span><span class="string">&quot;</span>);
+            <span class="ST2">f</span>.close();
+        } <span class="literal">catch</span> (IOException e) {
+            System.<span class="ST2">err</span>.println(e.getMessage());
+            System.<span class="ST5">exit</span>(1);
+        }
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">deleteFile</span>(String fileName) {
+        File file = <span class="literal">new</span> File(fileName);
+        <span class="literal">if</span> (file.exists()) {
+            file.delete();
+        }
+    }
+
+    <span class="comment">// --- fájl metódusok vége</span>
+    <span class="comment">// --- a feladat metódusai</span>
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">f0</span>(String label, String fileName, String mode) {
+        <span class="ST5">appendFile</span>(<span class="ST2">TARGETFILE</span>, <span class="string">&quot;</span><span class="string">rw</span><span class="string">&quot;</span>, <span class="ST5">f00</span>(60, <span class="string">&#39;</span><span class="string">-</span><span class="string">&#39;</span>, label));
+        <span class="ST5">appendFile</span>(<span class="ST2">TARGETFILE</span>, <span class="string">&quot;</span><span class="string">rw</span><span class="string">&quot;</span>, <span class="ST5">inputFile</span>(fileName, mode));
+        <span class="comment">// System.out.println(&quot;Hegyek: &quot; + Arrays.toString(hegyek));</span>
+        System.<span class="ST2">out</span>.println(<span class="string">&quot;&quot;</span>);
+        <span class="ST5">appendFile</span>(<span class="ST2">TARGETFILE</span>, <span class="string">&quot;</span><span class="string">rw</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="ST4">\n</span><span class="string">&quot;</span>);
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">f1</span>(String label, <span class="literal">int</span> limit) {
+        <span class="ST5">appendFile</span>(<span class="ST2">TARGETFILE</span>, <span class="string">&quot;</span><span class="string">rw</span><span class="string">&quot;</span>, <span class="ST5">f00</span>(60, <span class="string">&#39;</span><span class="string">-</span><span class="string">&#39;</span>, label));
+        String str = <span class="string">&quot;</span><span class="string">A lista: </span><span class="ST4">\n</span><span class="string">&quot;</span>;
+        <span class="literal">int</span> db = 0;
+        <span class="literal">for</span> (String hegy : <span class="ST2">hegyek</span>) {
+            <span class="literal">if</span> (Integer.<span class="ST5">parseInt</span>(hegy) &gt; limit) {
+                db++;
+                str += hegy + <span class="string">&quot;</span> <span class="string">&quot;</span>;
+            }
+        }
+        System.<span class="ST2">out</span>.println(str);
+        <span class="ST5">appendFile</span>(<span class="ST2">TARGETFILE</span>, <span class="string">&quot;</span><span class="string">rw</span><span class="string">&quot;</span>, str);
+        str = <span class="string">&quot;</span><span class="ST4">\n</span><span class="string">Összesen:</span><span class="ST4">\n</span><span class="string">&quot;</span> + db + <span class="string">&quot;</span><span class="string"> db</span><span class="string">&quot;</span>;
+        System.<span class="ST2">out</span>.println(str);
+        <span class="ST5">appendFile</span>(<span class="ST2">TARGETFILE</span>, <span class="string">&quot;</span><span class="string">rw</span><span class="string">&quot;</span>, str);
+        System.<span class="ST2">out</span>.println(<span class="string">&quot;&quot;</span>);
+        <span class="ST5">appendFile</span>(<span class="ST2">TARGETFILE</span>, <span class="string">&quot;</span><span class="string">rw</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="ST4">\n</span><span class="string">&quot;</span>);
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">f2</span>(String label) {
+        <span class="ST5">appendFile</span>(<span class="ST2">TARGETFILE</span>, <span class="string">&quot;</span><span class="string">rw</span><span class="string">&quot;</span>, <span class="ST5">f00</span>(60, <span class="string">&#39;</span><span class="string">-</span><span class="string">&#39;</span>, label));
+        <span class="literal">int</span> legmagasabb = 0;
+        <span class="literal">for</span> (String hegy : <span class="ST2">hegyek</span>) {
+            <span class="literal">if</span> (Integer.<span class="ST5">parseInt</span>(hegy) &gt; legmagasabb) {
+                legmagasabb = Integer.<span class="ST5">parseInt</span>(hegy);
+            }
+        }
+        String str = <span class="string">&quot;</span><span class="string">maximum: </span><span class="string">&quot;</span> + legmagasabb + <span class="string">&quot;</span><span class="string"> m.</span><span class="string">&quot;</span>;
+        System.<span class="ST2">out</span>.println(str);
+        <span class="ST5">appendFile</span>(<span class="ST2">TARGETFILE</span>, <span class="string">&quot;</span><span class="string">rw</span><span class="string">&quot;</span>, str);
+        System.<span class="ST2">out</span>.println(<span class="string">&quot;&quot;</span>);
+        <span class="ST5">appendFile</span>(<span class="ST2">TARGETFILE</span>, <span class="string">&quot;</span><span class="string">rw</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="ST4">\n</span><span class="string">&quot;</span>);
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">f3</span>(String label, <span class="literal">int</span> difference) {
+        <span class="ST5">appendFile</span>(<span class="ST2">TARGETFILE</span>, <span class="string">&quot;</span><span class="string">rw</span><span class="string">&quot;</span>, <span class="ST5">f00</span>(60, <span class="string">&#39;</span><span class="string">-</span><span class="string">&#39;</span>, label));
+        <span class="literal">int</span> first, second;
+        first = Integer.<span class="ST5">parseInt</span>(<span class="ST2">hegyek</span>[0]);
+        <span class="literal">for</span> (<span class="literal">int</span> ii = 1; ii &lt; <span class="ST2">hegyek</span>.<span class="ST6">length</span>; ii++) {
+            second = Integer.<span class="ST5">parseInt</span>(<span class="ST2">hegyek</span>[ii]);
+            <span class="literal">if</span> (Math.<span class="ST5">abs</span>(first - second) &gt;= difference) {
+                String str = String.<span class="ST5">format</span>(<span class="string">&quot;</span><span class="string">%4d</span><span class="string">&quot;</span>, second - first);
+                str = first + <span class="string">&quot;</span> <span class="string">&quot;</span> + second + <span class="string">&quot;</span><span class="string"> (</span><span class="string">&quot;</span> + str + <span class="string">&quot;</span><span class="string">)</span><span class="string">&quot;</span>;
+                System.<span class="ST2">out</span>.println(str);
+                <span class="ST5">appendFile</span>(<span class="ST2">TARGETFILE</span>, <span class="string">&quot;</span><span class="string">rw</span><span class="string">&quot;</span>, str);
+            }
+            first = second;
+        }
+        System.<span class="ST2">out</span>.println(<span class="string">&quot;&quot;</span>);
+        <span class="ST5">appendFile</span>(<span class="ST2">TARGETFILE</span>, <span class="string">&quot;</span><span class="string">rw</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="ST4">\n</span><span class="string">&quot;</span>);
+    }
+
+    <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">f4</span>(String label) {
+        <span class="ST5">appendFile</span>(<span class="ST2">TARGETFILE</span>, <span class="string">&quot;</span><span class="string">rw</span><span class="string">&quot;</span>, <span class="ST5">f00</span>(60, <span class="string">&#39;</span><span class="string">-</span><span class="string">&#39;</span>, label));
+        <span class="literal">int</span> first, second, third;
+        first = Integer.<span class="ST5">parseInt</span>(<span class="ST2">hegyek</span>[0]);
+        <span class="literal">for</span> (<span class="literal">int</span> ii = 1; ii &lt; <span class="ST2">hegyek</span>.<span class="ST6">length</span> - 1; ii++) {
+            second = Integer.<span class="ST5">parseInt</span>(<span class="ST2">hegyek</span>[ii]);
+            third = Integer.<span class="ST5">parseInt</span>(<span class="ST2">hegyek</span>[ii + 1]);
+            <span class="literal">if</span> (second - first &gt; 0 &amp;&amp; third - second &lt; 0) {
+                String str = String.<span class="ST5">format</span>(<span class="string">&quot;</span><span class="string">%4d </span><span class="string">&quot;</span>, first);
+                str += String.<span class="ST5">format</span>(<span class="string">&quot;</span><span class="string">%4d </span><span class="string">&quot;</span>, second);
+                str += String.<span class="ST5">format</span>(<span class="string">&quot;</span><span class="string">%4d</span><span class="string">&quot;</span>, third);
+                System.<span class="ST2">out</span>.println(str);
+                <span class="ST5">appendFile</span>(<span class="ST2">TARGETFILE</span>, <span class="string">&quot;</span><span class="string">rw</span><span class="string">&quot;</span>, str);
+            }
+            first = second;
+        }
+        System.<span class="ST2">out</span>.println(<span class="string">&quot;&quot;</span>);
+        <span class="ST5">appendFile</span>(<span class="ST2">TARGETFILE</span>, <span class="string">&quot;</span><span class="string">rw</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="ST4">\n</span><span class="string">&quot;</span>);
+    }
+
+    <span class="comment">// --- a feladat metódusai vége</span>
+    <span class="comment">// --- fő program</span>
+    <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">main</span>(String[] args) {
+        <span class="ST5">deleteFile</span>(<span class="ST2">TARGETFILE</span>);
+        <span class="ST5">appendFile</span>(<span class="ST2">TARGETFILE</span>, <span class="string">&quot;</span><span class="string">rw</span><span class="string">&quot;</span>, <span class="ST5">f00</span>(60, <span class="string">&#39;</span><span class="string">*</span><span class="string">&#39;</span>, <span class="string">&quot;</span><span class="string">STARTofJAVA 2019mar29 HF hegyek</span><span class="string">&quot;</span>));
+        <span class="ST5">appendFile</span>(<span class="ST2">TARGETFILE</span>, <span class="string">&quot;</span><span class="string">rw</span><span class="string">&quot;</span>, <span class="ST5">f00</span>(60, <span class="string">&#39;</span><span class="string">-</span><span class="string">&#39;</span>, <span class="string">&quot;&quot;</span>));
+
+        <span class="ST5">f0</span>(<span class="string">&quot;</span><span class="string">0. Beolvasás </span><span class="string">&quot;</span>, <span class="ST2">SOURCEFILE</span>, <span class="string">&quot;</span><span class="string">r</span><span class="string">&quot;</span>);
+        <span class="ST5">f1</span>(<span class="string">&quot;</span><span class="string">1. A 800 m feletti pontok</span><span class="string">&quot;</span>, 800);
+        <span class="ST5">f2</span>(<span class="string">&quot;</span><span class="string">2. A legmagasabb pont</span><span class="string">&quot;</span>);
+        <span class="ST5">f3</span>(<span class="string">&quot;</span><span class="string">3. Legalább 100 m a különbség</span><span class="string">&quot;</span>, 100);
+        <span class="ST5">f4</span>(<span class="string">&quot;</span><span class="string">4. Csúcsok</span><span class="string">&quot;</span>);
+
+        <span class="ST5">appendFile</span>(<span class="ST2">TARGETFILE</span>, <span class="string">&quot;</span><span class="string">rw</span><span class="string">&quot;</span>, <span class="ST5">f00</span>(60, <span class="string">&#39;</span><span class="string">-</span><span class="string">&#39;</span>, <span class="string">&quot;&quot;</span>));
+        <span class="ST5">appendFile</span>(<span class="ST2">TARGETFILE</span>, <span class="string">&quot;</span><span class="string">rw</span><span class="string">&quot;</span>, <span class="ST5">f00</span>(60, <span class="string">&#39;</span><span class="string">*</span><span class="string">&#39;</span>, <span class="string">&quot;</span><span class="string">ENDofJAVA   2019mar29</span><span class="string">&quot;</span>));
+    }
+    <span class="comment">// --- fő program vége</span>
+}
+
+</pre></body>
+</html>
