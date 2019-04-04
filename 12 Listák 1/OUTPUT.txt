@@ -1,0 +1,39 @@
+run:
+| Segítség:
+| [Enter] - kilépés
+| ELEM_NeVE és [Enter] - új elem hozzáadása a lista végéhez
+| '*'+ELEM_NEVE és[Enter] - új elem hozzáadása a lista elejéhez
+| '-'+ELEM_SZÁMA és [Enter] - elem törlése
+
+[Tanulás, Bevásárlás, Filmnézés]
+Méret: 3
+
+f2()> Teendő
+[Tanulás, Bevásárlás, Filmnézés, Teendő]
+Méret: 4
+f2()> 
+
+0 Tanulás
+1 Bevásárlás
+2 Filmnézés
+3 Teendő
+
+f3()> *Sürgős
+0 Sürgős
+1 Tanulás
+2 Bevásárlás
+3 Filmnézés
+4 Teendő
+Méret: 5
+f3()> 
+
+f4()> -2
+0 Sürgős
+1 Tanulás
+2 Filmnézés
+3 Teendő
+Méret: 4
+f4()> 
+
+BUILD SUCCESSFUL (total time: 26 seconds)
+
