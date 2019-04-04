@@ -2,7 +2,7 @@ run:
 | Segítség:
 | [Enter] - kilépés
 | ELEM_NeVE és [Enter] - új elem hozzáadása a lista végéhez
-| '*'+ELEM_NEVE és[Enter] - új elem hozzáadása a lista elejéhez
+| '*'+ELEM_NEVE és [Enter] - új elem hozzáadása a lista elejéhez
 | '-'+ELEM_SZÁMA és [Enter] - elem törlése
 
 [Tanulás, Bevásárlás, Filmnézés]

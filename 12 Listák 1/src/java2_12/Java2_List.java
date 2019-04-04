@@ -15,7 +15,7 @@ public class Java2_List {
         String str = "| Segítség:\n";
         str += "| [Enter] - kilépés\n";
         str += "| ELEM_NeVE és [Enter] - új elem hozzáadása a lista végéhez\n";
-        str += "| '*'+ELEM_NEVE és[Enter] - új elem hozzáadása a lista elejéhez\n";
+        str += "| '*'+ELEM_NEVE és [Enter] - új elem hozzáadása a lista elejéhez\n";
         str += "| '-'+ELEM_SZÁMA és [Enter] - elem törlése\n";
         System.out.println(str);
     }
