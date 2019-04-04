@@ -1,0 +1,10 @@
+run:
+              Afrika  106  107  111  133  221  767 1766
+               Ázsia  502  635  809  947 1402 3634 5268
+          Ausztrália    2    2    2    6   13   30   46
+              Európa  163  203  276  408  547  729  628
+       Észak-America    2    7   26   82  172  307  392
+         Dél-America   16   24   38   74  167  511  809
+              Összeg  791  978 1262 1650 2522 5978 8909
+BUILD SUCCESSFUL (total time: 0 seconds)
+

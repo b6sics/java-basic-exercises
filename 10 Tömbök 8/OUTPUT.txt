@@ -1,0 +1,11 @@
+run:
+21 29 24 37 19 29 
+21 30 28 22 37 29 
+23 36 32 28 27 31 
+30 25 25 26 35 28 
+29 27 26 28 22 28 
+24 31 35 24 24 30 
+Hetesek: 170
+Tizenegyesek: 52
+BUILD SUCCESSFUL (total time: 0 seconds)
+
