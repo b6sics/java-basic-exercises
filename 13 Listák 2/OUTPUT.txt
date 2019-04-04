@@ -1,0 +1,10 @@
+run:
+Utalások: 1000 3500 2000 5000 500 4000 x
+A befolyt összeg: 16000
+[5000, 4000, 3500, 2000, 1000, 500]
+A legnagyobbak: [5000, 4000, 3500]
+A legkisebb adomány: 500
+Átlag A: 2666,67 
+
+BUILD SUCCESSFUL (total time: 20 seconds)
+
