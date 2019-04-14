@@ -101,6 +101,8 @@ public class Dolgozat_KjG {
     }
 
     public static void main(String[] args) {
+        f01();
+        f02();
         f03();
     }
 }
