@@ -1,0 +1,6056 @@
+1
+00:00:02 --> 00:00:04
+So phase two - tank creation.
+
+2
+00:00:06 --> 00:00:08
+So what we're going to do in this one
+
+3
+00:00:08 --> 00:00:10
+is we're going to put in our tank model
+
+4
+00:00:10 --> 00:00:12
+and then that tank needs a number of different
+
+5
+00:00:12 --> 00:00:15
+components in order to function.
+
+6
+00:00:15 --> 00:00:17
+So the tank model looks like this
+
+7
+00:00:17 --> 00:00:20
+and it's going to need a rigid body for physics,
+
+8
+00:00:21 --> 00:00:23
+it's going to need a collider,
+
+9
+00:00:23 --> 00:00:26
+so you can see this kind of green outlined cube here.
+
+10
+00:00:27 --> 00:00:29
+That's for interactions with things,
+
+11
+00:00:29 --> 00:00:31
+so it can bump in to objects.
+
+12
+00:00:31 --> 00:00:33
+It's going to need one audio source to play
+
+13
+00:00:33 --> 00:00:35
+back the sound of it driving around,
+
+14
+00:00:35 --> 00:00:37
+it's going to need a second audio source to
+
+15
+00:00:37 --> 00:00:39
+playback different sound effects,
+
+16
+00:00:39 --> 00:00:40
+so like shooting, things like that.
+
+17
+00:00:40 --> 00:00:42
+And then this Tank Movement script
+
+18
+00:00:42 --> 00:00:44
+that we're going to write a bit of.
+
+19
+00:00:45 --> 00:00:46
+And then when we're done
+
+20
+00:00:47 --> 00:00:50
+it's going to drive around like that and play the audio.
+
+21
+00:00:50 --> 00:00:52
+It's also going to have these particle effect
+
+22
+00:00:52 --> 00:00:54
+that we're going to drag and drop on there.
+
+23
+00:00:59 --> 00:01:01
+Okay so let's start back at the editor
+
+24
+00:01:01 --> 00:01:03
+and we will recap in a moment.
+
+25
+00:01:03 --> 00:01:05
+Okay, so the first thing that we're going to do is
+
+26
+00:01:05 --> 00:01:07
+jump in to the Models folder.
+
+27
+00:01:07 --> 00:01:09
+So in the project panel you've got all of these different
+
+28
+00:01:09 --> 00:01:11
+assets that were made for the game,
+
+29
+00:01:11 --> 00:01:13
+most of them there are just parts of the
+
+30
+00:01:13 --> 00:01:15
+level art thing.
+
+31
+00:01:15 --> 00:01:17
+And we are going to grab
+
+32
+00:01:17 --> 00:01:19
+hold of the tank and drag
+
+33
+00:01:19 --> 00:01:22
+and drop that in to the hierarchy specifically.
+
+34
+00:01:23 --> 00:01:25
+So what you'll notice is that when you drag
+
+35
+00:01:25 --> 00:01:27
+things in to the hierarchy it's going to position
+
+36
+00:01:27 --> 00:01:29
+them at 0, unless they were a
+
+37
+00:01:29 --> 00:01:32
+prefab with a predetermined position.
+
+38
+00:01:32 --> 00:01:34
+So this tank
+
+39
+00:01:34 --> 00:01:36
+isn't a prefab, it's just a model.
+
+40
+00:01:36 --> 00:01:38
+So what you'll find is that it's placed it
+
+41
+00:01:38 --> 00:01:40
+right in the centre of the view,
+
+42
+00:01:40 --> 00:01:42
+just like we planned.
+
+43
+00:01:42 --> 00:01:44
+So what I want you guys to do is first off,
+
+44
+00:01:44 --> 00:01:46
+let's just learn a quick shortcut,
+
+45
+00:01:46 --> 00:01:48
+so if you select anything in the hierarchy,
+
+46
+00:01:48 --> 00:01:51
+the tank being the example that we want,
+
+47
+00:01:51 --> 00:01:54
+and hover over the scene view and press F,
+
+48
+00:01:55 --> 00:01:57
+or Frame Selected,
+
+49
+00:01:57 --> 00:01:59
+you can zoom right in to the thing that you're looking at.
+
+50
+00:02:00 --> 00:02:02
+So once you've framed your tank
+
+51
+00:02:02 --> 00:02:04
+we can start working on it.
+
+52
+00:02:04 --> 00:02:06
+So the tank will be one of two,
+
+53
+00:02:06 --> 00:02:09
+or if you wanted to extend the game, several tanks.
+
+54
+00:02:11 --> 00:02:13
+Because we want to be able to tell the difference
+
+55
+00:02:13 --> 00:02:15
+between the tanks in the game and other
+
+56
+00:02:15 --> 00:02:17
+objects in the game we need to put the
+
+57
+00:02:17 --> 00:02:19
+tank on to a particular layer.
+
+58
+00:02:21 --> 00:02:23
+So what we're going to do is select our tank
+
+59
+00:02:23 --> 00:02:26
+and at the top of the inspector you'll see a drop down for Layers.
+
+60
+00:02:27 --> 00:02:29
+Currently it'll be set to Default
+
+61
+00:02:29 --> 00:02:31
+but we want you to set that to Players.
+
+62
+00:02:31 --> 00:02:33
+And why do we do that James?
+
+63
+00:02:34 --> 00:02:36
+So when the shells explode
+
+64
+00:02:36 --> 00:02:38
+they're going to do
+
+65
+00:02:38 --> 00:02:41
+an overlapped sphere, which you don't need to know about,
+
+66
+00:02:41 --> 00:02:43
+but you will do later.
+
+67
+00:02:43 --> 00:02:45
+That's going to find all the colliders,
+
+68
+00:02:45 --> 00:02:48
+but we're going to tell it to find all the colliders on a certain layer,
+
+69
+00:02:48 --> 00:02:50
+so that we don't blow up the building,
+
+70
+00:02:50 --> 00:02:52
+or the ground or anything else.
+
+71
+00:02:52 --> 00:02:54
+We just want to blow up the tanks.
+
+72
+00:02:54 --> 00:02:57
+So it's just going to find the tanks because they're on the Players layer.
+
+73
+00:02:58 --> 00:03:00
+So basically whenever a shell lands
+
+74
+00:03:00 --> 00:03:02
+we're going to create a kind of blast
+
+75
+00:03:02 --> 00:03:05
+radius for this thing, so, we need to
+
+76
+00:03:05 --> 00:03:07
+only apply that to other tanks, so every tanks will be one
+
+77
+00:03:07 --> 00:03:10
+this particular layer and will restrict that
+
+78
+00:03:10 --> 00:03:13
+Then what you'll see is that it will say
+
+79
+00:03:13 --> 00:03:15
+'Change Layer, do you want to set the layer for the
+
+80
+00:03:15 --> 00:03:18
+child objects as well'? And we'll say 'no, this object only',
+
+81
+00:03:18 --> 00:03:20
+because we only need to apply it to the
+
+82
+00:03:20 --> 00:03:22
+part that has the collider, which will be
+
+83
+00:03:22 --> 00:03:24
+the parent object of the tank.
+
+84
+00:03:25 --> 00:03:27
+Okay, so, quick recap.
+
+85
+00:03:28 --> 00:03:30
+We've brought our tank model
+
+86
+00:03:30 --> 00:03:32
+and dropped it in to the hierarchy panel
+
+87
+00:03:32 --> 00:03:34
+at the top of the inspector,
+
+88
+00:03:34 --> 00:03:37
+we've set the layer to Players.
+
+89
+00:03:37 --> 00:03:39
+For the change layer we chose it
+
+90
+00:03:39 --> 00:03:41
+to be 'no, this object only'
+
+91
+00:03:41 --> 00:03:44
+because that's going to be the one with the collider on it.
+
+92
+00:03:44 --> 00:03:46
+Nice and simple.
+
+93
+00:03:49 --> 00:03:51
+So then we're going to dive in and create those
+
+94
+00:03:51 --> 00:03:53
+component that we just saw.
+
+95
+00:03:53 --> 00:03:57
+So there's a few ways to add components in Unity.
+
+96
+00:03:57 --> 00:03:59
+We're mostly going to use the Add Component button
+
+97
+00:03:59 --> 00:04:01
+here and but you'll also notice that there's a
+
+98
+00:04:01 --> 00:04:03
+component button at the top of the screen
+
+99
+00:04:03 --> 00:04:05
+with all of the same components in it.
+
+100
+00:04:07 --> 00:04:09
+If you click on the Add Component button
+
+101
+00:04:09 --> 00:04:11
+you'll see that there are ways to search for components
+
+102
+00:04:11 --> 00:04:13
+and that's usually the quickest way to do it,
+
+103
+00:04:13 --> 00:04:15
+if you know the name of the component that you want
+
+104
+00:04:15 --> 00:04:18
+then you can start typing and it will auto-complete for you.
+
+105
+00:04:18 --> 00:04:20
+So for example I would type 'rig'
+
+106
+00:04:20 --> 00:04:22
+to get straight to rigidbody.
+
+107
+00:04:22 --> 00:04:24
+Another important note, when you're adding
+
+108
+00:04:24 --> 00:04:26
+these components that we're going to reference throughout the day.
+
+109
+00:04:26 --> 00:04:29
+There may be 2D equivalents of all of them,
+
+110
+00:04:29 --> 00:04:31
+we're making a 3D game this time around
+
+111
+00:04:31 --> 00:04:33
+so try and avoid adding a 2D
+
+112
+00:04:33 --> 00:04:36
+equivalent because it won't do what you expect it to do.
+
+113
+00:04:36 --> 00:04:39
+So the first one that we're going to add is rigidbody,
+
+114
+00:04:39 --> 00:04:42
+so I'm navigating using up and down arrows on the keyboard.
+
+115
+00:04:44 --> 00:04:46
+I can also press return to choose one that I want.
+
+116
+00:04:47 --> 00:04:49
+Add rigidbody that way.
+
+117
+00:04:49 --> 00:04:51
+The rigidbody component basically invokes
+
+118
+00:04:51 --> 00:04:53
+the physics engine, so there's a bunch of different
+
+119
+00:04:54 --> 00:04:57
+parts of Unity that are kind of bolted together behind the scenes,
+
+120
+00:04:58 --> 00:05:01
+and the physics engine's just another example of one of those.
+
+121
+00:05:01 --> 00:05:03
+Basically what we do by adding rigidbody
+
+122
+00:05:03 --> 00:05:05
+is say that this particular object is
+
+123
+00:05:05 --> 00:05:07
+governed by that system,
+
+124
+00:05:07 --> 00:05:09
+and any where that we want to move it should
+
+125
+00:05:09 --> 00:05:11
+be done using an API or
+
+126
+00:05:11 --> 00:05:13
+scripting that controls the rigidbody system.
+
+127
+00:05:16 --> 00:05:19
+Our rigidbody, first of all,
+
+128
+00:05:19 --> 00:05:21
+will need some additional settings,
+
+129
+00:05:21 --> 00:05:24
+so because our tank is just driving around on the ground plane
+
+130
+00:05:24 --> 00:05:26
+and rotating around the Y axis
+
+131
+00:05:26 --> 00:05:28
+we don't want it to jump up and down
+
+132
+00:05:28 --> 00:05:30
+so we're going to freeze the position of the Y axis
+
+133
+00:05:30 --> 00:05:33
+by checking the Y box by Constraints.
+
+134
+00:05:33 --> 00:05:36
+So make sure you have Constraints expanded.
+
+135
+00:05:36 --> 00:05:38
+So I'm going to refer to expanding or
+
+136
+00:05:38 --> 00:05:40
+collapsing things in Unity at various points
+
+137
+00:05:40 --> 00:05:42
+The arrow to the left of things is how
+
+138
+00:05:42 --> 00:05:44
+you do that, so when I say expand I mean
+
+139
+00:05:44 --> 00:05:46
+open these up to see further settings.
+
+140
+00:05:47 --> 00:05:49
+So I'm going to check the box for Y
+
+141
+00:05:49 --> 00:05:52
+and then I'm going to freeze rotation for X
+
+142
+00:05:52 --> 00:05:55
+and Zee axis, as you guys would say.
+
+143
+00:05:57 --> 00:05:59
+We don't want the tank to kind of roll,
+
+144
+00:05:59 --> 00:06:01
+we don't want the tank to kind of
+
+145
+00:06:01 --> 00:06:04
+spin backwards, we only want it to rotate around Y
+
+146
+00:06:04 --> 00:06:06
+in order to steer it, so we can just lock those off.
+
+147
+00:06:06 --> 00:06:08
+So if you're ever making games
+
+148
+00:06:08 --> 00:06:10
+where things are constrained to a certain axis you can
+
+149
+00:06:10 --> 00:06:13
+just use the rigidbody to force it in to place.
+
+150
+00:06:16 --> 00:06:18
+A quick recap, we've added the rigidbody,
+
+151
+00:06:18 --> 00:06:21
+we need to constrain positions and rotation.
+
+152
+00:06:21 --> 00:06:23
+So we've checked freeze position for Y
+
+153
+00:06:23 --> 00:06:25
+and X and Z or Zee.
+
+154
+00:06:33 --> 00:06:35
+How does physics work? Well the physics needs
+
+155
+00:06:35 --> 00:06:37
+some kind of collision to
+
+156
+00:06:37 --> 00:06:39
+actually make it work, so the rigidbody
+
+157
+00:06:39 --> 00:06:43
+is there to say 'hey this object is governed by the physics system'.
+
+158
+00:06:43 --> 00:06:45
+But it's not going to receive any events
+
+159
+00:06:45 --> 00:06:48
+or any information until we have something called a collider on there.
+
+160
+00:06:48 --> 00:06:50
+So it's another component that we need to add.
+
+161
+00:06:51 --> 00:06:53
+So I'm going to click that Add Component button again
+
+162
+00:06:53 --> 00:06:56
+and I'm going to type in 'Box' this time.
+
+163
+00:06:56 --> 00:06:58
+A Box Collider is what we need here.
+
+164
+00:06:59 --> 00:07:00
+Just a quick note,
+
+165
+00:07:00 --> 00:07:02
+what you'll see when you look at the level art,
+
+166
+00:07:02 --> 00:07:04
+so I'm just going to show that very quickly,
+
+167
+00:07:04 --> 00:07:06
+is that we've used what we call
+
+168
+00:07:06 --> 00:07:09
+primitive colliders for a lot of these things.
+
+169
+00:07:09 --> 00:07:11
+We haven't used a detailed collider
+
+170
+00:07:11 --> 00:07:13
+for pretty much anything at all.
+
+171
+00:07:13 --> 00:07:15
+So this entire level,
+
+172
+00:07:16 --> 00:07:18
+and all of the interactions that you'll make with it,
+
+173
+00:07:18 --> 00:07:21
+is governed by what we call primitive colliders.
+
+174
+00:07:21 --> 00:07:23
+So called 'primitives' because they are
+
+175
+00:07:23 --> 00:07:26
+what we call primitive shapes, spheres, capsules,
+
+176
+00:07:26 --> 00:07:29
+cubes or boxes, in a sense that colliders are called.
+
+177
+00:07:30 --> 00:07:32
+So you can see that all of these different rocks
+
+178
+00:07:32 --> 00:07:33
+and things are differently sized capsules
+
+179
+00:07:33 --> 00:07:35
+and differently sized boxes.
+
+180
+00:07:35 --> 00:07:37
+And that's exactly what we're going to do with the tank.
+
+181
+00:07:37 --> 00:07:39
+The tank doesn't need a really detailed
+
+182
+00:07:39 --> 00:07:42
+shape for it's collision or what it's going to do.
+
+183
+00:07:42 --> 00:07:44
+So all we need to do is put on a box collider
+
+184
+00:07:44 --> 00:07:45
+and that's going to be just fine.
+
+185
+00:07:46 --> 00:07:49
+So I'm going to add my box collider,
+
+186
+00:07:49 --> 00:07:51
+so search in the Add Component button,
+
+187
+00:07:51 --> 00:07:53
+choose 'box', hit return,
+
+188
+00:07:53 --> 00:07:55
+and we're going to add that on there.
+
+189
+00:07:55 --> 00:07:57
+What you'll see when you first add that however is
+
+190
+00:07:57 --> 00:07:59
+that it's not quite the right size.
+
+191
+00:07:59 --> 00:08:01
+It's going to be just stuck underneath the tank
+
+192
+00:08:01 --> 00:08:03
+and it looks like this.
+
+193
+00:08:03 --> 00:08:06
+So sometimes what the, what Unity can do
+
+194
+00:08:06 --> 00:08:09
+is it can look at a mesh component
+
+195
+00:08:09 --> 00:08:11
+and it can say 'okay, I can tell how big
+
+196
+00:08:11 --> 00:08:13
+the collider needs to be as a result'.
+
+197
+00:08:13 --> 00:08:15
+But because our tank
+
+198
+00:08:15 --> 00:08:17
+has a parent node before it gets down to it's
+
+199
+00:08:17 --> 00:08:19
+actual rendered mesh parts
+
+200
+00:08:19 --> 00:08:21
+which are these child objects,
+
+201
+00:08:21 --> 00:08:23
+the physics engine doesn't check that,
+
+202
+00:08:23 --> 00:08:25
+so don't get confused if you add a collider and you're like
+
+203
+00:08:25 --> 00:08:27
+'oh Unity, why don't you set it to the right size?'.
+
+204
+00:08:29 --> 00:08:31
+Sometimes it's just not going to do that, but there's a number of different
+
+205
+00:08:31 --> 00:08:33
+ways that we can setup our collider.
+
+206
+00:08:34 --> 00:08:36
+What we can do is use the Edit Collider button,
+
+207
+00:08:36 --> 00:08:39
+which is this toggle on and off here.
+
+208
+00:08:39 --> 00:08:41
+But we're not going to use there, we're just going to give you settings
+
+209
+00:08:41 --> 00:08:44
+for this thing, so the centre value
+
+210
+00:08:44 --> 00:08:49
+I'm going to give you a value of (0, 0.85, 0).
+
+211
+00:08:50 --> 00:08:56
+And then in the size (1.5, 1.7, 1.6).
+
+212
+00:08:59 --> 00:09:01
+So once you've put those in there, have a look
+
+213
+00:09:01 --> 00:09:03
+at your tank, it should be roughly the right
+
+214
+00:09:03 --> 00:09:05
+size to fit and encompass the tank.
+
+215
+00:09:05 --> 00:09:07
+And we'll just jump back in to the slides to
+
+216
+00:09:07 --> 00:09:09
+remind ourselves, we've added a box collider
+
+217
+00:09:09 --> 00:09:11
+to our tank game object
+
+218
+00:09:12 --> 00:09:14
+and on that box collider we've changed
+
+219
+00:09:14 --> 00:09:17
+the centre to (0, 0.85, 0).
+
+220
+00:09:17 --> 00:09:19
+So remember I'm saying these in
+
+221
+00:09:19 --> 00:09:22
+X, Y, Z order, or if they're colors, R, G, B order.
+
+222
+00:09:23 --> 00:09:28
+And then we've changed the size to (1.5, 1.7, 1.6).
+
+223
+00:09:28 --> 00:09:30
+So the next thing that we need to do is allow
+
+224
+00:09:30 --> 00:09:32
+this tank to playback audio
+
+225
+00:09:32 --> 00:09:34
+whenever it's driving around.
+
+226
+00:09:35 --> 00:09:37
+So this is going to be a game
+
+227
+00:09:37 --> 00:09:39
+that's got two different tanks in it.
+
+228
+00:09:39 --> 00:09:41
+There might be several more tanks if you
+
+229
+00:09:41 --> 00:09:43
+extend the game, but what we want to do
+
+230
+00:09:43 --> 00:09:45
+is make sure that these tanks
+
+231
+00:09:45 --> 00:09:47
+aren't all playing exactly the same
+
+232
+00:09:47 --> 00:09:50
+audio clip at the same pitch
+
+233
+00:09:50 --> 00:09:52
+So what we do is we have an audio source that's
+
+234
+00:09:52 --> 00:09:54
+playing this back and we vary the pitch
+
+235
+00:09:54 --> 00:09:56
+and we're going to do that in code later on.
+
+236
+00:09:56 --> 00:09:58
+But it does mean that we have a couple of audio sources
+
+237
+00:09:58 --> 00:10:00
+on this tank, the first one
+
+238
+00:10:00 --> 00:10:04
+being for our engine sounds.
+
+239
+00:10:04 --> 00:10:06
+So the quickest way to get to that,
+
+240
+00:10:06 --> 00:10:08
+and as I pointed our earlier you can go to this
+
+241
+00:10:08 --> 00:10:11
+different section so I can go to Audio and choose Audio Source Here,
+
+242
+00:10:11 --> 00:10:14
+but I know an audio source has
+
+243
+00:10:14 --> 00:10:18
+the only 'source' in the entire component list
+
+244
+00:10:18 --> 00:10:20
+so I usually just tend to type 'sou'
+
+245
+00:10:20 --> 00:10:22
+and that gets me straight to 'source' and I can hit return.
+
+246
+00:10:24 --> 00:10:26
+This particular thing is going to be playing all the time
+
+247
+00:10:26 --> 00:10:28
+because the tank's engine is always running,
+
+248
+00:10:28 --> 00:10:30
+whether it's driving or whether it's idling,
+
+249
+00:10:30 --> 00:10:33
+so we want to check Loop.
+
+250
+00:10:33 --> 00:10:36
+And then the first instance of choosing assets
+
+251
+00:10:36 --> 00:10:38
+is what we see next.
+
+252
+00:10:38 --> 00:10:42
+So at the top of any audio source you see Audio Clip,
+
+253
+00:10:42 --> 00:10:44
+so it's basically the file that's in your
+
+254
+00:10:44 --> 00:10:46
+project that this is going to play back.
+
+255
+00:10:46 --> 00:10:48
+So there's a few different ways that you can assign this,
+
+256
+00:10:48 --> 00:10:50
+the quickest way to do it is just to click
+
+257
+00:10:50 --> 00:10:52
+on the circle select,
+
+258
+00:10:52 --> 00:10:55
+it's this little target-looking thing over on the right here.
+
+259
+00:10:55 --> 00:10:57
+So if I click on that it's going to pop-up a new window
+
+260
+00:10:57 --> 00:10:59
+and list all of the assets that are
+
+261
+00:10:59 --> 00:11:01
+appropriate for that type.
+
+262
+00:11:01 --> 00:11:03
+So what you'll notice is that whenever there is a
+
+263
+00:11:03 --> 00:11:05
+field that you can drag something to
+
+264
+00:11:05 --> 00:11:08
+so if I show you here you can see for example
+
+265
+00:11:08 --> 00:11:10
+on the box collider I could
+
+266
+00:11:10 --> 00:11:12
+add a physics material,
+
+267
+00:11:12 --> 00:11:15
+and for the audio clip I can add an audio clip,
+
+268
+00:11:15 --> 00:11:17
+and for the output I can set
+
+269
+00:11:17 --> 00:11:19
+an audio mixer group.
+
+270
+00:11:19 --> 00:11:21
+These are asset types that will be in the project
+
+271
+00:11:21 --> 00:11:23
+that are valid to assign it to.
+
+272
+00:11:23 --> 00:11:26
+So whenever you see 'none', nothing is assigned to it yet,
+
+273
+00:11:26 --> 00:11:29
+but you can put in whatever is in those brackets.
+
+274
+00:11:30 --> 00:11:32
+So Unity knows to show me a list
+
+275
+00:11:32 --> 00:11:34
+of audio clips because that's the type
+
+276
+00:11:34 --> 00:11:38
+that's being expected, so I'm going to choose EngineIdle
+
+277
+00:11:38 --> 00:11:40
+and you can either hit return or you can close
+
+278
+00:11:40 --> 00:11:42
+the window but if you double-click the name
+
+279
+00:11:42 --> 00:11:45
+it will choose it and close the window at the same time.
+
+280
+00:11:45 --> 00:11:47
+So one more time, click on the circle select
+
+281
+00:11:47 --> 00:11:49
+to the right of the field that you want to fill in,
+
+282
+00:11:49 --> 00:11:51
+and then you can double click on the name of the
+
+283
+00:11:51 --> 00:11:53
+asset that you want.
+
+284
+00:11:53 --> 00:11:55
+And of course the other way to do that is if you want to
+
+285
+00:11:55 --> 00:11:58
+select the audio clips in the project,
+
+286
+00:11:58 --> 00:12:01
+as in the folder, you can drag and drop files
+
+287
+00:12:01 --> 00:12:03
+to assign them like that.
+
+288
+00:12:04 --> 00:12:06
+So one more time, we've added an audio source
+
+289
+00:12:06 --> 00:12:09
+this is going to allow the engine sounds to be played back,
+
+290
+00:12:09 --> 00:12:12
+and we have set EngineIdle as the clip to
+
+291
+00:12:12 --> 00:12:14
+play back and we've checked 'loop'
+
+292
+00:12:14 --> 00:12:16
+to make sure that it constantly plays.
+
+293
+00:12:19 --> 00:12:21
+The second audio source that we need is going to
+
+294
+00:12:21 --> 00:12:23
+be for sound effects, so the tank,
+
+295
+00:12:23 --> 00:12:25
+and it's also going to be able to fire shells,
+
+296
+00:12:25 --> 00:12:27
+so the two sound effects that we're referring to
+
+297
+00:12:27 --> 00:12:29
+is the sound of charging up the weapon.
+
+298
+00:12:29 --> 00:12:31
+So these tanks, as you saw in the view,
+
+299
+00:12:31 --> 00:12:34
+have a variable range, you can hold down Fire.
+
+300
+00:12:35 --> 00:12:37
+I'm sure some of you have played the game Worms before,
+
+301
+00:12:37 --> 00:12:39
+when you fire a bazooka you hold down the button,
+
+302
+00:12:39 --> 00:12:41
+it charges up and then you let go
+
+303
+00:12:41 --> 00:12:43
+it fires or if you hold all the way to
+
+304
+00:12:43 --> 00:12:45
+the end it will just fire anyway.
+
+305
+00:12:45 --> 00:12:47
+These tanks are going to work just the same as that.
+
+306
+00:12:47 --> 00:12:49
+We're going to use the second audio source to
+
+307
+00:12:49 --> 00:12:50
+play those sounds back.
+
+308
+00:12:50 --> 00:12:52
+One more time, Add Component,
+
+309
+00:12:52 --> 00:12:54
+and it will still be on, hopefully, the same thing,
+
+310
+00:12:54 --> 00:12:56
+if you typed in a search,
+
+311
+00:12:56 --> 00:12:58
+if not you can just type S-O-U
+
+312
+00:12:58 --> 00:13:02
+or you can go to Audio - Audio Source to add a second one.
+
+313
+00:13:05 --> 00:13:07
+What's quite useful when we're
+
+314
+00:13:07 --> 00:13:09
+adding a lot of components to an object is
+
+315
+00:13:09 --> 00:13:11
+just to collapse them to make space.
+
+316
+00:13:11 --> 00:13:13
+So what I'm going to do is just collapse my rigidbody
+
+317
+00:13:13 --> 00:13:16
+box collider and my first audio source.
+
+318
+00:13:16 --> 00:13:18
+So I'm definitely working on the second one.
+
+319
+00:13:20 --> 00:13:22
+Now we're going to use a script to
+
+320
+00:13:22 --> 00:13:24
+tell this audio source which particular
+
+321
+00:13:24 --> 00:13:26
+audio clips to play.
+
+322
+00:13:26 --> 00:13:28
+So we're not going to assign that there.
+
+323
+00:13:29 --> 00:13:31
+We do want to uncheck Play On Awake because
+
+324
+00:13:31 --> 00:13:34
+we don't want this particular audio source to play anything at all.
+
+325
+00:13:34 --> 00:13:36
+And that's kind of the basics of our
+
+326
+00:13:36 --> 00:13:38
+tanks setup right now, so I'm going to quickly save
+
+327
+00:13:38 --> 00:13:40
+my scene, so File - Save, or command-S
+
+328
+00:13:40 --> 00:13:42
+control-S shortcut.
+
+329
+00:13:42 --> 00:13:44
+And then because our tank,
+
+330
+00:13:44 --> 00:13:46
+when we've finished making our game managers towards
+
+331
+00:13:46 --> 00:13:48
+the end of the day, we want to spawn our tank
+
+332
+00:13:48 --> 00:13:50
+when the game starts, we're not going to leave the
+
+333
+00:13:50 --> 00:13:52
+tanks in the game because we want the tank to be
+
+334
+00:13:52 --> 00:13:54
+created by a game manager object
+
+335
+00:13:55 --> 00:13:57
+and that manager is going to be in charge of creating the tank,
+
+336
+00:13:57 --> 00:14:00
+giving it a color, assigning it as Player1 or Player2,
+
+337
+00:14:01 --> 00:14:03
+telling it which keys on the keyboard to use and things like that.
+
+338
+00:14:06 --> 00:14:08
+Our tank needs to be stored as an
+
+339
+00:14:08 --> 00:14:10
+asset in the project, that's really important.
+
+340
+00:14:10 --> 00:14:12
+We can't just leave it as a game object in the scene.
+
+341
+00:14:12 --> 00:14:14
+As you saw, when we started the day, we dragged
+
+342
+00:14:14 --> 00:14:17
+in the prefab of the level art
+
+343
+00:14:17 --> 00:14:21
+and the level art has the light, it has the colliders to
+
+344
+00:14:21 --> 00:14:24
+denote where all of the intractable things are.
+
+345
+00:14:24 --> 00:14:25
+We're going to do the same thing with the tank,
+
+346
+00:14:25 --> 00:14:27
+we'll save it as a prefab.
+
+347
+00:14:27 --> 00:14:30
+So if you select the Prefabs folder on the project.
+
+348
+00:14:32 --> 00:14:34
+And then all you need to do is just grab the tank,
+
+349
+00:14:34 --> 00:14:37
+drag and drop it in to that prefabs folder.
+
+350
+00:14:37 --> 00:14:39
+You can either drag here to the empty space,
+
+351
+00:14:39 --> 00:14:43
+or you can drag on to the name of the folder itself,
+
+352
+00:14:43 --> 00:14:44
+like that, and let go.
+
+353
+00:14:44 --> 00:14:46
+When you've done that you'll see that it's
+
+354
+00:14:46 --> 00:14:48
+another item in the list with the same icon,
+
+355
+00:14:48 --> 00:14:51
+this blue cube means it's a prefab.
+
+356
+00:14:52 --> 00:14:55
+And the other thing that will tell you that you've done it correctly
+
+357
+00:14:55 --> 00:14:58
+is that the tank is now highlighted in blue.
+
+358
+00:14:59 --> 00:15:01
+Actually it may be blue before that because it's a model,
+
+359
+00:15:01 --> 00:15:03
+and they also get highlighted in blue.
+
+360
+00:15:03 --> 00:15:05
+Basically the other way to tell is by selecting
+
+361
+00:15:05 --> 00:15:07
+the tank in the hierarchy you now get these
+
+362
+00:15:07 --> 00:15:09
+prefab options at the top.
+
+363
+00:15:09 --> 00:15:12
+You should see Prefab - Select, Revert, Apply
+
+364
+00:15:12 --> 00:15:14
+so basically whenever you make changes to the version in
+
+365
+00:15:14 --> 00:15:16
+the active scene that you've got open
+
+366
+00:15:16 --> 00:15:19
+you can update the asset that you just made.
+
+367
+00:15:20 --> 00:15:22
+So just a quick recap.
+
+368
+00:15:23 --> 00:15:25
+We have added another audio source for our sound effects.
+
+369
+00:15:25 --> 00:15:28
+We've made sure to uncheck play on awake
+
+370
+00:15:28 --> 00:15:30
+and then we've selected our Prefabs folder
+
+371
+00:15:30 --> 00:15:32
+to put the tank in to that Prefabs folder.
+
+372
+00:15:33 --> 00:15:35
+So now we can make as many copies of that tank
+
+373
+00:15:35 --> 00:15:37
+as we want to, and what you'll notice
+
+374
+00:15:37 --> 00:15:39
+is if you click on the tank in the Prefabs folder
+
+375
+00:15:39 --> 00:15:41
+it's got everything that we just setup.
+
+376
+00:15:41 --> 00:15:43
+Prefabs are that way of kind of
+
+377
+00:15:43 --> 00:15:45
+creating all of your settings, setting them up the way you want
+
+378
+00:15:45 --> 00:15:47
+and then you can just spawn as many as you need to.
+
+379
+00:15:49 --> 00:15:51
+And hopefully everybody has saved their scene.
+
+380
+00:15:52 --> 00:15:54
+If not please do that now.
+
+381
+00:15:56 --> 00:15:59
+Okay, so our tanks are driving around,
+
+382
+00:15:59 --> 00:16:02
+it's a dusty, sandy desert so we're going to need
+
+383
+00:16:02 --> 00:16:04
+to see some dust trails coming off of these.
+
+384
+00:16:04 --> 00:16:06
+So we've created those for you.
+
+385
+00:16:06 --> 00:16:08
+if you look in the Prefabs folder you'll find
+
+386
+00:16:08 --> 00:16:10
+something called DustTrail
+
+387
+00:16:11 --> 00:16:13
+These dust trails are particle systems
+
+388
+00:16:13 --> 00:16:15
+and particle systems in Unity allow you to
+
+389
+00:16:15 --> 00:16:18
+basically spawn a number of
+
+390
+00:16:18 --> 00:16:20
+flat sprite objects that are creating
+
+391
+00:16:20 --> 00:16:23
+the effect of dust or sparks
+
+392
+00:16:23 --> 00:16:25
+or any of these kind of things that aren't
+
+393
+00:16:25 --> 00:16:26
+made up of 3D meshes.
+
+394
+00:16:27 --> 00:16:29
+So they're just for effects.
+
+395
+00:16:30 --> 00:16:32
+The particle system
+
+396
+00:16:32 --> 00:16:35
+that we've got here has a number of modules.
+
+397
+00:16:35 --> 00:16:37
+So I'm just going to explain very briefly how
+
+398
+00:16:37 --> 00:16:40
+this particle one works, we're not going to dwell on it too much.
+
+399
+00:16:41 --> 00:16:43
+But what I'm going to do is just drag my
+
+400
+00:16:43 --> 00:16:46
+DustTrail and drop it on to the tank,
+
+401
+00:16:46 --> 00:16:47
+so I want you to do that as well.
+
+402
+00:16:47 --> 00:16:49
+So grab DustTrail prefab and drop
+
+403
+00:16:49 --> 00:16:51
+it on to the name Tank in the hierarchy.
+
+404
+00:16:52 --> 00:16:54
+So one more time, I'm just going to zoom in
+
+405
+00:16:54 --> 00:16:56
+so you can see a bit better.
+
+406
+00:16:56 --> 00:16:58
+I grab DustTrail and drag it up,
+
+407
+00:16:58 --> 00:17:00
+drop it on to the tank and then it will
+
+408
+00:17:00 --> 00:17:02
+appear as a child object here.
+
+409
+00:17:04 --> 00:17:06
+So this DustTrail, if I just drag
+
+410
+00:17:06 --> 00:17:08
+it around I'm just going to show you briefly.
+
+411
+00:17:08 --> 00:17:10
+You'll see as I move it around it
+
+412
+00:17:10 --> 00:17:12
+starts to create particles.
+
+413
+00:17:12 --> 00:17:15
+The reason for that and the way that you can achieve that effect
+
+414
+00:17:15 --> 00:17:18
+is by having the Simulation Space set to World
+
+415
+00:17:19 --> 00:17:21
+and then having the Emission
+
+416
+00:17:22 --> 00:17:24
+based on distance.
+
+417
+00:17:24 --> 00:17:26
+So usually particle systems emit
+
+418
+00:17:26 --> 00:17:28
+over time and you choose the amount of particle
+
+419
+00:17:28 --> 00:17:29
+you want to emit at any time.
+
+420
+00:17:29 --> 00:17:32
+You might create bursts of particles every so often,
+
+421
+00:17:33 --> 00:17:36
+But this is using distance, but what that means is
+
+422
+00:17:36 --> 00:17:38
+whenever I'm dragging
+
+423
+00:17:38 --> 00:17:40
+a bunch per unit I'm getting 10 at a time.
+
+424
+00:17:41 --> 00:17:44
+So one unit moves, it's just going to create a whole bunch of them
+
+425
+00:17:44 --> 00:17:46
+and they keep, kind of, moving around.
+
+426
+00:17:46 --> 00:17:48
+Then what you'll notice is as I drag them
+
+427
+00:17:48 --> 00:17:50
+they are appearing and getting smaller
+
+428
+00:17:51 --> 00:17:53
+and that's because our Size Over Lifetime
+
+429
+00:17:53 --> 00:17:55
+is using a curve.
+
+430
+00:17:55 --> 00:17:59
+So this curve basically creates at a certain size
+
+431
+00:17:59 --> 00:18:01
+and then Lifetime is basically
+
+432
+00:18:01 --> 00:18:03
+from the moment that they appear to the moment
+
+433
+00:18:03 --> 00:18:04
+they disappear, what's going to happen.
+
+434
+00:18:04 --> 00:18:06
+So the lifetime of those particles means
+
+435
+00:18:06 --> 00:18:08
+that they're getting smaller using this curve.
+
+436
+00:18:10 --> 00:18:12
+So that's our basic particle system.
+
+437
+00:18:12 --> 00:18:15
+Nothing too complex, but we do need two of them,
+
+438
+00:18:15 --> 00:18:17
+one for each track.
+
+439
+00:18:17 --> 00:18:20
+So what we're going to do is to
+
+440
+00:18:21 --> 00:18:23
+Select it and then duplicate it.
+
+441
+00:18:24 --> 00:18:26
+So select your first dust trail and then
+
+442
+00:18:26 --> 00:18:29
+you can either right click and choose Duplicate
+
+443
+00:18:29 --> 00:18:31
+or you can do control-D or command-D if you're on a mac,
+
+444
+00:18:32 --> 00:18:34
+and then we're going to rename those two.
+
+445
+00:18:34 --> 00:18:36
+So we want LeftDustTrail
+
+446
+00:18:36 --> 00:18:38
+and RightDustTrail
+
+447
+00:18:38 --> 00:18:40
+You'll notice that it's added a 1 on the end because
+
+448
+00:18:40 --> 00:18:42
+they have the same name, no big deal.
+
+449
+00:18:42 --> 00:18:45
+So I'm pressing Return on the mac to rename.
+
+450
+00:18:45 --> 00:18:47
+You can press F2 on the PC just like
+
+451
+00:18:47 --> 00:18:49
+your operating system to rename things
+
+452
+00:18:49 --> 00:18:51
+in the hierarchy.
+
+453
+00:18:51 --> 00:18:52
+A quick recap.
+
+454
+00:18:52 --> 00:18:55
+In the Prefabs folder we've dragged our DustTrails on.
+
+455
+00:18:56 --> 00:18:58
+And we've made then child objects.
+
+456
+00:18:58 --> 00:19:01
+So when you see something indented
+
+457
+00:19:01 --> 00:19:02
+under something else in the hierarchy,
+
+458
+00:19:02 --> 00:19:04
+we call that a child object,
+
+459
+00:19:04 --> 00:19:06
+it's attached to it, it will move with it
+
+460
+00:19:06 --> 00:19:09
+so these dust trails will get dragged around by the tank.
+
+461
+00:19:09 --> 00:19:12
+And the distance will cause them to emit particles.
+
+462
+00:19:12 --> 00:19:15
+And we've renamed them Left and Right DustTrails.
+
+463
+00:19:18 --> 00:19:20
+So we're jumping ahead here with the slides.
+
+464
+00:19:21 --> 00:19:24
+But those are the positions that you need
+
+465
+00:19:24 --> 00:19:26
+So I'll show you that in just a moment, but for those of you
+
+466
+00:19:26 --> 00:19:28
+who are ready the position of the
+
+467
+00:19:28 --> 00:19:35
+LeftDustTrail should be (-0.5, 0. -0.75).
+
+468
+00:19:37 --> 00:19:41
+And the position of the right one is (0.5, 0, -0.75).
+
+469
+00:19:42 --> 00:19:44
+It's probably easier for me to leave those up.
+
+470
+00:19:44 --> 00:19:47
+But for those of you who are unfamiliar forgive me,
+
+471
+00:19:47 --> 00:19:49
+But for those of you who are I'm just going to quickly show you
+
+472
+00:19:49 --> 00:19:51
+what I mean, so the LeftDustTrail
+
+473
+00:19:51 --> 00:19:54
+I'm going to set the position in the transform component
+
+474
+00:19:54 --> 00:19:59
+to (-0.5, 0. -0.75).
+
+475
+00:20:01 --> 00:20:03
+We just set the position here in the transform panel.
+
+476
+00:20:04 --> 00:20:06
+I'm going to jump back to the slide for those positions.
+
+477
+00:20:07 --> 00:20:10
+RightDustTrail is (0.5, 0, -0.75).
+
+478
+00:20:11 --> 00:20:14
+It should look like this and this.
+
+479
+00:20:15 --> 00:20:16
+Just slightly offset.
+
+480
+00:20:17 --> 00:20:19
+Okay, so then we're going to get on to actually
+
+481
+00:20:19 --> 00:20:22
+controlling our tank, so I'm just going to quickly save my scene.
+
+482
+00:20:23 --> 00:20:26
+Then I'm going to look in the Scripts folder
+
+483
+00:20:27 --> 00:20:28
+in the project panel.
+
+484
+00:20:29 --> 00:20:31
+So we've split up our scripts in to a bunch
+
+485
+00:20:31 --> 00:20:34
+of different areas, we've got the Camera, Managers, Shell, Tank and UI
+
+486
+00:20:34 --> 00:20:36
+and you've guessed it we're going to look in the
+
+487
+00:20:36 --> 00:20:39
+Tank folder for this script.
+
+488
+00:20:39 --> 00:20:41
+TankMovement is the script that you need
+
+489
+00:20:41 --> 00:20:44
+Now scripts are components, they're ways of
+
+490
+00:20:44 --> 00:20:48
+creating behaviour for your game object and ways of
+
+491
+00:20:48 --> 00:20:51
+governing how the entire game will play.
+
+492
+00:20:51 --> 00:20:53
+This particular example is going to be
+
+493
+00:20:53 --> 00:20:55
+in charge of allowing us to control the tank.
+
+494
+00:20:56 --> 00:20:59
+And because scripts are just components the same as
+
+495
+00:20:59 --> 00:21:01
+any of the other components in Unity we need to
+
+496
+00:21:01 --> 00:21:03
+attach them to a game object
+
+497
+00:21:03 --> 00:21:04
+to make them do stuff.
+
+498
+00:21:04 --> 00:21:06
+There's a bunch of different ways that we can do this.
+
+499
+00:21:06 --> 00:21:08
+The way that we're going to use today,
+
+500
+00:21:08 --> 00:21:10
+that's pretty straightforward hopefully,
+
+501
+00:21:10 --> 00:21:12
+is just a drag and drop method.
+
+502
+00:21:13 --> 00:21:15
+I'm going to collapse my tank, I don't need to see
+
+503
+00:21:15 --> 00:21:17
+the dust trails right now
+
+504
+00:21:17 --> 00:21:20
+and it's going to make sure that I drag it on to the right object.
+
+505
+00:21:20 --> 00:21:22
+And I'm going to grab TankMovement
+
+506
+00:21:23 --> 00:21:25
+and drop it on to Tank.
+
+507
+00:21:26 --> 00:21:27
+And let go.
+
+508
+00:21:29 --> 00:21:31
+So you should see that your TankMovement script
+
+509
+00:21:31 --> 00:21:35
+appears as one of the list of components there.
+
+510
+00:21:36 --> 00:21:38
+Something quick to note is that some of you
+
+511
+00:21:38 --> 00:21:40
+may have noticed that there is a Complete folder
+
+512
+00:21:40 --> 00:21:43
+in your project, ignore it, don't touch it.
+
+513
+00:21:43 --> 00:21:45
+That's just the finished version for you to
+
+514
+00:21:45 --> 00:21:47
+look back on later.
+
+515
+00:21:49 --> 00:21:51
+The downside is that we've got
+
+516
+00:21:51 --> 00:21:53
+two versions of the scripts.
+
+517
+00:21:53 --> 00:21:55
+There's one version that's complete and one
+
+518
+00:21:55 --> 00:21:57
+version that we're going to work on today.
+
+519
+00:21:57 --> 00:22:00
+So if you use the Add Component button to add a script
+
+520
+00:22:00 --> 00:22:02
+and then try and find it you're going to see two
+
+521
+00:22:02 --> 00:22:03
+versions of all the scripts
+
+522
+00:22:04 --> 00:22:06
+Yup, thanks James.
+
+523
+00:22:06 --> 00:22:08
+So when you search under Add Component
+
+524
+00:22:08 --> 00:22:10
+you'll see that there's two of everything.
+
+525
+00:22:10 --> 00:22:12
+That's why we're getting you to do the drag and drop method
+
+526
+00:22:12 --> 00:22:14
+It just avoids that confusion.
+
+527
+00:22:14 --> 00:22:16
+The advantage of having this completed version of
+
+528
+00:22:16 --> 00:22:18
+the project is that you can just go and look
+
+529
+00:22:18 --> 00:22:21
+through it afterwards, also the scripts in that
+
+530
+00:22:21 --> 00:22:23
+are complete and commented,
+
+531
+00:22:23 --> 00:22:25
+so we've written comments explaining what every part of that
+
+532
+00:22:25 --> 00:22:27
+does so when you get to the end of the
+
+533
+00:22:27 --> 00:22:30
+day and it's like overload, 'I can't remember everything
+
+534
+00:22:30 --> 00:22:32
+that those dumb British guys said,
+
+535
+00:22:32 --> 00:22:34
+I didn't really understand their accents anyway'
+
+536
+00:22:35 --> 00:22:38
+then you can just go through and read all those comments.
+
+537
+00:22:40 --> 00:22:42
+We've dragged on our TankMovement script
+
+538
+00:22:42 --> 00:22:44
+and we've going to keep dragging and dropping scripts
+
+539
+00:22:44 --> 00:22:46
+so bear that in mind.
+
+540
+00:22:49 --> 00:22:51
+In the script the things that we're going to do
+
+541
+00:22:51 --> 00:22:53
+are to get the input,
+
+542
+00:22:53 --> 00:22:55
+setup the audio, we're going to setup
+
+543
+00:22:55 --> 00:22:57
+forward and backward movement
+
+544
+00:22:57 --> 00:22:59
+and we're going to setup turning.
+
+545
+00:22:59 --> 00:23:01
+So without further ado, let's get in
+
+546
+00:23:01 --> 00:23:03
+to our first bit of scripting.
+
+547
+00:23:03 --> 00:23:05
+There's a few different ways you can open up a script.
+
+548
+00:23:06 --> 00:23:08
+The main one that I tend to use, and this is
+
+549
+00:23:08 --> 00:23:11
+just through habit, you might have a preferred method,
+
+550
+00:23:11 --> 00:23:15
+is to double-click on the name in the Script field
+
+551
+00:23:15 --> 00:23:16
+of the script component.
+
+552
+00:23:16 --> 00:23:18
+So you can double-click here on TankMovement
+
+553
+00:23:18 --> 00:23:20
+and that's going to open up your script editor
+
+554
+00:23:21 --> 00:23:24
+So for people on mac that's probably going to be Monodevelop,
+
+555
+00:23:24 --> 00:23:25
+if you haven't setup something different.
+
+556
+00:23:25 --> 00:23:27
+For those of you on PC it may
+
+557
+00:23:27 --> 00:23:29
+well be Visual Studio, but there's really no
+
+558
+00:23:29 --> 00:23:32
+difference for the kind of stuff that we're going to be doing.
+
+559
+00:23:33 --> 00:23:35
+You know, it's not going to matter whether you use either
+
+560
+00:23:35 --> 00:23:37
+bit of software as long as the code
+
+561
+00:23:37 --> 00:23:39
+and the lines, everything, looks the same
+
+562
+00:23:39 --> 00:23:41
+it's all going to work out fine.
+
+563
+00:23:42 --> 00:23:44
+Next, the thing that we need to explain
+
+564
+00:23:44 --> 00:23:48
+for scripting during this training day is that
+
+565
+00:23:48 --> 00:23:51
+there are scripts that are partially completed
+
+566
+00:23:51 --> 00:23:53
+and there are some that are totally complete
+
+567
+00:23:53 --> 00:23:55
+and we're going to be working with a mix of
+
+568
+00:23:55 --> 00:23:56
+the two throughout the day.
+
+569
+00:23:56 --> 00:24:00
+So what you'll notice about this first script is
+
+570
+00:24:00 --> 00:24:02
+that there's some of it in grey.
+
+571
+00:24:03 --> 00:24:05
+Now why is that? Well that's what's called commenting.
+
+572
+00:24:06 --> 00:24:09
+So a comment is there to basically disable part of the code.
+
+573
+00:24:10 --> 00:24:13
+So if you are trying out programming and you've
+
+574
+00:24:13 --> 00:24:15
+got an idea for something and you want to
+
+575
+00:24:15 --> 00:24:17
+try it out but then you're not sure, you want to
+
+576
+00:24:17 --> 00:24:19
+disable it but not delete it you can
+
+577
+00:24:19 --> 00:24:21
+just put in what's called a comment.
+
+578
+00:24:21 --> 00:24:23
+You can also use comments for actually what they sound like
+
+579
+00:24:23 --> 00:24:25
+you can write in, you know,
+
+580
+00:24:26 --> 00:24:28
+'hey, this variable is cool'.
+
+581
+00:24:30 --> 00:24:32
+'this variable rocks, it's my favourite variable'.
+
+582
+00:24:33 --> 00:24:35
+And you can just write notes if you're collaborating
+
+583
+00:24:35 --> 00:24:37
+with someone, comments are useful, obviously to leave notes.
+
+584
+00:24:37 --> 00:24:39
+Or if you have a terrible memory, like me,
+
+585
+00:24:39 --> 00:24:40
+you'll want to leave notes for yourself,
+
+586
+00:24:41 --> 00:24:43
+then that's another good thing to do.
+
+587
+00:24:43 --> 00:24:45
+We've used comments to disable bits of the code
+
+588
+00:24:45 --> 00:24:47
+so that we can reenable them and then start working,
+
+589
+00:24:47 --> 00:24:49
+if we didn't do that then
+
+590
+00:24:49 --> 00:24:51
+the scripts would give you a load of warnings
+
+591
+00:24:51 --> 00:24:53
+when you opened up the project, and we didn't want to scare
+
+592
+00:24:53 --> 00:24:55
+you guys, or confuse you, so we just
+
+593
+00:24:55 --> 00:24:57
+disabled a bunch of code to start out.
+
+594
+00:24:58 --> 00:25:01
+But it's very simple to undisable it,
+
+595
+00:25:01 --> 00:25:03
+we just need to remove the comments.
+
+596
+00:25:03 --> 00:25:05
+So comments, in this sense,
+
+597
+00:25:05 --> 00:25:09
+are these two characters, /*
+
+598
+00:25:09 --> 00:25:11
+if you get rid of that, that will remove the
+
+599
+00:25:11 --> 00:25:14
+start of the comment, but you also need to remove the end.
+
+600
+00:25:14 --> 00:25:17
+So on line 13 delete those two characters.
+
+601
+00:25:18 --> 00:25:20
+You'll then see the syntax colors
+
+602
+00:25:20 --> 00:25:23
+for the programming coming back, so you'll see all these different colors
+
+603
+00:25:23 --> 00:25:25
+but you also need to scroll down
+
+604
+00:25:25 --> 00:25:28
+and remove on line 49
+
+605
+00:25:28 --> 00:25:30
+the opposite, */
+
+606
+00:25:30 --> 00:25:33
+So it uses those to create what we call a block comment.
+
+607
+00:25:33 --> 00:25:35
+If you want to write a number of different lines
+
+608
+00:25:35 --> 00:25:39
+then you can do /*, write a whole bunch of stuff,
+
+609
+00:25:40 --> 00:25:42
+and then the reverse at the end.
+
+610
+00:25:42 --> 00:25:44
+So we've done that to disable that whole section of code.
+
+611
+00:25:46 --> 00:25:49
+Once you've done that you should be good to start writing.
+
+612
+00:25:49 --> 00:25:51
+The other thing to mention is single line comments.
+
+613
+00:25:51 --> 00:25:53
+You'll notice that in these other
+
+614
+00:25:54 --> 00:25:56
+5 different functions
+
+615
+00:25:56 --> 00:25:58
+we've got single line comments, so you'll see
+
+616
+00:25:58 --> 00:26:01
+// will allow you to do a single line comment.
+
+617
+00:26:02 --> 00:26:04
+Those are literally comments, they're just us telling
+
+618
+00:26:04 --> 00:26:06
+you information, so we're telling you roughly
+
+619
+00:26:06 --> 00:26:08
+what we're going to do in each function.
+
+620
+00:26:08 --> 00:26:10
+When you do start writing those you can just move down
+
+621
+00:26:10 --> 00:26:12
+a line and get started.
+
+622
+00:26:12 --> 00:26:15
+Comments will not break code, they will just disable it
+
+623
+00:26:15 --> 00:26:19
+so the compiler, the thing that runs the code in the engine
+
+624
+00:26:19 --> 00:26:21
+will not run it, it will just
+
+625
+00:26:21 --> 00:26:24
+ignore it so you don't have to worry about those at all.
+
+626
+00:26:26 --> 00:26:29
+Almost all scripts in Unity are going to have
+
+627
+00:26:29 --> 00:26:32
+a bunch of variables at the top and these are member variables.
+
+628
+00:26:33 --> 00:26:35
+And that is actually the reason
+
+629
+00:26:35 --> 00:26:37
+that you see this m_
+
+630
+00:26:37 --> 00:26:39
+on all of the variables.
+
+631
+00:26:39 --> 00:26:41
+That m_ doesn't' change any functionality
+
+632
+00:26:41 --> 00:26:44
+it's just us labelling it to say that
+
+633
+00:26:44 --> 00:26:46
+this belongs to the class, so you can use it in any function.
+
+634
+00:26:48 --> 00:26:50
+Other variables that we create
+
+635
+00:26:50 --> 00:26:52
+will only work within the function that they're created.
+
+636
+00:26:52 --> 00:26:56
+However if you see an m_ that's going to be useable anywhere.
+
+637
+00:26:56 --> 00:26:58
+Yeah, so we create all these different variables
+
+638
+00:26:58 --> 00:27:00
+and we know that if we're
+
+639
+00:27:00 --> 00:27:02
+referring to something that we setup
+
+640
+00:27:02 --> 00:27:05
+often if they're public variables for example,
+
+641
+00:27:05 --> 00:27:08
+so you can see that we've got 7 different public variables there.
+
+642
+00:27:09 --> 00:27:11
+Look back in Unity and you'll see the same
+
+643
+00:27:11 --> 00:27:13
+fields here, so Player Number, Speed,
+
+644
+00:27:13 --> 00:27:15
+TurnSpeed, etcetera, etcetera.
+
+645
+00:27:15 --> 00:27:17
+These are all our public variables setup.
+
+646
+00:27:17 --> 00:27:19
+And they're all our member variables, so we're going to need
+
+647
+00:27:19 --> 00:27:22
+them and reuse those values throughout the script.
+
+648
+00:27:23 --> 00:27:25
+If they're not things that we need to assign or drag and drop
+
+649
+00:27:25 --> 00:27:28
+or tweak during our game design phase
+
+650
+00:27:28 --> 00:27:31
+then they're likely to be private variables.
+
+651
+00:27:31 --> 00:27:33
+So public variable will invariably be
+
+652
+00:27:33 --> 00:27:35
+appearing on the inspector
+
+653
+00:27:35 --> 00:27:37
+for that component, and you can change things obviously,
+
+654
+00:27:37 --> 00:27:40
+if you want to change Speed, if you want to change TurnSpeed
+
+655
+00:27:40 --> 00:27:42
+and tweak how the game behaves, that's why they're public.
+
+656
+00:27:43 --> 00:27:45
+And then the private variables there are designed
+
+657
+00:27:45 --> 00:27:48
+to just create functionality within the game.
+
+658
+00:27:50 --> 00:27:53
+Let's go from top to bottom and explain what these variables are doing.
+
+659
+00:27:53 --> 00:27:56
+Just a quick note, this is C#, we'll be teaching with C#
+
+660
+00:27:56 --> 00:28:00
+and generally that's what we recommend that people use with Unity.
+
+661
+00:28:00 --> 00:28:03
+The other option is what we call Unity Script
+
+662
+00:28:03 --> 00:28:07
+which is a Java Script-like syntax for Unity functions.
+
+663
+00:28:08 --> 00:28:10
+But we prefer to use C#.
+
+664
+00:28:11 --> 00:28:14
+Okay, so, first off our public variables.
+
+665
+00:28:14 --> 00:28:16
+So you'll note that we have the first one there
+
+666
+00:28:16 --> 00:28:18
+called PlayerNumber.
+
+667
+00:28:18 --> 00:28:21
+So we have public, that's the accessibility.
+
+668
+00:28:21 --> 00:28:23
+int, for integer, a whole number,
+
+669
+00:28:23 --> 00:28:25
+and then we have PlayerNumber.
+
+670
+00:28:25 --> 00:28:27
+So we're writing this code, we're going to try and remember
+
+671
+00:28:27 --> 00:28:31
+to keep saying m_PlayerNumber
+
+672
+00:28:31 --> 00:28:32
+or m_ whatever it is.
+
+673
+00:28:32 --> 00:28:34
+But if we say one of these variables and
+
+674
+00:28:34 --> 00:28:36
+it's one that you remember is an actual variable
+
+675
+00:28:36 --> 00:28:39
+then you'll see that hopefully the autocomplete
+
+676
+00:28:39 --> 00:28:41
+function of the coder will actually kick in
+
+677
+00:28:41 --> 00:28:43
+and remind you to do that.
+
+678
+00:28:43 --> 00:28:45
+You can autocomplete by typing any part
+
+679
+00:28:45 --> 00:28:48
+of the variable name, and I'll show you that in a moment.
+
+680
+00:28:49 --> 00:28:50
+The PlayerNumber, what does that do?
+
+681
+00:28:50 --> 00:28:52
+Well our tank manager needs
+
+682
+00:28:52 --> 00:28:54
+to govern how many tanks there are and
+
+683
+00:28:54 --> 00:28:57
+which controls are assigned to which tanks.
+
+684
+00:28:57 --> 00:28:59
+So in this particular game that we're going to make today
+
+685
+00:28:59 --> 00:29:01
+there's going to be two tanks, a red one and a blue one.
+
+686
+00:29:02 --> 00:29:06
+And the PlayerNumber is there to say 'okay, well, if we're player1
+
+687
+00:29:06 --> 00:29:09
+then we need to inform the UI to say
+
+688
+00:29:09 --> 00:29:11
+player1 have won this round'
+
+689
+00:29:11 --> 00:29:14
+and it also needs to say 'okay, well, bunch of inputs with
+
+690
+00:29:14 --> 00:29:17
+a 1 on it will be governing tank1'.
+
+691
+00:29:17 --> 00:29:19
+So we're going to be using W, A, S and D
+
+692
+00:29:19 --> 00:29:21
+and spacebar for one of the controls
+
+693
+00:29:21 --> 00:29:24
+and then the up, down, left, right arrows
+
+694
+00:29:24 --> 00:29:26
+and the return key for the other tank.
+
+695
+00:29:26 --> 00:29:28
+So we have those setup in the input manager,
+
+696
+00:29:28 --> 00:29:30
+which we'll show you as well,
+
+697
+00:29:30 --> 00:29:32
+but the PlayerNumber is there to define
+
+698
+00:29:32 --> 00:29:35
+and assign those controls and you'll see how that works briefly.
+
+699
+00:29:36 --> 00:29:38
+Then we've got some more self explanatory stuff.
+
+700
+00:29:38 --> 00:29:40
+So Speed is how fast the tank's going to drive.
+
+701
+00:29:40 --> 00:29:44
+TurnSpeed, how many degrees it's going to turn over time.
+
+702
+00:29:45 --> 00:29:49
+AudioSource, MovementAudio, so that's our first
+
+703
+00:29:49 --> 00:29:51
+audio source that we added which is
+
+704
+00:29:51 --> 00:29:53
+going to have our EngineIdling and EngineDriving
+
+705
+00:29:54 --> 00:29:56
+Then we've got clips for both so that when you
+
+706
+00:29:56 --> 00:29:58
+holding down a key to drive or
+
+707
+00:29:58 --> 00:30:00
+you're stopping, again, we'll play those two different clips.
+
+708
+00:30:00 --> 00:30:02
+And then we have pitch range.
+
+709
+00:30:02 --> 00:30:05
+So I mentioned earlier about how we were going to vary the pitch
+
+710
+00:30:05 --> 00:30:07
+and so we put in this small value of 0.2
+
+711
+00:30:07 --> 00:30:09
+and what you'll see later on is that we
+
+712
+00:30:09 --> 00:30:11
+use a function called Random.Range
+
+713
+00:30:11 --> 00:30:13
+to keep changing between the current pitch
+
+714
+00:30:13 --> 00:30:18
+and either + or - that small differentiator
+
+715
+00:30:19 --> 00:30:21
+Then our private variables.
+
+716
+00:30:23 --> 00:30:25
+Okay, so whenever you
+
+717
+00:30:25 --> 00:30:27
+make a call to an input function in Unity
+
+718
+00:30:27 --> 00:30:31
+you usually have to parse in a sting for the axis name.
+
+719
+00:30:31 --> 00:30:32
+What's a string James?
+
+720
+00:30:32 --> 00:30:34
+So a string is a series of characters
+
+721
+00:30:34 --> 00:30:36
+they might be a word or a sentence
+
+722
+00:30:36 --> 00:30:38
+or something like that.
+
+723
+00:30:38 --> 00:30:40
+A lot of you who are familiar with Unity, you'll be used to
+
+724
+00:30:40 --> 00:30:42
+something like horizontal as one axis,
+
+725
+00:30:42 --> 00:30:44
+vertical is another axis
+
+726
+00:30:44 --> 00:30:47
+then you've got fire buttons, Fire1, etcetera.
+
+727
+00:30:47 --> 00:30:49
+I'm just going to show it really quick.
+
+728
+00:30:49 --> 00:30:51
+If you just watch the screen
+
+729
+00:30:51 --> 00:30:53
+you don't need to do this yourself, but,
+
+730
+00:30:53 --> 00:30:55
+this is our input manager, it's available from
+
+731
+00:30:55 --> 00:30:58
+Edit - Project Settings - Input.
+
+732
+00:30:59 --> 00:31:01
+And you'll notice if you are used to
+
+733
+00:31:01 --> 00:31:03
+a bit of Unity work before this is slightly different to
+
+734
+00:31:03 --> 00:31:05
+what you normally see, we've basically setup
+
+735
+00:31:05 --> 00:31:09
+a UI 1 and 2 controls.
+
+736
+00:31:11 --> 00:31:13
+We've got Fire1 and it's got those,
+
+737
+00:31:13 --> 00:31:15
+for example spacebar for firing1.
+
+738
+00:31:15 --> 00:31:19
+and it's got Fire2, which is a return or enter key.
+
+739
+00:31:21 --> 00:31:23
+Okay so in order to get
+
+740
+00:31:23 --> 00:31:25
+the input from one of those specific axis
+
+741
+00:31:25 --> 00:31:27
+we need to use a string, which is it's name.
+
+742
+00:31:27 --> 00:31:29
+So to find Horizontal1
+
+743
+00:31:29 --> 00:31:32
+the horizontal controls, or the turning controls
+
+744
+00:31:32 --> 00:31:37
+for player1 we need to say input.getAxisHorizontal1 as a string.
+
+745
+00:31:38 --> 00:31:40
+So since this script is going to go on
+
+746
+00:31:40 --> 00:31:42
+multiple different tanks we need to
+
+747
+00:31:42 --> 00:31:44
+change which axis name
+
+748
+00:31:44 --> 00:31:46
+we're using based on
+
+749
+00:31:46 --> 00:31:48
+the player number.
+
+750
+00:31:49 --> 00:31:51
+When we get to the start function you'll see it being setup
+
+751
+00:31:52 --> 00:31:55
+All that's going to do is store the name Horizontal
+
+752
+00:31:55 --> 00:31:57
+plus then the player numbers
+
+753
+00:31:57 --> 00:31:59
+so that it gets horizontal1 if it's player1,
+
+754
+00:31:59 --> 00:32:01
+horizontal2 if it's player2.
+
+755
+00:32:01 --> 00:32:03
+And then likewise we've got the TurnAxisName.
+
+756
+00:32:04 --> 00:32:07
+Sorry, that was TurnAxis is horizontal
+
+757
+00:32:07 --> 00:32:09
+MoveAxis is vertical.
+
+758
+00:32:10 --> 00:32:12
+Then we've got a rigidbody component.
+
+759
+00:32:12 --> 00:32:16
+So that's just going to store a reference to the
+
+760
+00:32:16 --> 00:32:18
+tank's rigidbody and we're going to use
+
+761
+00:32:18 --> 00:32:20
+that to actually move the tank around.
+
+762
+00:32:22 --> 00:32:24
+Then we've got two floats
+
+763
+00:32:24 --> 00:32:26
+and these are the input values
+
+764
+00:32:26 --> 00:32:28
+so when we've actually got the input
+
+765
+00:32:28 --> 00:32:31
+we've used Input.GetAxis, we'll store that
+
+766
+00:32:31 --> 00:32:33
+and then we can use it wherever we want,
+
+767
+00:32:33 --> 00:32:35
+because it's a number variable.
+
+768
+00:32:36 --> 00:32:38
+Finally we've got the OriginalPitch.
+
+769
+00:32:38 --> 00:32:40
+So rather than varying around the
+
+770
+00:32:40 --> 00:32:42
+current pitch of the tank
+
+771
+00:32:42 --> 00:32:44
+we vary around it's original pitch, because if we
+
+772
+00:32:44 --> 00:32:46
+vary around the current pitch
+
+773
+00:32:46 --> 00:32:47
+and it keeps on getting higher and higher and higher
+
+774
+00:32:47 --> 00:32:49
+you're going to end up with a very strange sounding tank.
+
+775
+00:32:51 --> 00:32:55
+Okay, so first function there is the Awake function
+
+776
+00:32:55 --> 00:32:57
+and that is called
+
+777
+00:32:57 --> 00:32:59
+regardless of whether the tank is on or off
+
+778
+00:33:00 --> 00:33:02
+when the scene very first starts.
+
+779
+00:33:03 --> 00:33:05
+So all we're doing there is using
+
+780
+00:33:05 --> 00:33:07
+GetComponent
+
+781
+00:33:07 --> 00:33:09
+to store that reference to the rigidbody.
+
+782
+00:33:10 --> 00:33:13
+So you'll see this a lot, you'll see GetComponent
+
+783
+00:33:13 --> 00:33:15
+in Awake functions in a few of these scripts
+
+784
+00:33:15 --> 00:33:17
+and basically it's just storing a reference
+
+785
+00:33:17 --> 00:33:20
+to a particular component on a particular game object.
+
+786
+00:33:20 --> 00:33:23
+Now here we're saying just GetComponent
+
+787
+00:33:23 --> 00:33:25
+but you could make a reference to another game object
+
+788
+00:33:25 --> 00:33:28
+and get a component reference to that stored if you really wanted to.
+
+789
+00:33:29 --> 00:33:31
+We're just saying GetComponent, which says
+
+790
+00:33:31 --> 00:33:33
+'okay, this script is attached to a particular game object,
+
+791
+00:33:33 --> 00:33:35
+look at the list of components there
+
+792
+00:33:35 --> 00:33:37
+and grab the one that we put in to
+
+793
+00:33:37 --> 00:33:40
+these angled brackets', Rigidbody being the type.
+
+794
+00:33:41 --> 00:33:44
+Okay, so the next function is OnEnable.
+
+795
+00:33:44 --> 00:33:47
+And this is called when this script is turned on,
+
+796
+00:33:47 --> 00:33:49
+so it'll be called after Awake
+
+797
+00:33:50 --> 00:33:51
+but before any of the updates happen.
+
+798
+00:33:52 --> 00:33:54
+So what we're doing in OnEnable,
+
+799
+00:33:54 --> 00:33:55
+sorry, I should mention beforehand,
+
+800
+00:33:55 --> 00:33:57
+the way we're dealing with the tanks dying
+
+801
+00:33:57 --> 00:33:59
+is we're turning them off.
+
+802
+00:33:59 --> 00:34:01
+We're setting them to be inactive
+
+803
+00:34:02 --> 00:34:04
+and so that when we turn them back on
+
+804
+00:34:04 --> 00:34:06
+for the next round OnEnable is called.
+
+805
+00:34:08 --> 00:34:10
+When they get turned off OnDisabled will be called,
+
+806
+00:34:10 --> 00:34:12
+when they get turned back on OnEnabled will be called
+
+807
+00:34:12 --> 00:34:14
+and we can use those to setup the various
+
+808
+00:34:14 --> 00:34:16
+defaults that we need.
+
+809
+00:34:16 --> 00:34:18
+So for example we don't want the
+
+810
+00:34:18 --> 00:34:21
+rigidbody to be kinematic when we turn the tank on.
+
+811
+00:34:21 --> 00:34:23
+If it was kinematic then we'd have trouble moving it.
+
+812
+00:34:23 --> 00:34:26
+So kinematic just means that no forces
+
+813
+00:34:26 --> 00:34:29
+will be applied, so when you talk about moving
+
+814
+00:34:29 --> 00:34:31
+physics objects you're either
+
+815
+00:34:31 --> 00:34:33
+moving the position to a particular place or moving
+
+816
+00:34:33 --> 00:34:35
+the rotation to kind of turn them around.
+
+817
+00:34:35 --> 00:34:37
+Or you're adding a force, you're basically
+
+818
+00:34:37 --> 00:34:38
+hitting them, moving them around.
+
+819
+00:34:39 --> 00:34:41
+We're using a function called MovePosition
+
+820
+00:34:41 --> 00:34:43
+which we'll use to drive the tank around.
+
+821
+00:34:44 --> 00:34:46
+But basically if you don't want any forces
+
+822
+00:34:46 --> 00:34:48
+to be applied to it, so say your tank gets hit
+
+823
+00:34:48 --> 00:34:51
+by a shell and it's kind of flung around the object
+
+824
+00:34:51 --> 00:34:53
+but that's when it actually explodes
+
+825
+00:34:53 --> 00:34:55
+and dies, as we put it.
+
+826
+00:34:55 --> 00:34:57
+Then you don't want that tank to keep moving
+
+827
+00:34:57 --> 00:34:59
+when the round resets, you don't want that residual
+
+828
+00:34:59 --> 00:35:02
+force being applied to it, so we use IsKinematic.
+
+829
+00:35:02 --> 00:35:04
+Kinematic mode being on just
+
+830
+00:35:04 --> 00:35:07
+basically means no forces can affect it.
+
+831
+00:35:07 --> 00:35:10
+So for example if you were making
+
+832
+00:35:10 --> 00:35:12
+a pinball game and you wanted a physics
+
+833
+00:35:12 --> 00:35:14
+object which is the hammer that hits the ball
+
+834
+00:35:14 --> 00:35:16
+you'd make a kinematic hammer
+
+835
+00:35:16 --> 00:35:18
+so that when it hit the ball it didn't bounce off,
+
+836
+00:35:18 --> 00:35:21
+if just hit and fires out the ball.
+
+837
+00:35:21 --> 00:35:23
+So kinematic is if you want
+
+838
+00:35:23 --> 00:35:25
+physics but you don't want physics forces to affect.
+
+839
+00:35:27 --> 00:35:29
+Our OnEnable/OnDisable is basically taking
+
+840
+00:35:29 --> 00:35:31
+care of that, so when we switch the tank on
+
+841
+00:35:31 --> 00:35:35
+we make sure it stops being kinematic
+
+842
+00:35:35 --> 00:35:37
+so you can drive it again, but when it gets to
+
+843
+00:35:37 --> 00:35:39
+disabled we put that kinematic
+
+844
+00:35:39 --> 00:35:41
+on to stop all the forces moving it
+
+845
+00:35:41 --> 00:35:45
+whilst it's invisible, and you'll see that as we go through the day.
+
+846
+00:35:45 --> 00:35:47
+So the other things that we want to do in OnEnable
+
+847
+00:35:47 --> 00:35:49
+are reset the values for Input.
+
+848
+00:35:49 --> 00:35:51
+so it doesn't start driving straight away,
+
+849
+00:35:51 --> 00:35:53
+we need to commence driving.
+
+850
+00:35:56 --> 00:35:59
+After OnEnable and OnDisable we've got Start.
+
+851
+00:36:04 --> 00:36:06
+So in Start, as I mentioned before, we're setting
+
+852
+00:36:06 --> 00:36:08
+up those axis names,
+
+853
+00:36:08 --> 00:36:11
+the movement axis vertical + PlayerNumber,
+
+854
+00:36:11 --> 00:36:13
+so for player1 it's going to be Vertical1,
+
+855
+00:36:13 --> 00:36:15
+and as we saw in the input inspector
+
+856
+00:36:16 --> 00:36:18
+that's going to call the correct axis.
+
+857
+00:36:19 --> 00:36:21
+So we've got Horizontal1 there
+
+858
+00:36:21 --> 00:36:23
+and we've added in a little note
+
+859
+00:36:23 --> 00:36:25
+there just saying it's keyboard axis for player1.
+
+860
+00:36:26 --> 00:36:28
+So if you were going to make, and as you'll see if you
+
+861
+00:36:28 --> 00:36:31
+download the multiplayer networked version
+
+862
+00:36:31 --> 00:36:33
+of Tanks tomorrow,
+
+863
+00:36:33 --> 00:36:35
+you'll see that we've added in GamePad
+
+864
+00:36:35 --> 00:36:37
+axis and all those kind of things,
+
+865
+00:36:37 --> 00:36:39
+so you can just extend that.
+
+866
+00:36:41 --> 00:36:43
+Okay, so we're setting up those
+
+867
+00:36:43 --> 00:36:45
+two axis names and then
+
+868
+00:36:45 --> 00:36:47
+the last thing we need to do is store
+
+869
+00:36:47 --> 00:36:49
+the original pitch of the MovementAudio,
+
+870
+00:36:49 --> 00:36:52
+so our tank doesn't keep on getting higher and higher pitched.
+
+871
+00:36:52 --> 00:36:54
+So one important difference to note here is that
+
+872
+00:36:54 --> 00:36:56
+with the rigidbody component
+
+873
+00:36:56 --> 00:36:59
+what we did is to say
+
+874
+00:36:59 --> 00:37:01
+'oh, we're just going to use the Awake function
+
+875
+00:37:01 --> 00:37:03
+and GetComponent to store
+
+876
+00:37:03 --> 00:37:05
+a reference to that component'.
+
+877
+00:37:05 --> 00:37:06
+So why aren't we doing that now?
+
+878
+00:37:06 --> 00:37:10
+Well if you remember the tank has two audio sources.
+
+879
+00:37:11 --> 00:37:13
+So the tank audio source
+
+880
+00:37:13 --> 00:37:15
+could be either of these, and what tends to happen
+
+881
+00:37:15 --> 00:37:17
+is it'll pick the first one it finds.
+
+882
+00:37:18 --> 00:37:20
+So we want to be very specific about
+
+883
+00:37:20 --> 00:37:22
+the one that we're using for movement
+
+884
+00:37:22 --> 00:37:24
+and guarantee that we know what we're doing.
+
+885
+00:37:25 --> 00:37:27
+What we've done with that is to store it as a
+
+886
+00:37:27 --> 00:37:29
+public audio source.
+
+887
+00:37:29 --> 00:37:31
+Instead of a clip that we're dragging on,
+
+888
+00:37:31 --> 00:37:33
+we're actually going to drag the name of that component
+
+889
+00:37:33 --> 00:37:35
+and drop it on to the script.
+
+890
+00:37:35 --> 00:37:37
+And we'll do that after we've finished the script.
+
+891
+00:37:37 --> 00:37:39
+But this is a reference specifically to that.
+
+892
+00:37:40 --> 00:37:43
+Once we've assigned that we can .pitch
+
+893
+00:37:43 --> 00:37:46
+to just grab the pitch property of that component.
+
+894
+00:37:46 --> 00:37:48
+So what you'll see when you look there is
+
+895
+00:37:48 --> 00:37:51
+you can adjust it here, it's just this little slider.
+
+896
+00:37:51 --> 00:37:53
+It's just going to grab that original value
+
+897
+00:37:53 --> 00:37:55
+and store it for us so we can randomise
+
+898
+00:37:55 --> 00:37:57
+is as people drive around.
+
+899
+00:37:58 --> 00:38:00
+And that's our Start function.
+
+900
+00:38:00 --> 00:38:02
+Right, so the first thing we want to do in Update
+
+901
+00:38:02 --> 00:38:04
+is store the values of Input.
+
+902
+00:38:04 --> 00:38:06
+Because Update is where Input is
+
+903
+00:38:06 --> 00:38:09
+calculated so that's the best place to have it.
+
+904
+00:38:09 --> 00:38:11
+So Update is running every frame.
+
+905
+00:38:12 --> 00:38:14
+So if the game is running 30 frames or
+
+906
+00:38:14 --> 00:38:16
+60 frames it's running that many times per second.
+
+907
+00:38:17 --> 00:38:20
+And we use it to store Input
+
+908
+00:38:20 --> 00:38:22
+and then we use FixedUpdate
+
+909
+00:38:22 --> 00:38:25
+which looks very similar, is a couple of functions down
+
+910
+00:38:25 --> 00:38:27
+to actually apply that movement,
+
+911
+00:38:27 --> 00:38:29
+so you'll see that in a moment.
+
+912
+00:38:30 --> 00:38:32
+As James said we're going to use that to get the Input.
+
+913
+00:38:32 --> 00:38:38
+What we're going to do here is m_MovementInputValue
+
+914
+00:38:39 --> 00:38:42
+What I want you to just notice, and we'll do this a bit at a time,
+
+915
+00:38:42 --> 00:38:45
+as I've started typing this I've got this autocomplete.
+
+916
+00:38:45 --> 00:38:47
+Now autocomplete isn't entirely reliable,
+
+917
+00:38:47 --> 00:38:49
+sometimes it doesn't quite know what you're doing
+
+918
+00:38:49 --> 00:38:51
+and gets confused, so sometimes it won't come up,
+
+919
+00:38:51 --> 00:38:53
+you may have to look at exactly what I'm doing
+
+920
+00:38:53 --> 00:38:54
+and just double check your code.
+
+921
+00:38:54 --> 00:38:56
+But what I want to point out is when this autocomplete
+
+922
+00:38:56 --> 00:38:59
+does come up I can use my arrow keys
+
+923
+00:38:59 --> 00:39:01
+to just go between these different things
+
+924
+00:39:01 --> 00:39:04
+and I can select the one I want, hit return to finish it off.
+
+925
+00:39:04 --> 00:39:09
+So MovementInputValue = Input.GetAxis
+
+926
+00:39:10 --> 00:39:13
+and then GetAxis take a parameter and that
+
+927
+00:39:13 --> 00:39:15
+parameter is the MovementAxisName.
+
+928
+00:39:16 --> 00:39:18
+So you remember we setup that string?
+
+929
+00:39:18 --> 00:39:20
+Parsing in that string
+
+930
+00:39:20 --> 00:39:22
+to get the axis.
+
+931
+00:39:23 --> 00:39:27
+And then very similarly for the TurnAxis we're doing
+
+932
+00:39:27 --> 00:39:37
+m_TurnInputValue = Input.GetAxis (m_TurnAxisName)
+
+933
+00:39:42 --> 00:39:44
+So all that's doing is it's finding
+
+934
+00:39:44 --> 00:39:47
+the value of two axis and it's storing their values.
+
+935
+00:39:48 --> 00:39:51
+So we're not going to use them too much in Update
+
+936
+00:39:51 --> 00:39:53
+but we are going to use them quite a lot in FixedUpdate
+
+937
+00:39:53 --> 00:39:55
+where we actually move the tank.
+
+938
+00:39:55 --> 00:39:57
+Okay, so the last thing that we want to do in Update
+
+939
+00:39:57 --> 00:40:01
+is put a call to the EngineAudio function.
+
+940
+00:40:01 --> 00:40:08
+You do this by typing EngineAudio ();
+
+941
+00:40:08 --> 00:40:11
+We're going to have all of the engine sounds
+
+942
+00:40:11 --> 00:40:13
+managed by it's own function so we're just going to
+
+943
+00:40:13 --> 00:40:15
+put a call to that function in Update
+
+944
+00:40:15 --> 00:40:17
+so that every frame it's making sure that it's
+
+945
+00:40:17 --> 00:40:19
+playing the right audio.
+
+946
+00:40:19 --> 00:40:21
+And the next thing that we're going to do is actually
+
+947
+00:40:21 --> 00:40:23
+make that EngineAudio function.
+
+948
+00:40:23 --> 00:40:25
+So you'll notice that we've got an empty stub of a function there
+
+949
+00:40:26 --> 00:40:28
+and we're going to complete it.
+
+950
+00:40:28 --> 00:40:30
+So I'm going to leave the comment at the top,
+
+951
+00:40:30 --> 00:40:32
+I'm just going to put my cursor at the end there and hit return
+
+952
+00:40:32 --> 00:40:34
+a few times to move down.
+
+953
+00:40:36 --> 00:40:38
+So the basis of this function is
+
+954
+00:40:38 --> 00:40:41
+if the tank is moving
+
+955
+00:40:41 --> 00:40:43
+then we want to play the EngineDriving sound effect.
+
+956
+00:40:43 --> 00:40:45
+If the tank is stationary then we want to
+
+957
+00:40:45 --> 00:40:47
+play the EngineIdling sound effect
+
+958
+00:40:47 --> 00:40:49
+But we only actually need to change those
+
+959
+00:40:49 --> 00:40:52
+or vary the pitch if the wrong one is being played.
+
+960
+00:40:52 --> 00:40:55
+So if we're moving and the EngineIdling sound effect
+
+961
+00:40:55 --> 00:40:57
+is being played then we need to do something about it.
+
+962
+00:40:57 --> 00:40:59
+If we're stationary and the EngineDriving sound effect
+
+963
+00:40:59 --> 00:41:01
+is being played then we need to do something about it.
+
+964
+00:41:02 --> 00:41:04
+So the first thing we're going to do is create an
+
+965
+00:41:04 --> 00:41:06
+if statement and an else statement
+
+966
+00:41:06 --> 00:41:09
+to work out whether we're moving or whether we're not moving.
+
+967
+00:41:10 --> 00:41:12
+So in the if statement type
+
+968
+00:41:12 --> 00:41:16
+if (Mathf.Abs
+
+969
+00:41:17 --> 00:41:19
+and I'll explain this line after we've typed it,
+
+970
+00:41:20 --> 00:41:30
+Mathf.Abs (m_MovementInputValue) <
+
+971
+00:41:31 --> 00:41:33
+It's a left chevron, I don't know if that
+
+972
+00:41:33 --> 00:41:34
+makes sense, or a left angle bracket,
+
+973
+00:41:34 --> 00:41:36
+depending on what you want to call it.
+
+974
+00:41:36 --> 00:42:01
+And then 0.1f && Mathf.Abs (m_TurnInputValue) < 0.1f)
+
+975
+00:42:01 --> 00:42:03
+and after that we can put, on a new line,
+
+976
+00:42:03 --> 00:42:08
+open brackets, brackets, and closed brackets,
+
+977
+00:42:08 --> 00:42:11
+so we've got the structure for us there.
+
+978
+00:42:13 --> 00:42:15
+Real quick note, with these
+
+979
+00:42:15 --> 00:42:18
+curly braces, or brackets as you guys call them,
+
+980
+00:42:18 --> 00:42:19
+I tend to put them on a new line.
+
+981
+00:42:19 --> 00:42:21
+What Monodevelop likes to do is force you
+
+982
+00:42:21 --> 00:42:23
+to not put them on a new line,
+
+983
+00:42:23 --> 00:42:25
+it'll tend to put it next to the
+
+984
+00:42:25 --> 00:42:27
+same line but you can just do undo,
+
+985
+00:42:27 --> 00:42:29
+which will just put them back where you intend them to be,
+
+986
+00:42:29 --> 00:42:31
+it's a little tip for Monodevelop.
+
+987
+00:42:31 --> 00:42:33
+So let's talk about this actual line of code,
+
+988
+00:42:33 --> 00:42:35
+and what it does.
+
+989
+00:42:35 --> 00:42:37
+Okay, so you'll notice we've got two parts,
+
+990
+00:42:37 --> 00:42:39
+we've got one part that's about
+
+991
+00:42:39 --> 00:42:42
+the MovementInputValue and then & and then another part
+
+992
+00:42:42 --> 00:42:43
+that's about the TurnInputValue.
+
+993
+00:42:43 --> 00:42:49
+So part one here is comparing, less than, and then this just means
+
+994
+00:42:49 --> 00:42:54
+this condition, here, 1 and, &&, that's what that means,
+
+995
+00:42:55 --> 00:42:57
+also this condition must be true
+
+996
+00:42:57 --> 00:42:59
+for us to carry out the instructions in this if statement.
+
+997
+00:43:01 --> 00:43:04
+So that first part is Mathf.Abs of the MovementInputValue.
+
+998
+00:43:05 --> 00:43:08
+if that is less than 0.1f.
+
+999
+00:43:09 --> 00:43:13
+So the absolute value of a float is
+
+1000
+00:43:13 --> 00:43:14
+just the positive version of it.
+
+1001
+00:43:14 --> 00:43:17
+So if it's 0.1 then it'll be 0.1,
+
+1002
+00:43:17 --> 00:43:19
+if it's -0.1 then it'll also be 0.1.
+
+1003
+00:43:19 --> 00:43:22
+The reason we do that is that the InputValue is
+
+1004
+00:43:22 --> 00:43:25
+going to be a value from -1 to 1
+
+1005
+00:43:25 --> 00:43:28
+with obviously 0 being a kind of idling.
+
+1006
+00:43:28 --> 00:43:31
+So for example if our MovementInputValue would be
+
+1007
+00:43:31 --> 00:43:34
+holding the up or down keys on the keyboard.
+
+1008
+00:43:34 --> 00:43:36
+When I'm holding back it'll be -1
+
+1009
+00:43:36 --> 00:43:38
+and when I'm holding up it'll be 1.
+
+1010
+00:43:39 --> 00:43:42
+So we need to convert this to be a
+
+1011
+00:43:42 --> 00:43:44
+positive number because we just want to compare
+
+1012
+00:43:44 --> 00:43:46
+it with 0.1, we want to know
+
+1013
+00:43:46 --> 00:43:49
+whether you're driving backwards, driving forwards,
+
+1014
+00:43:49 --> 00:43:52
+you're driving slightly, and when it gets to 0.1
+
+1015
+00:43:52 --> 00:43:54
+then you know that you're driving somewhat.
+
+1016
+00:43:56 --> 00:43:58
+And the same for turning.
+
+1017
+00:43:59 --> 00:44:01
+As Will was saying there,
+
+1018
+00:44:01 --> 00:44:05
+we're saying if you've got a little bit of input at least
+
+1019
+00:44:06 --> 00:44:09
+in the vertical plane or in the horizontal axis
+
+1020
+00:44:10 --> 00:44:14
+then you are moving, so within this if statement we know
+
+1021
+00:44:14 --> 00:44:16
+that the tank is moving.
+
+1022
+00:44:17 --> 00:44:21
+Also we'll want to deal with the case where the tank isn't moving.
+
+1023
+00:44:21 --> 00:44:23
+So what we're going to do before we go in to that if statement
+
+1024
+00:44:23 --> 00:44:25
+is we're going to put the else statement.
+
+1025
+00:44:26 --> 00:44:28
+So outside of the if statement
+
+1026
+00:44:28 --> 00:44:33
+add else {}.
+
+1027
+00:44:33 --> 00:44:36
+So here's that example, if I press return now
+
+1028
+00:44:36 --> 00:44:38
+I put in my brackets it's going to move them for me
+
+1029
+00:44:38 --> 00:44:40
+I can just hit undo and move them where I want.
+
+1030
+00:44:40 --> 00:44:42
+I tend to layout code like this, but if you want
+
+1031
+00:44:42 --> 00:44:44
+to do it slightly differently that's totally fine.
+
+1032
+00:44:44 --> 00:44:47
+Okay, so now we've got some open and closed
+
+1033
+00:44:47 --> 00:44:49
+brackets for if the tank is moving
+
+1034
+00:44:49 --> 00:44:50
+and we've got some open and closed brackets for
+
+1035
+00:44:50 --> 00:44:52
+if the tank isn't moving.
+
+1036
+00:44:52 --> 00:44:54
+So the else is dealing with if we're driving around
+
+1037
+00:44:54 --> 00:44:56
+the if is dealing with if we're idling.
+
+1038
+00:44:59 --> 00:45:01
+Within the if statement
+
+1039
+00:45:02 --> 00:45:03
+we're going to need another if statement.
+
+1040
+00:45:03 --> 00:45:08
+So remember we've just said the tank is idling
+
+1041
+00:45:08 --> 00:45:10
+so it's not moving anywhere, so we only want
+
+1042
+00:45:10 --> 00:45:12
+it to do anything if the clip
+
+1043
+00:45:12 --> 00:45:14
+that we're currently playing is driving.
+
+1044
+00:45:14 --> 00:45:16
+So that's what we're going to check for next.
+
+1045
+00:45:16 --> 00:45:18
+Also when James says within we just mean
+
+1046
+00:45:18 --> 00:45:21
+after the opening brackets and before the closing one.
+
+1047
+00:45:22 --> 00:45:24
+This is why I kind of layout code that way,
+
+1048
+00:45:24 --> 00:45:26
+so you can see that a bit more easily.
+
+1049
+00:45:26 --> 00:45:28
+On this line we're going to put in a new if statement.
+
+1050
+00:45:28 --> 00:45:30
+So this if statement is going to check
+
+1051
+00:45:30 --> 00:45:32
+that audio source that we gave it
+
+1052
+00:45:32 --> 00:45:34
+and check it's clip.
+
+1053
+00:45:36 --> 00:45:43
+We're going to say if (m_MovementAudio.clip ==
+
+1054
+00:45:46 --> 00:45:52
+m_EngineDriving) {
+
+1055
+00:45:56 --> 00:45:58
+Okay, so what this line is doing is saying
+
+1056
+00:45:59 --> 00:46:00
+'you know that audio source that's on the tank?
+
+1057
+00:46:01 --> 00:46:02
+Check what clip it's playing'.
+
+1058
+00:46:03 --> 00:46:05
+If that clip is equal to
+
+1059
+00:46:05 --> 00:46:07
+EngineDriving, and that's the ==,
+
+1060
+00:46:07 --> 00:46:09
+it's checking whether something is the same
+
+1061
+00:46:09 --> 00:46:10
+as something else,
+
+1062
+00:46:10 --> 00:46:13
+if it's EngineDriving then we know we're playing the wrong one
+
+1063
+00:46:13 --> 00:46:15
+so we need to do something about that.
+
+1064
+00:46:16 --> 00:46:17
+So what we're going to do is say
+
+1065
+00:46:17 --> 00:46:25
+m_MovementAudio.clip and then set that to EngineIdling.
+
+1066
+00:46:31 --> 00:46:33
+But that's not enough, we also want
+
+1067
+00:46:33 --> 00:46:35
+to vary the pitch so that we don't have
+
+1068
+00:46:35 --> 00:46:37
+that same sound horribleness.
+
+1069
+00:46:38 --> 00:46:45
+So m_MovementAudio.pitch and that is equal to Random.Range.
+
+1070
+00:46:45 --> 00:46:48
+We're going to write this out first and then I'll explain it afterwards.
+
+1071
+00:46:48 --> 00:46:52
+So that's Random.Range (
+
+1072
+00:46:52 --> 00:46:54
+and then it's got two parameters and the first parameter is
+
+1073
+00:46:54 --> 00:47:00
+m_OriginalPitch - m_PitchRange
+
+1074
+00:47:03 --> 00:47:07
+And then after a comma the second parameter is
+
+1075
+00:47:07 --> 00:47:14
+m_OriginalPitch + m_PitchRange.
+
+1076
+00:47:19 --> 00:47:21
+I'm just going to try and fit that on the screen for you all.
+
+1077
+00:47:23 --> 00:47:25
+Don't forget the semi colon at the end of the line.
+
+1078
+00:47:28 --> 00:47:30
+Okay so what we've done here is switched which
+
+1079
+00:47:30 --> 00:47:32
+clip the audio source is playing
+
+1080
+00:47:32 --> 00:47:34
+and then we've addressed the pitch and said
+
+1081
+00:47:34 --> 00:47:36
+set it to a random value
+
+1082
+00:47:36 --> 00:47:38
+in a range that is between
+
+1083
+00:47:38 --> 00:47:42
+the original pitch minus that range that we gave it
+
+1084
+00:47:42 --> 00:47:44
+and the original pitch plus the range that we gave it.
+
+1085
+00:47:44 --> 00:47:46
+So the original pitch I think
+
+1086
+00:47:46 --> 00:47:49
+I remember is being 1
+
+1087
+00:47:49 --> 00:47:51
+so minus the PitchRange is going to be
+
+1088
+00:47:51 --> 00:47:54
+0.8 plus the PitchRange is going to be 1.2.
+
+1089
+00:47:54 --> 00:47:56
+So we're saying set the pitch to a random
+
+1090
+00:47:56 --> 00:47:59
+value between 0.8 and 1.2.
+
+1091
+00:47:59 --> 00:48:03
+You might ask 'why don't we just write 0.8 and 1.2?'
+
+1092
+00:48:03 --> 00:48:05
+Well we might want to change what the original pitch is,
+
+1093
+00:48:05 --> 00:48:09
+we might want to redesign the game a little bit
+
+1094
+00:48:09 --> 00:48:12
+then this will still work, whatever we do with it.
+
+1095
+00:48:12 --> 00:48:14
+We try to avoid what we call
+
+1096
+00:48:14 --> 00:48:16
+magic numbers, so just plugging in an
+
+1097
+00:48:16 --> 00:48:18
+absolute value that would have to go back
+
+1098
+00:48:18 --> 00:48:20
+in to the code to change.
+
+1099
+00:48:20 --> 00:48:22
+The last thing that we're going to do there is
+
+1100
+00:48:22 --> 00:48:24
+once we've changed the clip that
+
+1101
+00:48:24 --> 00:48:26
+an audio source is playing we need to tell it to
+
+1102
+00:48:26 --> 00:48:28
+play that clip again, because it's going to stop.
+
+1103
+00:48:28 --> 00:48:32
+So MovementAudio.Play ()
+
+1104
+00:48:32 --> 00:48:35
+This is just a simple note, whenever you change
+
+1105
+00:48:35 --> 00:48:37
+clips on an audio source through code
+
+1106
+00:48:37 --> 00:48:40
+you do just need to call the play function.
+
+1107
+00:48:40 --> 00:48:44
+So again a function that's usually denoted by a capital letter at the start,
+
+1108
+00:48:44 --> 00:48:46
+capital letter P for Play there.
+
+1109
+00:48:47 --> 00:48:50
+That is all we need to do for when the tank is idling.
+
+1110
+00:48:51 --> 00:48:52
+When the tank is driving
+
+1111
+00:48:52 --> 00:48:54
+we need to do very very similar things
+
+1112
+00:48:55 --> 00:48:57
+but switch round the clips, so all we're going to do
+
+1113
+00:48:57 --> 00:49:00
+is copy that inner if statement
+
+1114
+00:49:00 --> 00:49:02
+and paste it within the else statement
+
+1115
+00:49:02 --> 00:49:05
+so that's within the brackets of the else statement.
+
+1116
+00:49:05 --> 00:49:07
+So I'm just going to show you this slowly,
+
+1117
+00:49:07 --> 00:49:10
+I'm selecting all of the if statement, so from the
+
+1118
+00:49:10 --> 00:49:13
+opening if to the closing bracket
+
+1119
+00:49:13 --> 00:49:15
+that's taking care of that.
+
+1120
+00:49:15 --> 00:49:18
+I'm going to copy, so control-C or command-C on mac,
+
+1121
+00:49:18 --> 00:49:21
+and I'm going to put my cursor within the brackets of else
+
+1122
+00:49:22 --> 00:49:25
+and paste them there, then the things that need changing
+
+1123
+00:49:25 --> 00:49:28
+are my EngineDriving and EngineIdling.
+
+1124
+00:49:28 --> 00:49:30
+So as we've said before, the first one has
+
+1125
+00:49:30 --> 00:49:32
+handles if you're idling, we check if
+
+1126
+00:49:32 --> 00:49:34
+it's currently driving we set it.
+
+1127
+00:49:34 --> 00:49:37
+So we check is the clip currently driving?
+
+1128
+00:49:37 --> 00:49:39
+If so set it to idling, and then this is the
+
+1129
+00:49:39 --> 00:49:41
+opposite of that, if it's currently idling
+
+1130
+00:49:41 --> 00:49:43
+we need to swap it around, so all you need
+
+1131
+00:49:43 --> 00:49:47
+to do is just retype that and retype that one.
+
+1132
+00:49:48 --> 00:49:51
+For me this is line 76 and 78,
+
+1133
+00:49:51 --> 00:49:55
+it might be slightly different depending on how you've put your brackets
+
+1134
+00:49:55 --> 00:49:56
+But your second if statement there should say
+
+1135
+00:49:56 --> 00:50:02
+if m_MovementAudio.Clip == m_EngineIdling;
+
+1136
+00:50:02 --> 00:50:04
+so if you're playing the idling clip
+
+1137
+00:50:04 --> 00:50:07
+don't do that, play the EngineDriving.
+
+1138
+00:50:07 --> 00:50:08
+And then the other things are just the same thing,
+
+1139
+00:50:08 --> 00:50:11
+we always want to randomise the pitch
+
+1140
+00:50:11 --> 00:50:13
+and we always want to make sure we play it.
+
+1141
+00:50:13 --> 00:50:16
+So we've got the same two lines that we did before.
+
+1142
+00:50:18 --> 00:50:20
+As we're going through the code just keep
+
+1143
+00:50:20 --> 00:50:22
+control-S or command-S to update
+
+1144
+00:50:22 --> 00:50:24
+the script to make sure you save it
+
+1145
+00:50:24 --> 00:50:26
+again in case you lose any work.
+
+1146
+00:50:26 --> 00:50:28
+You'll notice that there's,
+
+1147
+00:50:28 --> 00:50:30
+we're saying that the absolute
+
+1148
+00:50:30 --> 00:50:34
+value of MovementInput is less than 0.1f.
+
+1149
+00:50:34 --> 00:50:36
+So what that f is doing is saying
+
+1150
+00:50:36 --> 00:50:38
+treat this number as a floating point value.
+
+1151
+00:50:39 --> 00:50:42
+Because there's multiple different types of
+
+1152
+00:50:42 --> 00:50:45
+numbers in programming and this is a way of
+
+1153
+00:50:45 --> 00:50:48
+telling the compiler which type of number we're using,
+
+1154
+00:50:48 --> 00:50:50
+so we always want to use floats,
+
+1155
+00:50:50 --> 00:50:51
+so put an f at the end.
+
+1156
+00:50:51 --> 00:50:53
+So I'm going to move on a little bit,
+
+1157
+00:50:53 --> 00:50:55
+but I'm just going to keep that code up there
+
+1158
+00:50:55 --> 00:50:57
+and type down here so hopefully
+
+1159
+00:50:57 --> 00:51:00
+anyone still typing, they can still see it.
+
+1160
+00:51:00 --> 00:51:02
+I'm just going to move in to the FixedUpdate function now.
+
+1161
+00:51:02 --> 00:51:05
+In FixedUpdate, what does that do?
+
+1162
+00:51:05 --> 00:51:07
+Well it's a similar name to Update,
+
+1163
+00:51:07 --> 00:51:10
+but instead of running every rendered frame,
+
+1164
+00:51:10 --> 00:51:12
+so every visual frame,
+
+1165
+00:51:12 --> 00:51:14
+what it's doing is running every physics step.
+
+1166
+00:51:14 --> 00:51:16
+So the physics engine will run
+
+1167
+00:51:16 --> 00:51:18
+what we call steps, so a bunch of
+
+1168
+00:51:18 --> 00:51:21
+instances where it updates itself every second.
+
+1169
+00:51:22 --> 00:51:26
+And then the updates that we want to do with
+
+1170
+00:51:26 --> 00:51:28
+that are things to do with physics, so we want to
+
+1171
+00:51:28 --> 00:51:30
+move the tank and we want to rotate the tank.
+
+1172
+00:51:30 --> 00:51:32
+So we just put a call to the functions that
+
+1173
+00:51:32 --> 00:51:34
+handle that in to the FixedUpdate function.
+
+1174
+00:51:35 --> 00:51:37
+And that means that it's going to move in
+
+1175
+00:51:37 --> 00:51:39
+step with the physics engine,
+
+1176
+00:51:39 --> 00:51:40
+so all I'm going to do is put in
+
+1177
+00:51:40 --> 00:51:45
+Move and Turn in to those, and we'll write those in a moment.
+
+1178
+00:51:45 --> 00:51:47
+All that we need to do in physics
+
+1179
+00:51:47 --> 00:51:49
+is move and turn the tank, and we've got our own
+
+1180
+00:51:49 --> 00:51:51
+functions to deal with that so all we
+
+1181
+00:51:51 --> 00:51:53
+need to do is put calls to those functions.
+
+1182
+00:51:54 --> 00:51:56
+So you'll see that we've added what we call
+
+1183
+00:51:56 --> 00:51:58
+stub lines and I'm just going to move those up the
+
+1184
+00:51:58 --> 00:52:00
+screen so you can see them move easily.
+
+1185
+00:52:01 --> 00:52:03
+And they are Move and Turn.
+
+1186
+00:52:04 --> 00:52:07
+So in the Move function
+
+1187
+00:52:07 --> 00:52:09
+what we need to do is two things,
+
+1188
+00:52:09 --> 00:52:12
+we need to calculate how far the tank is going to move
+
+1189
+00:52:12 --> 00:52:14
+and we need to move it.
+
+1190
+00:52:14 --> 00:52:16
+So first of all we need to calculate the
+
+1191
+00:52:16 --> 00:52:18
+vector that the tank is going to move along.
+
+1192
+00:52:18 --> 00:52:21
+So for that we create a vector3 variable.
+
+1193
+00:52:21 --> 00:52:23
+What is a vector James?
+
+1194
+00:52:23 --> 00:52:27
+A vector, in our case it's 3 values, X, Y and Z.
+
+1195
+00:52:28 --> 00:52:31
+So for a change in X, a change in Y and a change in Z,
+
+1196
+00:52:31 --> 00:52:32
+in our case.
+
+1197
+00:52:32 --> 00:52:34
+So we're going to create a vector3 called Movement
+
+1198
+00:52:34 --> 00:52:37
+and we're going to set it equal to
+
+1199
+00:52:37 --> 00:52:39
+transform.forward
+
+1200
+00:52:39 --> 00:52:42
+so that's a vector representing the forward direction of the tank.
+
+1201
+00:52:43 --> 00:52:45
+And that's going to be multiplied by
+
+1202
+00:52:45 --> 00:52:48
+m_MovementInputValue.
+
+1203
+00:52:49 --> 00:52:51
+And that's going to be multiplied by
+
+1204
+00:52:51 --> 00:52:56
+m_Speed and Time.deltaTime.
+
+1205
+00:52:59 --> 00:53:01
+Okay, so what is that doing?
+
+1206
+00:53:01 --> 00:53:04
+It's creating a vector, in the tank's forward direction
+
+1207
+00:53:05 --> 00:53:07
+that's scaled by the amount of input it's receiving,
+
+1208
+00:53:07 --> 00:53:10
+so if it's receiving an input value of 1 then it
+
+1209
+00:53:10 --> 00:53:12
+wants to go forwards so it's going to be
+
+1210
+00:53:12 --> 00:53:13
+transform.forward still.
+
+1211
+00:53:13 --> 00:53:15
+If it's receiving an input value of -1
+
+1212
+00:53:15 --> 00:53:17
+then it's going to go backwards along it's forwards vector.
+
+1213
+00:53:18 --> 00:53:20
+We're next going to multiply that by Speed
+
+1214
+00:53:20 --> 00:53:22
+so instead of moving 1 per frame
+
+1215
+00:53:22 --> 00:53:25
+it's going to move the amount of Speed per frame.
+
+1216
+00:53:25 --> 00:53:27
+Which was 12?
+
+1217
+00:53:27 --> 00:53:30
+So per frame it's going to move 12 units.
+
+1218
+00:53:30 --> 00:53:33
+But we don't want it to move that far per frame
+
+1219
+00:53:33 --> 00:53:36
+so we're going to do multiplied by time.deltaTime
+
+1220
+00:53:36 --> 00:53:39
+to instead make it proportional to a second,
+
+1221
+00:53:39 --> 00:53:41
+rather than per frame,
+
+1222
+00:53:41 --> 00:53:43
+it's going to move 12 units every second.
+
+1223
+00:53:44 --> 00:53:48
+So it's basically just a way of smoothing that out per frame.
+
+1224
+00:53:48 --> 00:53:51
+You'll see a lot of times time.deltaTime
+
+1225
+00:53:51 --> 00:53:53
+in Unity projects, it's just a way to guarantee
+
+1226
+00:53:53 --> 00:53:55
+that you're not moving something
+
+1227
+00:53:55 --> 00:53:57
+many times every physics step,
+
+1228
+00:53:57 --> 00:53:59
+you're instead doing it per second
+
+1229
+00:53:59 --> 00:54:01
+so don't worry about that too much.
+
+1230
+00:54:01 --> 00:54:03
+So what are we going to do with that vector?
+
+1231
+00:54:04 --> 00:54:07
+Now we've worked out what our movement's going to be
+
+1232
+00:54:07 --> 00:54:09
+we want to actually apply that to the rigidbody
+
+1233
+00:54:09 --> 00:54:11
+so the way we do that is we say
+
+1234
+00:54:11 --> 00:54:14
+m_Rigidbody.MovePosition
+
+1235
+00:54:16 --> 00:54:23
+and then (m_Rigidbody.position + movement)
+
+1236
+00:54:24 --> 00:54:26
+So what MovePosition does
+
+1237
+00:54:26 --> 00:54:29
+is it moves a rigidbody to the
+
+1238
+00:54:29 --> 00:54:31
+absolute position that you give it.
+
+1239
+00:54:31 --> 00:54:34
+So if we moved it to just movement,
+
+1240
+00:54:34 --> 00:54:38
+if we'd missed out the Rigidbody.position in there
+
+1241
+00:54:38 --> 00:54:40
+then it would always move around just
+
+1242
+00:54:40 --> 00:54:42
+around the centre of the world and never
+
+1243
+00:54:42 --> 00:54:43
+move anywhere at all.
+
+1244
+00:54:43 --> 00:54:45
+So if we add the current position
+
+1245
+00:54:45 --> 00:54:47
+to that movement then it's going to move relative
+
+1246
+00:54:47 --> 00:54:50
+to itself and it's going to start moving around the world.
+
+1247
+00:54:51 --> 00:54:53
+Okay, so let's move on to the Turn function.
+
+1248
+00:54:53 --> 00:54:56
+The Turn function is very slightly more complicated,
+
+1249
+00:54:56 --> 00:54:58
+but we'll draw some comparisons
+
+1250
+00:54:58 --> 00:55:00
+and it'll be quite easy.
+
+1251
+00:55:01 --> 00:55:03
+So the first thing that we want to do is
+
+1252
+00:55:03 --> 00:55:05
+create the amount that we're going to turn,
+
+1253
+00:55:05 --> 00:55:07
+and instead of it being a vector
+
+1254
+00:55:08 --> 00:55:11
+we want a float, because we need to know
+
+1255
+00:55:11 --> 00:55:13
+how many degrees we're going to turn
+
+1256
+00:55:14 --> 00:55:16
+In order to create this float
+
+1257
+00:55:16 --> 00:55:18
+we're going to give it the input value,
+
+1258
+00:55:18 --> 00:55:22
+so m_TurnInputValue
+
+1259
+00:55:22 --> 00:55:23
+We're going to again multiply it by the Speed,
+
+1260
+00:55:23 --> 00:55:25
+but in this case it's the turn speed,
+
+1261
+00:55:25 --> 00:55:27
+so m_TurnSpeed.
+
+1262
+00:55:28 --> 00:55:32
+And again we're going to multiply it by time.deltaTime.
+
+1263
+00:55:34 --> 00:55:35
+So what this is doing is creating
+
+1264
+00:55:35 --> 00:55:39
+a number of degrees that we want to move per frame,
+
+1265
+00:55:39 --> 00:55:42
+but Unity doesn't deal with rotations in floats,
+
+1266
+00:55:42 --> 00:55:44
+it doesn't actually deal with them in vector3s,
+
+1267
+00:55:44 --> 00:55:46
+like it shows on the inspector,
+
+1268
+00:55:46 --> 00:55:48
+it actually deals with them in something called a Quaternion.
+
+1269
+00:55:49 --> 00:55:51
+A quaternion is just a way of storing
+
+1270
+00:55:51 --> 00:55:53
+a rotation and that's kind of what
+
+1271
+00:55:53 --> 00:55:56
+you need to know, is that Unity is using this data type
+
+1272
+00:55:56 --> 00:55:58
+to store it internally,
+
+1273
+00:55:58 --> 00:56:00
+but we can feed in a vector3
+
+1274
+00:56:00 --> 00:56:02
+in to a particular function
+
+1275
+00:56:02 --> 00:56:04
+to turn it in to a quaternion,
+
+1276
+00:56:04 --> 00:56:06
+and that's exactly what we're going to do right now.
+
+1277
+00:56:06 --> 00:56:10
+So I'm going to say Quaternion.Euler
+
+1278
+00:56:11 --> 00:56:15
+and then I'm going to give it an X, Y and a Z value.
+
+1279
+00:56:15 --> 00:56:17
+We know that when we're turning the tank
+
+1280
+00:56:17 --> 00:56:19
+we don't want to turn it around X because it will
+
+1281
+00:56:19 --> 00:56:21
+just be flipping over and, well that could be cool,
+
+1282
+00:56:21 --> 00:56:22
+but we're not going to do that.
+
+1283
+00:56:22 --> 00:56:24
+So 0f, for X.
+
+1284
+00:56:24 --> 00:56:26
+Then we want to feed in a value for Y and we've
+
+1285
+00:56:26 --> 00:56:29
+just calculated that as James said, that's turn.
+
+1286
+00:56:29 --> 00:56:31
+that's the amount, so we don't need to put in a number
+
+1287
+00:56:31 --> 00:56:32
+we'll put in our variable name.
+
+1288
+00:56:32 --> 00:56:34
+And then finally we don't want to move it around Z,
+
+1289
+00:56:34 --> 00:56:36
+we don't want it to spin forward, that would also be
+
+1290
+00:56:37 --> 00:56:38
+pretty cool, but we're not going to do that.
+
+1291
+00:56:38 --> 00:56:39
+No barrel rolls.
+
+1292
+00:56:39 --> 00:56:41
+This is not Rocket League.
+
+1293
+00:56:41 --> 00:56:43
+So instead we're just going to put in 0f there.
+
+1294
+00:56:43 --> 00:56:46
+Again, we're using the f just to tell this
+
+1295
+00:56:46 --> 00:56:48
+that they're float values, so a vector3
+
+1296
+00:56:48 --> 00:56:50
+is made up of 3 float values
+
+1297
+00:56:50 --> 00:56:53
+and that's what this quaternion is expecting.
+
+1298
+00:56:54 --> 00:56:56
+A quick note, we're created a
+
+1299
+00:56:56 --> 00:57:00
+variable called turn which is a lower case t here,
+
+1300
+00:57:00 --> 00:57:02
+and the function has an upper case T
+
+1301
+00:57:02 --> 00:57:05
+so make sure that when you've called it
+
+1302
+00:57:05 --> 00:57:07
+and created it you've created it with a lower case
+
+1303
+00:57:07 --> 00:57:09
+t because otherwise the compiler is going to get confused
+
+1304
+00:57:09 --> 00:57:12
+between the variable and the function.
+
+1305
+00:57:13 --> 00:57:15
+Okay, so now we've created that quaternion
+
+1306
+00:57:15 --> 00:57:17
+that we can use to turn the tank,
+
+1307
+00:57:17 --> 00:57:19
+so we're going to do something very similar to
+
+1308
+00:57:19 --> 00:57:20
+the Move function.
+
+1309
+00:57:20 --> 00:57:22
+We're going to say m_Rigidbody
+
+1310
+00:57:23 --> 00:57:27
+.MoveRotation, so instead of MovePosition it's MoveRotation
+
+1311
+00:57:28 --> 00:57:30
+and again we need it to be
+
+1312
+00:57:30 --> 00:57:32
+relative to it's current rotation,
+
+1313
+00:57:32 --> 00:57:35
+so m_Rigidbody.Rotation
+
+1314
+00:57:35 --> 00:57:37
+but you can't add two quatrains together,
+
+1315
+00:57:37 --> 00:57:39
+it doesn't actually make any sense.
+
+1316
+00:57:39 --> 00:57:43
+So what you need to do is multiply so you have the
+
+1317
+00:57:43 --> 00:57:45
+rigidbody's rotation and then we multiply
+
+1318
+00:57:45 --> 00:57:47
+by the turn rotation that we've created.
+
+1319
+00:57:48 --> 00:57:50
+And that's all there is to it.
+
+1320
+00:57:50 --> 00:57:52
+Yeah, when you're done, save your scripts
+
+1321
+00:57:52 --> 00:57:54
+and then we can return to the editor.
+
+1322
+00:57:55 --> 00:57:57
+So switch back to Unity once you've done that
+
+1323
+00:57:57 --> 00:58:00
+and what you'll see that either your
+
+1324
+00:58:00 --> 00:58:02
+copied it out exactly correctly and
+
+1325
+00:58:02 --> 00:58:04
+understood everything and it's all cool,
+
+1326
+00:58:04 --> 00:58:06
+or you might have some errors which will show
+
+1327
+00:58:06 --> 00:58:09
+at the bottom in the console window.
+
+1328
+00:58:09 --> 00:58:11
+So what I'm going to do is jut
+
+1329
+00:58:11 --> 00:58:13
+save my script and switch back to the editor.
+
+1330
+00:58:14 --> 00:58:16
+and see if I've made any errors.
+
+1331
+00:58:17 --> 00:58:19
+If you've done it correctly, what you'll see
+
+1332
+00:58:19 --> 00:58:21
+is if you just save briefly in Unity
+
+1333
+00:58:21 --> 00:58:23
+and then press Play at the top.
+
+1334
+00:58:23 --> 00:58:25
+Not a lot is going to happen,
+
+1335
+00:58:25 --> 00:58:27
+and you'll get an error at the bottom.
+
+1336
+00:58:29 --> 00:58:33
+You'll see this unassigned reference exception.
+
+1337
+00:58:33 --> 00:58:34
+So what does that mean?
+
+1338
+00:58:34 --> 00:58:36
+Basically whenever we create public variables
+
+1339
+00:58:36 --> 00:58:38
+in a script the idea is that
+
+1340
+00:58:38 --> 00:58:41
+we will then assign something to them in the editor.
+
+1341
+00:58:41 --> 00:58:43
+And we'll do that in a moment, I'm going to deliberately
+
+1342
+00:58:43 --> 00:58:45
+add an error in to my script.
+
+1343
+00:58:46 --> 00:58:48
+So I'm going to put in another
+
+1344
+00:58:48 --> 00:58:50
+value in here, for no reason
+
+1345
+00:58:50 --> 00:58:51
+and save my script.
+
+1346
+00:58:51 --> 00:58:54
+When I am in Unity, what Unity is going to do,
+
+1347
+00:58:54 --> 00:58:57
+if I go to Window - Console,
+
+1348
+00:58:57 --> 00:58:59
+command-shift-C or control-shift-C
+
+1349
+00:58:59 --> 00:59:01
+Window - Console.
+
+1350
+00:59:01 --> 00:59:03
+I will have a list of all the errors
+
+1351
+00:59:03 --> 00:59:05
+that I've got right now.
+
+1352
+00:59:05 --> 00:59:07
+The thing that I just put in,
+
+1353
+00:59:07 --> 00:59:09
+it will show me which line it's on
+
+1354
+00:59:09 --> 00:59:13
+and it'll tell me a rough approximation of what I've done wrong.
+
+1355
+00:59:13 --> 00:59:15
+So it says 'oh this doesn't make sense that
+
+1356
+00:59:15 --> 00:59:18
+it takes four arguments, why have you put four things in?'
+
+1357
+00:59:18 --> 00:59:20
+Because what I've done there is,
+
+1358
+00:59:20 --> 00:59:22
+is I've put in four instead of the
+
+1359
+00:59:22 --> 00:59:24
+three values that it was expecting.
+
+1360
+00:59:24 --> 00:59:26
+If I save that and return back to Unity
+
+1361
+00:59:26 --> 00:59:29
+it will recompile, it will think,
+
+1362
+00:59:29 --> 00:59:31
+and then I'll get back to the actual
+
+1363
+00:59:31 --> 00:59:32
+real problems that I've got.
+
+1364
+00:59:32 --> 00:59:34
+I'm just going to talk briefly about what we've
+
+1365
+00:59:34 --> 00:59:36
+just done to refresh everyone's memory,
+
+1366
+00:59:36 --> 00:59:38
+that would be cool.
+
+1367
+00:59:38 --> 00:59:40
+So in this script we handled
+
+1368
+00:59:40 --> 00:59:42
+getting the input for the tank,
+
+1369
+00:59:42 --> 00:59:44
+remember we stored references
+
+1370
+00:59:44 --> 00:59:45
+to the inputs.
+
+1371
+00:59:45 --> 00:59:49
+We got the values and we were in charge of
+
+1372
+00:59:49 --> 00:59:51
+reading those values and applying them
+
+1373
+00:59:51 --> 00:59:54
+to the actual movement functions.
+
+1374
+00:59:54 --> 00:59:56
+We setup the audio so that we know
+
+1375
+00:59:56 --> 00:59:58
+that when we're driving it's going to play the right clip,
+
+1376
+00:59:58 --> 01:00:00
+when we're idling it's going to play the right clip.
+
+1377
+01:00:00 --> 01:00:02
+And like I said we're setting up forward and backward movement
+
+1378
+01:00:02 --> 01:00:04
+and obviously turning as well.
+
+1379
+01:00:04 --> 01:00:06
+Now once we did that
+
+1380
+01:00:07 --> 01:00:09
+we returned to Unity and we
+
+1381
+01:00:09 --> 01:00:12
+fixed all of our errors thanks to the wonderful helpful team.
+
+1382
+01:00:12 --> 01:00:14
+But we can't play the game just yet,
+
+1383
+01:00:14 --> 01:00:16
+now that's because we need to populate
+
+1384
+01:00:16 --> 01:00:18
+the script and it's public variables.
+
+1385
+01:00:18 --> 01:00:21
+So I'm just going to show you that script as a component once more.
+
+1386
+01:00:22 --> 01:00:25
+So TankMovement should look like this.
+
+1387
+01:00:25 --> 01:00:27
+And because we created some of those
+
+1388
+01:00:27 --> 01:00:29
+public variables with values,
+
+1389
+01:00:29 --> 01:00:31
+so numbers for example,
+
+1390
+01:00:31 --> 01:00:33
+so the player number, the speed, the turn speed,
+
+1391
+01:00:33 --> 01:00:35
+they're already filled in, so it just reads them in
+
+1392
+01:00:35 --> 01:00:37
+and if I change them here.
+
+1393
+01:00:38 --> 01:00:40
+then they're not going to change in the script.
+
+1394
+01:00:40 --> 01:00:43
+What's in the inspector always overrides what's in the script.
+
+1395
+01:00:44 --> 01:00:48
+But we do need to fill in these 3 fields,
+
+1396
+01:00:48 --> 01:00:51
+movement audio and engine idling and driving.
+
+1397
+01:00:51 --> 01:00:53
+So as I said earlier the
+
+1398
+01:00:53 --> 01:00:55
+first one there is an audio source,
+
+1399
+01:00:55 --> 01:00:57
+it's not a clip, we're not going to be able
+
+1400
+01:00:57 --> 01:00:59
+to select something.
+
+1401
+01:00:59 --> 01:01:01
+We're instead going to just drag and drop the
+
+1402
+01:01:01 --> 01:01:03
+audio source that we want to use.
+
+1403
+01:01:03 --> 01:01:05
+So the movement audio
+
+1404
+01:01:05 --> 01:01:07
+is being played back by the
+
+1405
+01:01:07 --> 01:01:09
+first audio source.
+
+1406
+01:01:09 --> 01:01:12
+So what I want you to do, and just watch this first
+
+1407
+01:01:12 --> 01:01:14
+is just grab the name of the audio source
+
+1408
+01:01:14 --> 01:01:17
+by clicking here, and then drag and drop it,
+
+1409
+01:01:17 --> 01:01:20
+you can see it says Tank (Audio Source) where I'm holding my mouse button down.
+
+1410
+01:01:20 --> 01:01:22
+Drop it on to Movement Audio.
+
+1411
+01:01:22 --> 01:01:24
+That's going to assign anything that's being
+
+1412
+01:01:24 --> 01:01:26
+played via that variable to play
+
+1413
+01:01:26 --> 01:01:28
+out of that audio source component.
+
+1414
+01:01:28 --> 01:01:30
+The other two should be straight forward,
+
+1415
+01:01:30 --> 01:01:32
+it's using the circle select button to the right
+
+1416
+01:01:32 --> 01:01:34
+of the field to pop open
+
+1417
+01:01:34 --> 01:01:37
+the selection window, this thing.
+
+1418
+01:01:37 --> 01:01:39
+And the first one is engine idling,
+
+1419
+01:01:39 --> 01:01:41
+EngineIdle clip,
+
+1420
+01:01:41 --> 01:01:43
+and then clicking the circle select to the right
+
+1421
+01:01:43 --> 01:01:45
+right of engine driving and choosing
+
+1422
+01:01:45 --> 01:01:47
+the like named clip there.
+
+1423
+01:01:49 --> 01:01:51
+Once you've done those you can then save
+
+1424
+01:01:51 --> 01:01:53
+your scene, test play and you should no
+
+1425
+01:01:53 --> 01:01:55
+longer get those errors because
+
+1426
+01:01:55 --> 01:01:57
+the errors that we were getting before
+
+1427
+01:01:58 --> 01:02:00
+were what's called an unassigned reference.
+
+1428
+01:02:00 --> 01:02:01
+So it basically was saying
+
+1429
+01:02:01 --> 01:02:03
+'hey, this MovementAudio thing, this audio
+
+1430
+01:02:03 --> 01:02:05
+source hasn't been assigned, you need to probably
+
+1431
+01:02:05 --> 01:02:07
+do that in the inspector.'
+
+1432
+01:02:09 --> 01:02:12
+So we've done that, so I can clear my console.
+
+1433
+01:02:13 --> 01:02:15
+And if I press Play.
+
+1434
+01:02:17 --> 01:02:19
+I can drive around
+
+1435
+01:02:31 --> 01:02:33
+So what you'll notice is that the pitch
+
+1436
+01:02:33 --> 01:02:35
+is varying but only slightly.
+
+1437
+01:02:35 --> 01:02:37
+So the main idea with this is because
+
+1438
+01:02:37 --> 01:02:41
+we're using a multiplayer game on one screen
+
+1439
+01:02:41 --> 01:02:43
+we're using audio that we don't want to phase,
+
+1440
+01:02:43 --> 01:02:44
+it's what we call 2D audio,
+
+1441
+01:02:44 --> 01:02:46
+it's not based on distance,
+
+1442
+01:02:46 --> 01:02:49
+it's going to playback at the same volume
+
+1443
+01:02:49 --> 01:02:51
+throughout the game depending on
+
+1444
+01:02:51 --> 01:02:52
+where the tanks move.
+
+1445
+01:02:52 --> 01:02:55
+Because you don't have one avatar for the person who's
+
+1446
+01:02:55 --> 01:02:56
+playing the game, you've got two people
+
+1447
+01:02:56 --> 01:02:59
+looking at the same screen, playing the same game.
+
+1448
+01:03:00 --> 01:03:03
+So to have them playing back the same sound
+
+1449
+01:03:03 --> 01:03:05
+will create what's called phasing and it will just
+
+1450
+01:03:05 --> 01:03:08
+sound horrible, so we vary both pitches at the same time.
+
+1451
+01:03:08 --> 01:03:10
+You know, they could overlap, there could
+
+1452
+01:03:10 --> 01:03:12
+be some random situations where they've playing the same
+
+1453
+01:03:12 --> 01:03:14
+but each time they change where they're driving or
+
+1454
+01:03:14 --> 01:03:18
+rotating it will vary the pitch again so you're
+
+1455
+01:03:18 --> 01:03:21
+hopefully avoiding a lot of phasing with this approach.
+
+1456
+01:03:21 --> 01:03:24
+So that is our TankMovement script.
+
+1457
+01:03:24 --> 01:03:26
+We've now assigned our variables so I'm just
+
+1458
+01:03:26 --> 01:03:28
+going to jump back and a quick recap of those.
+
+1459
+01:03:28 --> 01:03:30
+So we assigned our audio source, we dropped
+
+1460
+01:03:30 --> 01:03:32
+it on to the Movement Audio variable.
+
+1461
+01:03:33 --> 01:03:36
+And for EngineIdling we used circle select
+
+1462
+01:03:36 --> 01:03:38
+to choose EngineIdle audio clip.
+
+1463
+01:03:38 --> 01:03:40
+And then for driving we did the same.
+
+1464
+01:03:41 --> 01:03:43
+Now the next step, as you can see
+
+1465
+01:03:43 --> 01:03:46
+on this slide is to update the prefab.
+
+1466
+01:03:46 --> 01:03:48
+So we need to update our prefab and I'm going to show
+
+1467
+01:03:48 --> 01:03:49
+you where that is.
+
+1468
+01:03:49 --> 01:03:51
+When the tank is selected,
+
+1469
+01:03:51 --> 01:03:54
+I'm just going to collapse that so we've only got the tank selected,
+
+1470
+01:03:54 --> 01:03:56
+you'll see up at the top Prefab
+
+1471
+01:03:56 --> 01:03:58
+Select, Revert and Apply.
+
+1472
+01:03:58 --> 01:04:00
+We just want to hit Apply because right now, before I
+
+1473
+01:04:00 --> 01:04:02
+do that I'm just going to show you that
+
+1474
+01:04:02 --> 01:04:04
+what I've got here is different
+
+1475
+01:04:04 --> 01:04:06
+to my prefab.
+
+1476
+01:04:06 --> 01:04:09
+Currently my prefab's just got the audio sources
+
+1477
+01:04:09 --> 01:04:11
+the collider and the rigidbody.
+
+1478
+01:04:11 --> 01:04:13
+But my version of that prefab
+
+1479
+01:04:13 --> 01:04:16
+in the hierarchy or our current scene
+
+1480
+01:04:16 --> 01:04:18
+is different, it's got the TankMovement script and it's
+
+1481
+01:04:18 --> 01:04:20
+got the different variables of that script assigned.
+
+1482
+01:04:21 --> 01:04:23
+What you'll also notice is that these
+
+1483
+01:04:23 --> 01:04:25
+are in bold, it's hard to tell unless you
+
+1484
+01:04:25 --> 01:04:27
+look at something that isn't involved
+
+1485
+01:04:27 --> 01:04:30
+notice that the text here, Script, Player Number, etcetera
+
+1486
+01:04:30 --> 01:04:32
+is more emboldened than this.
+
+1487
+01:04:32 --> 01:04:34
+That's just alerting me to the fact that
+
+1488
+01:04:34 --> 01:04:36
+these are different to the prefab.
+
+1489
+01:04:36 --> 01:04:38
+So as soon as I update the
+
+1490
+01:04:38 --> 01:04:40
+prefab with these settings by hitting
+
+1491
+01:04:40 --> 01:04:42
+apply you watch and you'll see
+
+1492
+01:04:42 --> 01:04:43
+that these aren't bold any more.
+
+1493
+01:04:43 --> 01:04:45
+So I hit apply.
+
+1494
+01:04:45 --> 01:04:47
+It goes back to normal and it tells me that
+
+1495
+01:04:47 --> 01:04:49
+the version in the scene is exactly the same
+
+1496
+01:04:49 --> 01:04:51
+as the prefab.
+
+1497
+01:04:51 --> 01:04:53
+Go to the prefab settings at the top, hit apply,
+
+1498
+01:04:53 --> 01:04:55
+you can hit it as many times as you like to make sure,
+
+1499
+01:04:55 --> 01:04:57
+and then you can save your scene.
+
+1500
+01:04:57 --> 01:04:59
+We've updated the prefab
+
+1501
+01:05:00 --> 01:05:02
+at the top of the inspector
+
+1502
+01:05:02 --> 01:05:04
+so any future tanks that we drag out of the inspector
+
+1503
+01:05:04 --> 01:05:07
+will be the same as our updated version
+
+1504
+01:05:07 --> 01:05:09
+and then we're just going to save our scene, File - Save.
+
+1505
+01:05:11 --> 01:05:13
+Okay, so hopefully everyone has
+
+1506
+01:05:13 --> 01:05:15
+been able to play test the game.
+
+1507
+01:05:15 --> 01:05:17
+I'm just going to turn that down.
+
+1508
+01:05:17 --> 01:05:19
+Of course what you'll notice is that we don't have
+
+1509
+01:05:19 --> 01:05:21
+the ability to move the camera around just yet
+
+1510
+01:05:21 --> 01:05:23
+so it's kind of a boring game
+
+1511
+01:05:23 --> 01:05:27
+where the tank just disappears and
+
+1512
+01:05:27 --> 01:05:29
+you know, it's off to find it's destiny.
+
+1513
+01:05:30 --> 01:05:32
+So that's that done, we've saved our scene.
+
+1514
+01:05:32 --> 01:05:35
+And that's the end of phase 2.
+
