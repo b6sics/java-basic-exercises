@@ -49,11 +49,12 @@ public class Szavak {
                 s = dummy;
             }
         }
-        DecimalFormat df = new DecimalFormat("#0.00");
-        System.out.println("\n\nA. " + kk + "/" + sum + " : "
-                + df.format(kk * 100.0 / sum) + " %");
-        System.out.printf("B. %d/%d : %3.2f %%\n",
-                kk, sum, (double) (100 * kk / sum));
+        System.out.println("\n\nEz az összes felsorolt szónak a");
+//        DecimalFormat df = new DecimalFormat("#0.00");
+//        System.out.println("A. " + kk + "/" + sum + " : "
+//                + df.format(kk * 100.0 / sum) + " %-a");
+        System.out.printf("\t%d/%d : %3.2f %%-a\n",
+                kk, sum, (double) (100.0 * kk / sum));
         return s;
     }
 
@@ -65,10 +66,15 @@ public class Szavak {
         Scanner be = new Scanner(System.in, "Cp1250");
         System.out.print("Kérek gépeljen be egy szót: ");
         String szo = be.nextLine();
-        System.out.println("A magánhangzók száma: " + maganhangzok(szo));
-        System.out.println("\nTöbb magánhangzó:");
+        if (szo.equals("")) {
+            szo = "megszentségteleníthetetlenségetekért";
+        }
+        System.out.println("A magánhangzók száma a '"
+                + szo + "' szóban: " + maganhangzok(szo));
+        System.out.println("\nA mássalhangzóknál több magánhangzót "
+                + "tartalmazó szavak:");
         String lh = leghosszabb();
         System.out.println("\nA leghosszabb szó: " + lh
-                + ", " + lh.length() + " betű hosszú");
+                + ", ami " + lh.length() + " betű hosszú");
     }
 }
