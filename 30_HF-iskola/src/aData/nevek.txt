@@ -1,0 +1,650 @@
+2016 c Bodnar Szilvia
+2015 b Rasztik Gyorgy
+2016 e Muller Reka
+2015 b Maltesics Fanni
+2017 a Csermak Edit
+2016 a Somlyo Ildiko
+2017 c Boros Petra
+2014 d Gaal Daniel
+2017 a Hirth Ferenc
+2014 a Nagy Katalin
+2014 d Csepregi Daniel
+2015 b Kovacs Orsolya
+2014 e Refi Csaba
+2014 b Denes Anna
+2014 b Szabo Brigitta
+2014 c Huszar Renato Pal
+2014 d Kovacs Zsofia
+2014 d Vavrek Kristof
+2016 e Hidas Reka
+2016 d Kun Michael
+2017 a Ruff Noemi
+2017 b Berze Eva
+2014 a Endredy Lakatos Margit
+2014 b Salanki Eszter Rita
+2015 d Magyar Vivien Evelin
+2017 a Csermak Roza
+2017 d Barta Gergo
+2016 d Dobos Andras
+2014 a Magat Klaudia
+2014 c Schmidt Borbala
+2015 a Szabo Mihaly
+2014 d Boganyi Margaret
+2015 d Weidinger Peter
+2017 e Petrik Zsofia
+2014 a Tolcsvay-Nagy Reka Luca
+2015 e Fabian Aniko
+2014 c Berndt Martin
+2015 e Matefi Mercedesz
+2015 a Matefi Emese
+2015 d Orso Andras
+2016 e Varga Zsuzsa
+2017 a Farkas Zsuzsa
+2017 e Romhanyi Daniel Robert
+2014 e Falvay Zsanett
+2014 b Szentes Zoltan
+2017 c Csepregi Gyorgy
+2014 d Romhanyi Rebeka
+2014 b Laczko Reka
+2017 e Kardos Istvan
+2016 a Janosi Mihaly
+2017 b Farkas Steven
+2017 b Horvath Janet
+2015 e Csaba Dora
+2017 d Kucsera Jesus
+2017 c Csepregi Mihaly
+2015 a LotsosRicky Kinga
+2014 b Hozman Richard
+2016 d Rasztik Dora
+2017 a Dohoczki Maria
+2015 a Maller Akos
+2014 e Bene Eszter
+2016 b Wagner Endre
+2016 b Bengi Sandor
+2017 d Lehotzky Oliver
+2016 d Bakos Reka
+2017 b Varga Zsofia
+2015 b Hangyasi Kristof
+2016 d Gonda Gyorgy
+2014 c Stang Tamas
+2015 e Nemeth Tamas
+2017 e Tapai Anne
+2017 b Deri Dina
+2017 b Madarasz Edina
+2015 e Lemak Veronika
+2016 e Kiraly Balint
+2017 a Kovacs Krisztina Judit
+2017 b Homola Sandor
+2016 e Dettai Felicia
+2014 d Novak Beata
+2015 c Hirth Janos
+2017 b Nagymarosy Natalie
+2016 c Mattyus Balazs
+2015 a Gonda Bela
+2016 c Wagner Istvan
+2017 b Hegyi Roza
+2017 d Hatala Roza
+2017 e Vaszil Krisztina
+2015 d Vanyur Reka
+2014 d Bajor Mark
+2015 d Kriszten David
+2016 e Molnar Adam
+2017 e Palinkas Antal
+2017 c Bruder Barbara
+2014 b Pifku Bence
+2015 e Joo Peter
+2016 b Kiss Beatrix
+2016 c Sandor Miklos
+2016 b Berezvai Jozsef
+2015 a Lehotzky Arthur
+2017 e Mangult Bettina
+2015 b Joo Krisztian
+2015 c Sitku Natalia
+2015 a Bodnar Richard
+2017 b Szabo David
+2014 b Wolff Viktoria
+2015 e Varga Gergely
+2015 b Monostori Mihaly
+2016 b Balogh Dora
+2014 e Nagy Judit
+2016 b Kulcsar Tamas
+2014 c Hangyasi Boglarka
+2015 e Kovacs Gabor
+2014 e Pridalko Vilmos
+2016 a Kovacs Aron
+2017 b Buchanan Zoltan Csaba
+2015 a Molnar Viktoria
+2016 d Fule Noemi
+2016 c Erdohelyi Csilla
+2014 a Renyi Ferenc
+2014 d Kophazi Ildiko
+2014 d Kis Viktoria
+2014 e Fuller Zsuzsanna
+2015 c Csanyi Zsuzsa
+2017 b Sarvari Piroska
+2017 e Balazs Pal
+2014 b Mezo Sandor
+2016 c Wellington Tunde
+2014 e Gombos Beata
+2017 a Bordas Vivien Evelin
+2014 c Kocsis Gergo
+2015 e Callahan Kitti
+2015 a Bodor Bettina
+2014 d Schiller Krisztina
+2016 a Balogh Agnes
+2015 b Vadkerti Viktoria
+2015 d Lehotzky Gabor
+2017 c Keri Marta
+2017 a Sarosdi Dora
+2017 c Hargitai Ildiko
+2017 b Mate Aron
+2016 c Stang Istvan
+2017 c Pal Janos
+2017 c Negyesi Attila
+2015 c Szalma Diana
+2015 e Szabo Jesus
+2017 d Tapay Janos Tamas
+2014 a Balazs Istvan
+2014 e Bogar Marta
+2014 e Toman Istvan
+2015 a Balogh Edina
+2015 b Nemeth Diana
+2014 a Lehotzky Adam Gabor
+2014 c Karatson Kristof
+2015 d Batkai Kinga
+2015 c Domokos Tunde
+2017 d Barkasz Csilla
+2014 d Hidas Zoltan Csaba
+2015 b Bohdaneczky Adrienn
+2014 e Hamza Vivien
+2015 b Valo Adam Gabor
+2017 c Mate Laszlo
+2016 c Bodnar Emese
+2015 e Jedlovszky Gellert Sandor
+2016 a Takacs Melinda
+2017 b Barta Gergo
+2016 a Somlyo Steven
+2016 d Lehotzky Janos
+2016 e Kiss Reka
+2015 c Hatala Ilona
+2017 b Nagy Janos
+2017 a Szekely Mate
+2015 d King Mercedesz
+2016 a Szabados Viktoria
+2015 e Tompos Adam Gabor
+2016 d Bauer Krisztina
+2016 b Major Anna
+2017 c Gyocsi Ildiko
+2015 c Fulop Tamas
+2016 a Vajda Fruzsina Borbala
+2017 b Magat Noemi
+2015 a Schmidt Andras
+2015 e Pinter Sandor
+2015 c Kiraly Istvan
+2015 e Bruder Krisztina
+2015 e Mattyus Diana
+2015 a Gerse Andras
+2016 a Elek Balazs
+2016 a Batkai Antal
+2017 c Csepregi Korl
+2014 c Dylski Judit
+2017 b Bodi Monika
+2017 a Kovacs Leila
+2016 b Rabai Viktoria
+2016 c Bolyos Borbala
+2016 d Ignacz Mercedesz Marta
+2015 a Bodor Klara
+2016 d Batkai Szabina
+2014 c Katona Boglarka
+2014 b Gaal Peter
+2015 c Kovacs Jozsef
+2014 a Domokos Krisztina
+2015 d TolcsvayNagy Daniel Robert
+2015 b Fialowski Olga Zsofia
+2016 a Kiraly Zoltan
+2016 e Csermak Henrik
+2017 d Ivancsik Edit
+2014 b Vagner Peter
+2017 d Elbert Bence
+2014 b Kun David
+2014 c Farkas Tunde
+2017 d Pazmany Emese
+2014 d Iszaly Karoly
+2014 c Bihacker Szabolcs Tivadar
+2014 d Karatson Patricia Mercedesz
+2014 d Laczkovics Lakatos Margit
+2016 a Kovacs Reka
+2017 c Ihasz Bernadett
+2017 d Molnar Krisztina
+2017 e Komlos Lakatos Margit
+2016 e Miskolczi Reka
+2016 c Borka Adam Gabor
+2016 e Hollos Eva
+2017 b Szalma Erno
+2017 e Bodnar Gyula
+2014 b Krizsan Adrienn
+2014 e Fekete Szilvia
+2016 a her Karoly
+2016 a Prokopp Reka
+2016 c Toman Zsofia
+2015 e Pazmany Alessandro
+2014 e Simon Szabolcs Tivadar
+2015 e Kuller Andrea
+2016 d Bognar Frank
+2017 c Szalma Luca Krisztina
+2014 e Keri Julio
+2017 d Beres Zoltan
+2014 d Farkas Janet
+2015 b Komlos Zoltan
+2017 a Wootsch Gergely
+2017 b Lehotzky Dorottya
+2017 c Valo Istvan
+2017 c Bilicska Daniel Robert
+2016 b Bako Balazs Istvan
+2014 d Vari Renata
+2015 a Callahan Attila
+2014 b Antalfi Akos
+2017 b Miller Gabor
+2014 e Lemak Andrea
+2016 d Csanyi Zsuzsa
+2014 a Csetnegi Andre
+2015 d Cselotei Balazs
+2015 d Voros Kitti Noemi
+2016 b Denes Ildiko
+2016 a Czulek Gyorgy
+2017 d Berze Dalma
+2016 d Lendvai Gyula
+2015 d Kelan Istvan
+2017 a Boka Daniel Andras
+2016 b Pinter Tunde
+2017 e Peter Fruzsina
+2014 d Pazmany Kristof
+2017 e Arkossy Daniel
+2014 e Berzlanovich Imre
+2016 c Denes Zsuzsa
+2016 c Bakos Gergely
+2015 c Hegedus Tamas
+2015 d Banfi Akos
+2016 d Kovacs Laura
+2015 e Denes Gyorgy
+2014 b Horvath Gyorgy
+2014 e Klezly Bettina
+2017 d Szabo Ildiko
+2016 b Barkasz Katalin
+2015 d Goldberg Marta
+2016 a Farkas Gyorgy
+2017 c Emho Petra
+2014 b Koschler Tamas
+2015 a Madarasz Nikolett
+2014 b Lemak Janos
+2016 a Kovacs Lajos
+2017 b Orso Christopher
+2016 b Prokopp Viktoria
+2016 e Beke Andras
+2017 a Denes Anna
+2014 b Zsigmondi Zoltan
+2014 b Csetnegi Szilvia
+2015 d Ruff Gabor
+2016 c Szabo Attila
+2016 d Fried Tamas
+2015 c Szabo Allan
+2015 c Forgacs Richard
+2015 b Arkossy Reka
+2015 d Hangyasi Gyula
+2016 a Hegedus Agnes
+2016 b Malovics Reka Luca
+2015 c Molnar Tamas
+2015 a Illyes Erno
+2015 c Cselotei Maria
+2016 b Toman Beatrix
+2017 e Meszaros Andrea
+2016 b Totka Gergo
+2015 a Mitlasovszki Mercedesz
+2016 b Horvath Csilla Livia
+2016 c Scholz Akos
+2015 e Farkas Edit
+2014 d Unk Anne
+2015 e Monostori Gergo
+2015 a Feher Viktoria
+2015 e Gombor Thomas
+2015 e Saghy Istvan
+2015 e Katona Peter
+2017 e Fialowski Szilvia
+2014 b Kovacs Jozsef
+2015 c Wellington Peter
+2017 a Suyama Krisztian
+2016 b Unk Eszter
+2017 e Kettesy Zsofia
+2017 a Illes Viktoria
+2015 e Peter Peter
+2017 d Fried Eszter Leticia
+2015 a Varga Brigitta
+2014 e Callahan Eszter
+2015 e Eszes Ildiko
+2014 b Mezo Istvan
+2014 b Pomothy Gyorgy
+2015 d Berndt Oliver
+2016 a Pinter Tunde
+2017 c Marton Richard
+2014 d Borka Edina
+2016 d Balogh Imre
+2015 b Alahrawi Balint
+2014 c Csaba Attila
+2014 d Homola Leila
+2014 d Palfi Leila
+2017 b Ivacs Zsolt
+2015 e Farkas Dora
+2016 a Mitlasovszki Eszter Adel
+2017 d Komlos Allan
+2016 e Szabo Janos Tamas
+2017 e Vido Jesus
+2014 c Csermenyi Balint
+2016 e Bilicska Gyorgy
+2015 b Berghoffer David
+2016 d Bohdaneczky Arthur
+2016 b Maller Attila
+2014 d Muller Karoly
+2015 b Mangult Reka
+2016 b Czmarko Istvan
+2017 a Jambrik Daniel
+2017 a Lukacs Viktor
+2015 e Bolyos Adam Ferenc
+2017 c Hermann Istvan
+2017 d Nagy Istvan
+2014 a Bekes Viktoria
+2016 e Elek Anne
+2014 b Balazs Nikolett
+2016 c Ilcsik Bence
+2015 e Saghy Dorottya
+2015 a Palfi Vilmos
+2015 a Berky Renato Pal
+2015 c Peacock Katalin
+2017 b Reyes Adrienn
+2016 a Kovacs Patrik
+2016 c Gulyas Krisztina
+2014 d Rakoczi Frank
+2017 d Barkasz Matyas
+2017 d Beres Gyula
+2014 c Pasztor Zsofia
+2014 d Mangult Akos
+2016 a Kovacs Sandor
+2015 c Banfi Patricia
+2015 c Orzoi Gyorgy
+2014 c Bodnar Orsolya
+2017 e Kophazi Reka Nora
+2016 d Ivacs Jozsef
+2015 e Sarkozi Bonita
+2016 c Denes Szabina
+2016 e Tombor Mercedesz
+2017 a Erdei Daniel Andras
+2014 d King Tamas
+2014 d Erdelyi Botond
+2015 c Baksay Ildiko
+2014 a Palfi Gyorgy
+2015 b Gyocsi Edit
+2015 c Matefi Antal Ferenc
+2015 d Ivancsik Reka
+2014 c Gonda Edina
+2015 d Vaszil Milan
+2014 e Willkins Anna
+2016 d Emho Oliver
+2016 e Meszaros Arpad
+2014 c Zsigmondi Eszter
+2017 a Regos Peter
+2015 e Patkai Netta
+2015 b Kiss Balazs Istvan
+2015 a Busi Dorottya
+2015 c Bajor Brigitta
+2016 a Vajnai Zsofia
+2016 e Kovacs Lujein
+2016 a Vancza Korl
+2014 b Denes Katalin
+2017 d Szikra Judit
+2016 c Jenes Andras
+2016 c Molnar Attila
+2017 c Miskolczi Gabor
+2015 a Fried Viktoria
+2016 a Szabados Marcell
+2015 c Csetnegi Zsofia
+2016 a Csanyi Zsofia
+2015 e Banfi Kristof
+2016 d Fekete Istvan
+2017 d Bartha Eva
+2017 c Pomothy Gergo
+2015 b Fialowski Pal
+2017 e Tverdota Nikolett
+2015 e Kovacs Marta
+2016 d Berghoffer Theodor
+2014 e Nagy Bettina
+2014 a Fialowski Bettina
+2015 b Bator Adam
+2014 b Fekete Kinga
+2014 a Dodsworth Noemi
+2015 c Somlyo Karoly
+2014 e Ivancsik Istvan
+2014 a Komlos Korl
+2017 a Jenes Beatrix
+2015 a Kovacs Botond
+2014 a Miskolczi Marton Istvan
+2016 a Nemeth Eszter Rita
+2017 e Szedresi Gergely
+2016 b Bodor Gabor
+2014 a Beres Ferenc
+2017 c Mate Pal
+2016 e Sitku Patricia Mercedesz
+2016 b Nemeth Ferenc
+2015 a Selley Szilvia
+2015 b Hangyasi Gabor
+2017 e Dorfler Tamas
+2016 e Bordas Janos Oszkar
+2015 e Varga Theodor
+2014 d Wellington Zsofia
+2017 a Csermenyi Zoltan
+2016 a Olay Zoltan
+2017 c Kiss Barbara
+2014 d Drexler Eszter
+2016 a Ivancsik Endre
+2016 b Hargitai Krisztina
+2015 e Szabados Alexandra
+2014 a Jakobi Lujein
+2017 b Czmarko Viktoria
+2014 a Kovacs Balazs Istvan
+2015 c Kelan Zsofia
+2015 d Patkai Christopher
+2017 e Kiss Mercedesz
+2015 a Szabo Gyula
+2015 b Schneider Edit
+2014 c Bartha Zoltan Csaba
+2015 d Kovacs Veronika
+2015 e Ivancsik Matyas
+2017 c Toman Barbara
+2014 c Selley Bernadett
+2015 b Arkossy Vivien Evelin
+2015 b Macz Balazs
+2016 b Szabo Andras
+2014 a Bilicska Viktoria
+2016 c Negyesi Andras
+2017 c Kovacs Anna
+2016 b Bodnar Frank
+2017 b Farkas David
+2016 c Vari Erno
+2015 b Komlos Aniko
+2015 b Peter Dora
+2015 e Pasztor Tunde
+2017 e Lotsosicky Viktoria
+2017 c Meszaros Zoltan
+2017 c Karatson Eszter Adel
+2014 c Palfi Eszter
+2014 d Kovacs Tamas
+2015 d Kiss Renato Pal
+2016 c Batkai Csaba
+2017 e Kovacs David
+2016 d Erdei Gyorgy
+2014 c Fulop Bence
+2016 c Nemeth Nikolett
+2014 c Lorinczi Barbara
+2016 e Kovacs Istvan
+2017 a Fekete Daniel
+2017 e Hozman Sandor
+2017 d Pronay Tibor
+2016 b Homola Emese
+2016 a Hollos Adrienn
+2017 e Sarvari Imre
+2014 e Batkai Richard
+2015 c Malovics Gergely
+2014 e Kardos Thomas
+2015 e Somogyvari Katalin
+2016 c Szanto Barnabas
+2014 b Kovacs Tunde
+2014 b Bernath Peter
+2015 e Vasarhelyi Noemi
+2015 a Onodi Eszter Adel
+2016 c Maltesics Gergely
+2015 c Halasz Reka
+2014 b Lorinczi Orsolya
+2014 c Varga Balazs
+2016 d Csornyei Bence
+2016 b Csornyei Csaba
+2014 b Bohdaneczky Marta
+2017 a Rabai Aron
+2015 d Bartha Emil
+2015 a Kis Martin
+2015 b Erdei Maria
+2015 e Csermenyi Andras
+2015 e Deri Gergely
+2017 d Varga Laura
+2014 b Nagy Marcell
+2017 d Farkas Zoltan
+2015 b Ignacz Balazs
+2017 b Izsak Kristof
+2015 d Nagy Julio
+2016 b Kovacs Peter
+2014 b Kovacs Zsofia
+2015 d Boros Tamas
+2016 a Drexler Ildiko
+2017 a Fulop Peter
+2017 a Goldberg Sandor
+2017 e Szalma Fruzsina
+2014 c Somlyo Martin
+2015 c Klezly Bence
+2016 b Kucsera Csaba
+2017 a Pinter Melinda
+2016 c Sandor Evelin
+2016 b Mattyus Anna
+2016 e Elek Bela
+2014 a Pal Antal
+2015 c Csigas Maria
+2017 b Reitmeyer Gabor
+2015 b Pridalko Zsolt
+2017 b Bajor Sandor
+2017 c Csepregi Kristof
+2017 c Nagy Dina
+2015 d Tompos Richard
+2015 d Weidinger Viktoria
+2015 c Berki Klaudia
+2016 b Emho Dorottya
+2015 e Hardy Csilla
+2014 a Farkas Andre
+2016 a Balogh Aniko
+2016 e Szentpetery Beatrix
+2015 c Salanki Fanni
+2017 d Csigas Jozsef
+2014 c Jambor Dora
+2017 a Lehotzky Istvan
+2014 b Miller Mercedesz Marta
+2015 b Izsak Andrea
+2015 d Kiss Kristof
+2017 a Resch Nancy
+2016 d Bodecs Roza
+2014 c Simon Istvan
+2015 d Refi Zoltan
+2017 d Jenes Arpad
+2017 b Maltesics Eszter
+2017 e Peacock Kristen
+2017 e Tapay Istvan
+2016 c Zsok Gabor
+2017 b Demeter Bence
+2017 b Vancza Zoltan
+2017 d Endredy Adam Gabor
+2015 d Davolio Fruzsina Borbala
+2014 b Szentes Maria
+2017 b Mozsar Rezso
+2016 d Hozman Piroska
+2014 b Goldberg Beata
+2016 c Sandor Tamas
+2017 e Demeny Daniel
+2015 b Marton Dorottya
+2014 c Kovacs Mercedesz Marta
+2016 b Tombor Erzsebet
+2016 a Farkas Monika
+2015 d Schneider Renato Pal
+2014 e Domokos Gergely
+2017 b Kulcsar Istvan
+2016 d Varga Emese
+2015 c Vari Laura
+2014 a Muller Nikolett
+2016 d Sarvari Dorottya
+2017 e Vas Laura
+2017 a Hamza Erno Gergo
+2014 d Pomothy Eleonora
+2016 b Kiss Zsuzsa
+2017 c Bodor Attila
+2014 c Forgacs Reka
+2015 b Cselotei Gergo
+2017 c Weidinger Richard
+2014 b Kovacs Anne
+2014 c Fuller Gabor
+2015 a Kovacs Natalia
+2014 c Forgacs Beatrix
+2017 e Lemak Netta
+2014 c Keri Fruzsina Borbala
+2014 a Selley Krisztian
+2015 d Elek Andrew
+2016 b Gergely Anna
+2017 a Palinkas Luca Sara
+2014 b Kallai Arnold
+2015 d Pifku Bettina
+2015 d Buros Laszlo Endre
+2014 d Neher Sandor
+2017 c Mirak Viktoria
+2017 b Bognar Andras
+2017 d Bartha Balazs
+2015 b Rosta Kristen
+2017 a Tompos Istvan
+2015 b Lendvai Kinga
+2015 c Deri Zsofia
+2014 a Zilahy Janet
+2017 c Czulek Veronika
+2014 a Klezly Dezso
+2016 d Mate Rahel
+2016 e Mattyus Nikoletta
+2016 c Berki Laszlo Ferenc
+2016 e Kiss Dezso
+2014 d Iszaly Mercedesz
+2016 d Denes Gergo
+2016 a Smith Gabor
+2014 c Pal Krisztina Judit
+2015 c Horvath Gabor
+2017 a Somogyvari Laura
+2014 e Pifku Erno Gergo
+2016 b Berezvai Gergely Bence
+2014 a Szekely Netta
+2015 e Gombaszogi Peter
+2015 a Dorfler Barbara
+2015 d Pucheli Edina
+2016 b Nemeth Tunde
+2015 d Katona Balazs
+2017 c Olay Kitti Noemi
+2017 d Falvay Veronika
+2015 c Arany Olga
+2016 a Farkas Virag
+2015 c Knipf Krisztian
+2017 d Izsak Zoltan
+2017 e Tompos Zsofia
+2016 c Fialowski Tunde
+2017 d Onodi Ildiko
+2015 c Molnar Agnes
+2014 b Pucheli Katalin
+2014 b Eizen Szabina
+2014 c Major Tamas
+2016 c Krizsan Vivien Evelin
